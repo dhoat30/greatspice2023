@@ -1,4 +1,3 @@
-import Typography from "@mui/material/Typography";
 import Link from "next/link";
 import styled from "styled-components";
 import React, { useState, useEffect, useRef } from "react";
@@ -29,7 +28,7 @@ function Navbar({ menuLinks, className }) {
   const menuItems = menuLinks.map((item, index) => {
     return (
       <li
-        className="flex-1 text-center relative"
+        className="flex-auto text-center relative"
         key={index}
 
         // onMouseLeave={() => setShowMenu({ [index]: false })}

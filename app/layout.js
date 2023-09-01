@@ -1,8 +1,10 @@
 'use client'
 import './globals.css'
 import { Neuton, Work_Sans } from 'next/font/google'
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Header from '@/components/UI/Header/Header';
 import Footer from '@/components/UI/Footer/Footer';
+import { theme } from '../utlis/themeSettings'
 import { getContactData } from '@/utlis/fetchData';
 import StyledComponentsRegistry from "./registery";
 
@@ -28,14 +30,14 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en" className={`${neuton.variable} ${work_sans.variable}`}>
       <body>
+        <ThemeProvider theme={theme}>
+          <StyledComponentsRegistry>
 
-        <StyledComponentsRegistry>
-
-          <Header contactData={contactData[0]} />
-          {children}
-          <Footer />
-        </StyledComponentsRegistry>
-
+            <Header contactData={contactData[0]} />
+            {children}
+            <Footer />
+          </StyledComponentsRegistry>
+        </ThemeProvider>
       </body>
     </html>
   )

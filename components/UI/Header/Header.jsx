@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -6,14 +6,18 @@ import Navbar from "./Navbar/Navbar";
 import { headerLinks } from "./headerLinks";
 import styled from "styled-components";
 import CtaButtons from "./CtaButtons/CtaButtons";
+import MenuIcon from "../Icons/MenuIcon";
+import CloseIcon from "../Icons/CloseIcon";
+import { Typography } from "@mui/material";
+import MobileDrawer from "./MobileDrawer/MobileDrawer";
 function Header({ contactData }) {
-  console.log(contactData);
+  const [toggleMenu, setToggleMenu] = useState(false);
   const logoSrc = contactData.acf.logo.url;
 
   return (
-    <Container className="bg-surface-2-dark">
-      <div className="flex flex-row container xl mx-auto items-center">
-        <Link className="logo" href="/">
+    <Container>
+      <div className="row-max flex flex-row  items-center desktop-header ">
+        <Link className="logo" href="/" flex>
           <Image
             src={logoSrc}
             width="148"
@@ -24,6 +28,27 @@ function Header({ contactData }) {
         <Navbar menuLinks={headerLinks} className="flex-1" />
         <CtaButtons />
       </div>
+      <div className="mobile-header px-2 flex flex-row row-max items-center">
+        {/* icons to toggle the menu  */}
+        <MobileDrawer menuLinks={headerLinks} />
+
+        <Typography
+          variant="h6"
+          sx={{
+            color:
+              "var(--material-theme-sys-light-inverse-on-surface, #F6F0E7)",
+          }}
+          className="flex-1 text-center"
+        >
+          Home
+        </Typography>
+        <Image
+          src={logoSrc}
+          width="103"
+          height="39"
+          alt="Great Spice Tauranga Logo"
+        />
+      </div>
     </Container>
   );
 }
@@ -31,4 +56,21 @@ function Header({ contactData }) {
 export default Header;
 const Container = styled.header`
   background-color: var(--material-theme--surfaces--dark--surface3);
+  padding: 4px 0;
+  .desktop-header {
+    @media (max-width: 1024px) {
+      display: none;
+    }
+  }
+  .mobile-header {
+    display: none;
+    @media (max-width: 1024px) {
+      display: flex;
+    }
+    svg {
+      path {
+        fill: #f6f0e7;
+      }
+    }
+  }
 `;

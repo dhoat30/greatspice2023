@@ -1,19 +1,20 @@
 import Image from 'next/image'
-import styles from './page.module.css'
 import HomePage from '@/components/homePage/homePage'
 import { Metadata, ResolvingMetadata } from 'next'
+import { getHomeData, getAllMenus } from '@/utlis/fetchData'
 
 export const metadata = {
   title: 'this is title',
   description: 'this is description'
 }
-export default function Home() {
 
+
+export default async function Home() {
+  const homeData = await getHomeData()
+  const menuData = await getAllMenus()
   return (
-    <main className={styles.main}>
-      <h1 className="text-3xl font-bold underline">Hello, Next.js!</h1>
-
-      <HomePage />
+    <main >
+      <HomePage homeData={homeData[0]} menuData={menuData} />
     </main>
   )
 }

@@ -2,18 +2,14 @@ import React from "react";
 import Button from "@mui/material/Button";
 import { Stack } from "@mui/material";
 import AnchorButton from "../../Buttons/AnchorButton";
+import AnchorOutlinedButton from "../../Buttons/AnchorOutlinedButton";
 
 function CtaButtons() {
   return (
-    <Stack direction="row" spacing={2}>
+    <div className="flex gap-x-2">
       <AnchorButton href="/home">Order Online</AnchorButton>
-      {/* <ContainedButton color="dark" link="/home">
-        Order Online
-      </ContainedButton>
-      <OutlinedButton color="dark" link="/home">
-        Reserve a Table
-      </OutlinedButton> */}
-    </Stack>
+      {/* <AnchorOutlinedButton href="/home">Reserve a Table</AnchorOutlinedButton> */}
+    </div>
   );
 }
 
