@@ -17,7 +17,13 @@ function MenuItem({ dishName, dishDescription, dishPrice }) {
 
 export default MenuItem;
 const Container = styled.li`
-  flex: calc(50% - 16px);
+  @media (max-width: 1260px) {
+    width: calc(100%);
+  }
+  @media (max-width: 640px) {
+    width: calc(100%);
+  }
+  width: calc(50% - 16px);
   .dish-name-price-wrapper {
     .dish-name-wrapper {
       .dish-name {

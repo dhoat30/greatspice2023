@@ -44,17 +44,21 @@ function SingleSection({ singleSectionData }) {
         <Divider sx={{ borderColor: "#7D7767", marginTop: "8px" }} />
       </div>
       <div className="cards-wrapper mt-8 ">
-        <ul className="card-with-image">
-          {singleImageItem && (
-            <MenuItemImage
-              dishName={singleImageItem.dish_name}
-              dishDescription={singleImageItem.dish_description}
-              dishPrice={singleImageItem.dish_price}
-              dishImage={singleImageItem.dish_image}
-            />
-          )}
-        </ul>
-        <ul className="cards flex">{menuCards}</ul>
+        {singleImageItem ? (
+          <>
+            <ul className="card-with-image">
+              <MenuItemImage
+                dishName={singleImageItem.dish_name}
+                dishDescription={singleImageItem.dish_description}
+                dishPrice={singleImageItem.dish_price}
+                dishImage={singleImageItem.dish_image}
+              />
+            </ul>
+            <ul className="cards flex">{menuCards}</ul>
+          </>
+        ) : (
+          <ul className="full-width-cards flex">{menuCards}</ul>
+        )}
       </div>
     </Container>
   );
@@ -67,26 +71,54 @@ const Container = styled.div`
     .section-title {
       color: var(--material-theme-sys-light-on-surface-variant, #4c4639);
       font-size: var(--material-theme--display--large);
-      font-weight: 300;
+      font-weight: 400;
       letter-spacing: 2px;
-      line-height: 4rem;
+      line-height: 2.3rem;
+      @media (max-width: 640px) {
+        font-size: var(--material-theme--headline--large);
+      }
     }
   }
   .cards-wrapper {
     flex-wrap: wrap;
     flex-direction: row;
     display: flex;
-    border: solid green;
+
     gap: 32px;
+
     .card-with-image {
       width: calc(33% - 16px);
-      border: solid blue;
+      @media (max-width: 1260px) {
+        width: calc(40% - 16px);
+      }
+      @media (max-width: 640px) {
+        width: 100%;
+      }
     }
     .cards {
       width: calc(66% - 16px);
       flex-wrap: wrap;
       gap: 32px;
-      border: solid orange;
+      @media (max-width: 1260px) {
+        width: calc(60% - 16px);
+      }
+      @media (max-width: 640px) {
+        width: 100%;
+      }
+    }
+    .full-width-cards {
+      width: calc(100% - 16px);
+      flex-wrap: wrap;
+      gap: 32px;
+      li {
+        width: calc(30% - 16px);
+        @media (max-width: 1260px) {
+          width: calc(50% - 16px);
+        }
+        @media (max-width: 640px) {
+          width: 100%;
+        }
+      }
     }
   }
 `;

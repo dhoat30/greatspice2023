@@ -3,6 +3,7 @@ import React from "react";
 import TextHero from "../UI/Hero/TextHero";
 import CategoryFilters from "../UI/Filters/CategoryFilters";
 import MenuCategorySection from "./MenuCategorySection/MenuCategorySection";
+import MobileFilters from "../UI/Filters/MobileFilters";
 function MenuPage({ singleMenuData, orderOnlineLink }) {
   //   hero section
   const ctaDataArray = [
@@ -40,8 +41,9 @@ function MenuPage({ singleMenuData, orderOnlineLink }) {
             "var(--material-theme-sys-light-surface-container-low, #F9F3EA)",
         }}
       >
-        <div className="row-max flex gap-x-24 ">
+        <div className="row-max  gap-x-24 md:flex  ">
           <CategoryFilters filterArray={filtersData} />
+          <MobileFilters filterArray={filtersData} />
           <MenuCategorySection
             menuDataArray={singleMenuData.acf.menu_category}
           />

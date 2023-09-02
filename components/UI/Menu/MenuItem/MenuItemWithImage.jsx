@@ -8,14 +8,16 @@ function MenuItemImage({ dishName, dishDescription, dishPrice, dishImage }) {
       <div className="dish-image-wrapper">
         <Image src={dishImage.url} alt={dishImage.alt} fill />
       </div>
-      <div className="dish-name-price-wrapper flex gap-x-4">
-        <div className="dish-name-wrapper flex-initial">
-          <h4 className="dish-name">{dishName}</h4>
+      <div className="content-wrapper">
+        <div className="dish-name-price-wrapper flex gap-x-4">
+          <div className="dish-name-wrapper flex-initial">
+            <h4 className="dish-name">{dishName}</h4>
+          </div>
+          <div className="dish-border  flex-1"></div>
+          <h6 className="flex-initial dish-price">{dishPrice} </h6>
         </div>
-        <div className="dish-border  flex-1"></div>
-        <h6 className="flex-initial dish-price">{dishPrice} </h6>
+        <p className="dish-description mt-4">{dishDescription} </p>
       </div>
-      <p className="dish-description mt-4">{dishDescription} </p>
     </Container>
   );
 }
@@ -28,6 +30,7 @@ const Container = styled.li`
     position: relative;
     width: 90%;
     height: 250px;
+    left: 10%;
     img {
       object-fit: cover;
     }
@@ -55,5 +58,12 @@ const Container = styled.li`
     font-size: var(--material-theme--label--large);
     font-weight: 400;
     color: var(--material-theme-sys-light-on-surface-variant, #4c4639);
+  }
+  .content-wrapper {
+    background: var(--material-theme-white, #fff);
+    padding: 16px 16px;
+    width: 90%;
+    position: relative;
+    top: -50px;
   }
 `;

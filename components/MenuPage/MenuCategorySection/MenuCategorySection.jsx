@@ -11,5 +11,4 @@ function MenuCategorySection({ className, menuDataArray }) {
 export default MenuCategorySection;
 const Container = styled.section`
   width: 100%;
-  border: solid red;
 `;

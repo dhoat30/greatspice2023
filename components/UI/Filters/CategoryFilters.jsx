@@ -28,7 +28,7 @@ function CategoryFilters({ filterArray }) {
     );
   });
   return (
-    <Container>
+    <Container className="hidden md:block">
       <ul className="sidebar py-16">{filterList}</ul>
     </Container>
   );

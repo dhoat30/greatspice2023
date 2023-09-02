@@ -65,6 +65,13 @@ const Container = styled.header`
     }
   }
   .mobile-header {
+    background-color: var(--material-theme--surfaces--dark--surface3);
+    position: fixed;
+    left: -8px;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    height: auto;
     display: none;
     @media (max-width: 1024px) {
       display: flex;
