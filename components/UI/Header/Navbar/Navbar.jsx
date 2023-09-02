@@ -20,7 +20,6 @@ function Navbar({ menuLinks, className }) {
   }, []);
 
   const toggleDropdown = (event, index) => {
-    console.log("toggleDropdown");
     event.preventDefault();
     setShowMenu(index === showMenu ? -1 : index);
   };
@@ -36,7 +35,9 @@ function Navbar({ menuLinks, className }) {
         <Link
           href={item.url}
           className=" text-white font-light text-base hover:text-primary-dark text-center"
-          onClick={(event) => toggleDropdown(event, index)}
+          onClick={
+            item.subLinks ? (event) => toggleDropdown(event, index) : null
+          }
         >
           {item.title}
           {item.subLinks && <ArrowIcon className="arrow " />}
@@ -46,7 +47,7 @@ function Navbar({ menuLinks, className }) {
           <ul
             className={`${
               showMenu === index ? "block" : "hidden"
-            } absolute bg-primary-dark text-surface-dark top-8 w-52	`}
+            } absolute bg-primary-dark text-surface-dark top-8 w-52	drop-down-menu`}
           >
             {item.subLinks.map((subLink, subIndex) => (
               <li key={subIndex} className="text-left">
@@ -73,6 +74,9 @@ function Navbar({ menuLinks, className }) {
 
 export default Navbar;
 const ListContainer = styled.ul`
+  .drop-down-menu {
+    z-index: 12;
+  }
   li {
   }
 

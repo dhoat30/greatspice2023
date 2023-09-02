@@ -27,13 +27,15 @@ export default MenuSection;
 const Container = styled.section`
   .desktop-wrapper {
     h3 {
-      color: var(--material-theme-sys-light-surface-dim, #dfd9d0);
+      color: var(--material-theme-sys-light-surface-container-lowest, #fffffc);
+
       text-align: center;
       /* big title */
       font-size: var(--big-title);
       font-style: normal;
       font-weight: 200 !important;
       line-height: 225px; /* 100% */
+      letter-spacing: 2px;
     }
     .flex-wrapper {
       display: flex;

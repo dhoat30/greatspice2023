@@ -1,3 +1,5 @@
+"use client";
+import "../../../app/globals.css";
 import React, { useState } from "react";
 
 import Image from "next/image";
@@ -17,7 +19,7 @@ function Header({ contactData }) {
   return (
     <Container>
       <div className="row-max flex flex-row  items-center desktop-header ">
-        <Link className="logo" href="/" flex>
+        <Link className="logo" href="/">
           <Image
             src={logoSrc}
             width="148"

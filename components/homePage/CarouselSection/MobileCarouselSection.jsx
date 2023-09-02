@@ -13,11 +13,12 @@ import AnchorButton from "@/components/UI/Buttons/AnchorButton";
 import AnchorLink from "@/components/UI/Buttons/AnchorLink";
 import Slider from "react-slick";
 
-function CarouselSection({
+function MobileCarouselSection({
   dataArray,
   sectionSubtitle,
   specialsCondition,
   sectionTitle,
+  slidesToShow,
 }) {
   const cards = dataArray.map((item, index) => {
     if (item.specialType === "dinnerSpecial: Dinner Special") {
@@ -27,7 +28,7 @@ function CarouselSection({
       <Card
         key={index}
         sx={{
-          maxWidth: "90%",
+          maxWidth: "95%",
           borderRadius: "12px",
           border: "1px solid var(--material-theme-sys-light-outline, #7D7767)",
         }}
@@ -65,7 +66,7 @@ function CarouselSection({
     infinite: true,
     speed: 500,
     autoplaySpeed: 3000,
-    slidesToShow: 3,
+    slidesToShow: 2,
     slidesToScroll: 1,
     arrows: true,
     autoPlay: true,
@@ -90,17 +91,17 @@ function CarouselSection({
     ],
   };
   return (
-    <Container className="py-28 hidden mt-4 md:block ">
+    <Container className="pt-6 pb-12 mt-2 md:hidden">
       <div className="row-max wrapper">
         <div className="content-wrapper">
-          <h3 className="font-serif"> {sectionTitle}</h3>
-          <div className="subtitle-wrapper">
+          <h3 className="font-serif">{sectionTitle}</h3>
+          <div className="subtitle-wrapper mt-2">
             <h4>{sectionSubtitle}</h4>
-            <h6>{specialsCondition}</h6>
+            <h6 className="mt-1">{specialsCondition}</h6>
           </div>
         </div>
-        <Divider sx={{ borderColor: "#7D7767", marginTop: "24px" }} />
-        <div className="cards mt-12">
+        {/* <Divider sx={{ borderColor: "#7D7767", marginTop: "24px" }} /> */}
+        <div className="cards mt-4">
           <Slider {...settings}>{cards}</Slider>
         </div>
       </div>
@@ -108,24 +109,19 @@ function CarouselSection({
   );
 }
 
-export default CarouselSection;
+export default MobileCarouselSection;
 const Container = styled.section`
   background: var(--material-theme-sys-light-surface-container-low, #f9f3ea);
   .wrapper {
     .content-wrapper {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-
       h3 {
         color: var(--material-theme-sys-light-on-surface-variant, #4c4639);
-        font-size: var(--desktop-display);
+        font-size: var(--material-theme--headline--large);
         font-weight: 300;
         letter-spacing: 2px;
-        line-height: 5rem;
+        line-height: 2.3rem;
       }
       .subtitle-wrapper {
-        width: 35%;
         h4,
         h6 {
           color: var(--material-theme-sys-light-on-surface-variant, #4c4639);

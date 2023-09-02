@@ -1,10 +1,18 @@
 "use client";
-import Stack from "@mui/material/Stack";
-import Button from "@mui/material/Button";
+
 import Hero from "../UI/Hero/Hero";
 import MenuSection from "./MenuSection/MenuSection";
 import CarouselSection from "./CarouselSection/CarouselSection";
-function HomePage({ homeData, menuData, specialsData }) {
+import MobileCarouselSection from "./CarouselSection/MobileCarouselSection";
+import GuestReviewSection from "./GuestReviewSection/GuestReviewSection";
+import MobileReviewSection from "./GuestReviewSection/MobileReviewSection";
+function HomePage({
+  homeData,
+  menuData,
+  specialsData,
+  chefSpecialsData,
+  guestReviewData,
+}) {
   // hero data
   const heroData = {
     title: homeData.acf.hero_section.title,
@@ -33,16 +41,81 @@ function HomePage({ homeData, menuData, specialsData }) {
         image: item.image,
         specialType: item.special_type[0],
         takeawayOrDineIn: item.takeaway_or_dine_in[0],
+        menuLink: item.menu_link,
+        orderOnlineLink: item.order_online_link,
       };
     }
   );
+  const sectionSubtitle = specialsData.acf.section_subtitle;
+  const specialsCondition = specialsData.acf.condition;
 
+  //chef specials data
+
+  const chefSpecialsDataArr =
+    chefSpecialsData.acf.specials.specials_content.map((item) => {
+      return {
+        title: item.title,
+        description: item.description,
+        image: item.image,
+        menuLink: item.menu_link,
+      };
+    });
+  const chefSectionSubtitle = chefSpecialsData.acf.subtitle;
+
+  // guest review data
+  const guestReviewDataArr =
+    guestReviewData.acf.reviews_section.review_content.map((item) => {
+      return {
+        image: item.guest_image,
+        title: item.guest_name,
+        description: item.review_text,
+      };
+    });
+  const guestReviewSectionSubtitle = guestReviewData.acf.subtitle;
+  const guestReviewSectionImage = guestReviewData.acf.image;
+  const sectionTitle = guestReviewData.title.rendered;
   return (
     <>
       <Hero heroData={heroData} />
       <MenuSection menuData={menuDataArr} />
-      <CarouselSection specialsData={specialsDataArr} />
-      <h1 className="mt-2">hello</h1>
+      {/* great specials sectoins  */}
+      <CarouselSection
+        dataArray={specialsDataArr}
+        sectionSubtitle={sectionSubtitle}
+        specialsCondition={specialsCondition}
+        sectionTitle="Lunch Specials"
+      />
+      {/* mobile carousel section  */}
+      <MobileCarouselSection
+        dataArray={specialsDataArr}
+        sectionSubtitle={sectionSubtitle}
+        specialsCondition={specialsCondition}
+        sectionTitle="Lunch Specials"
+      />
+
+      {/* chefs special sections  */}
+      <CarouselSection
+        dataArray={chefSpecialsDataArr}
+        sectionSubtitle={chefSectionSubtitle}
+        sectionTitle="Chef's Specials"
+      />
+      <MobileCarouselSection
+        dataArray={chefSpecialsDataArr}
+        sectionSubtitle={chefSectionSubtitle}
+        sectionTitle="Chef's Specials"
+      />
+
+      {/* guest review section  */}
+      <GuestReviewSection
+        dataArray={guestReviewDataArr}
+        sectionTitle={sectionTitle}
+        sectionImage={guestReviewSectionImage}
+      />
+
+      <MobileReviewSection
+        dataArray={guestReviewDataArr}
+        sectionTitle={sectionTitle}
+      />
     </>
   );
 }
