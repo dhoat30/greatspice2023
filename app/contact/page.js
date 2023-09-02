@@ -37,7 +37,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
     }
 }
 
-export default async function Faq() {
+export default async function Contact() {
     const contactData = await getContactData()
     const guestReviewData = await getGuestReviews()
     const faqData = await getFaq()
