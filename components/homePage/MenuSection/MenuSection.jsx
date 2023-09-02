@@ -3,7 +3,6 @@ import React from "react";
 import styled from "styled-components";
 function MenuSection({ menuData }) {
   const menuCards = menuData.map((item, index) => {
-    console.log(item);
     return (
       <MenuCard
         className={`${index === 1 && "mt-12"} card-${index} `}
@@ -15,7 +14,7 @@ function MenuSection({ menuData }) {
     );
   });
   return (
-    <Container>
+    <Container className="hidden lg:block">
       <div className="desktop-wrapper row-max py-28">
         <h3 className="font-serif">View Our Menu</h3>
         <div className="flex-wrapper">{menuCards}</div>

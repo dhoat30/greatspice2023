@@ -3,7 +3,6 @@ import { styled } from "styled-components";
 import Image from "next/image";
 import Link from "next/link";
 function MenuCard({ image, title, url, className }) {
-  console.log(image);
   return (
     <Container className={className}>
       <Link href={url}>

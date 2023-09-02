@@ -176,3 +176,8 @@ path{
     fill: black !important; 
 }
 `;
+const ChevronRightIconStyle = style(ChevronLeftIcon)`
+path{ 
+    fill: black !important; 
+}
+`;
