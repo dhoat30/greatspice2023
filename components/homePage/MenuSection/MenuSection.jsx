@@ -9,7 +9,7 @@ function MenuSection({ menuData }) {
         key={index}
         image={item.desktopImage}
         title={item.title}
-        url={item.url}
+        url={`/menu${item.url}`}
       />
     );
   });

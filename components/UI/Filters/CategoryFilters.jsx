@@ -39,7 +39,7 @@ export default CategoryFilters;
 const Container = styled.section`
   width: 300px;
   height: auto;
-  border: solid red;
+
   .sidebar {
     position: sticky;
     top: 0;

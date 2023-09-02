@@ -1,8 +1,9 @@
 import HomePage from '@/components/homePage/homePage'
-import { getContactData, getHomeData, getAllMenus, getSpecials, getChefSpecials, getGuestReviews } from '@/utlis/fetchData'
+import { getContactData, getHomeData, getAllMenus, getSpecials, getFaq, getGuestReviews } from '@/utlis/fetchData'
 import Footer from '@/components/UI/Footer/Footer'
 import Header from '@/components/UI/Header/Header'
 import MenuArchivePage from '@/components/MenuPage/MenuArchivePage'
+import FaqPage from '@/components/FaqPage/FaqPage'
 
 export async function generateMetadata({ params, searchParams }, parent) {
     // read route params
@@ -35,21 +36,19 @@ export async function generateMetadata({ params, searchParams }, parent) {
         },
     }
 }
+
 export default async function Menu() {
     const contactData = await getContactData()
-    const menuData = await getAllMenus()
-
     const guestReviewData = await getGuestReviews()
-
+    const faqData = await getFaq()
     return (
         <>
             <Header contactData={contactData[0]} />
             <main >
-                <MenuArchivePage
+                <FaqPage guestReviewData={guestReviewData[0]}
+                    faqData={faqData[0]}
+                />
 
-                    menuData={menuData}
-
-                    guestReviewData={guestReviewData[0]} />
 
             </main>
             <Footer />

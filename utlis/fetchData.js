@@ -66,3 +66,13 @@ export const getMenu = async (slug) => {
     let data = await fetchData.json();
     return data
 }
+
+
+// get faq page 
+export const getFaq = async () => {
+    let fetchData = await fetch(`${process.env.url}/wp-json/wp/v2/pages?slug=faqs&acf_format=standard`, {
+        next: { revalidate: 60 },
+    });
+    let data = await fetchData.json();
+    return data
+}
