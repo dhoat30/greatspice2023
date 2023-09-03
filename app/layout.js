@@ -35,7 +35,7 @@ export default function RootLayout({ children }) {
 
             {/* <Header contactData={contactData[0]} /> */}
             {children}
-            {/* <Footer /> */}
+            {/* <Footer contactData={contactData[0]} /> */}
           </StyledComponentsRegistry>
         </ThemeProvider>
       </body>

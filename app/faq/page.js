@@ -51,7 +51,7 @@ export default async function Faq() {
 
 
             </main>
-            <Footer />
+            <Footer contactData={contactData[0]} />
         </>
 
     )

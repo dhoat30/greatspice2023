@@ -52,7 +52,7 @@ export default async function Menu() {
                     guestReviewData={guestReviewData[0]} />
 
             </main>
-            <Footer />
+            <Footer contactData={contactData[0]} />
         </>
 
     )

@@ -56,7 +56,7 @@ export default async function Home({ params }) {
             <main >
                 <MenuPage singleMenuData={singleMenuData[0]} orderOnlineLink={orderOnlineLink} />
             </main>
-            <Footer />
+            <Footer contactData={contactData[0]} />
         </>
 
     )

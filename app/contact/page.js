@@ -4,6 +4,7 @@ import Footer from '@/components/UI/Footer/Footer'
 import Header from '@/components/UI/Header/Header'
 import MenuArchivePage from '@/components/MenuPage/MenuArchivePage'
 import FaqPage from '@/components/FaqPage/FaqPage'
+import ContactPage from '@/components/ContactPage/ContactPage'
 
 export async function generateMetadata({ params, searchParams }, parent) {
     // read route params
@@ -45,13 +46,12 @@ export default async function Contact() {
         <>
             <Header contactData={contactData[0]} />
             <main >
-                <FaqPage guestReviewData={guestReviewData[0]}
-                    faqData={faqData[0]}
+                <ContactPage contactData={contactData[0]}
+                    guestReviewData={guestReviewData[0]}
                 />
 
-
             </main>
-            <Footer />
+            <Footer contactData={contactData[0]} />
         </>
 
     )

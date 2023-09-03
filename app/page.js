@@ -56,7 +56,7 @@ export default async function Home() {
           guestReviewData={guestReviewData[0]}
         />
       </main>
-      <Footer />
+      <Footer contactData={contactData[0]} />
     </>
 
   )

@@ -11,9 +11,19 @@ import MenuBookIcon from "@mui/icons-material/MenuBook";
 import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
 import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
 import { styled } from "styled-components";
-export default function SimpleBottomNavigation() {
+import { useRouter } from "next/navigation";
+export default function SimpleBottomNavigation({
+  reservationLink,
+  orderOnlineLink,
+  viewMenuLink,
+}) {
+  const router = useRouter();
   const [value, setValue] = useState(0);
 
+  const changeHandler = (event, newValue) => {
+    router.push(newValue);
+    setValue(newValue);
+  };
   return (
     <Container className="block sm:hidden ">
       <Box
@@ -24,9 +34,7 @@ export default function SimpleBottomNavigation() {
         <BottomNavigation
           showLabels
           value={value}
-          onChange={(event, newValue) => {
-            setValue(newValue);
-          }}
+          onChange={changeHandler}
           sx={{
             width: "100%",
             backgroundColor:
@@ -34,15 +42,21 @@ export default function SimpleBottomNavigation() {
           }}
         >
           <BottomNavigationAction
+            value={reservationLink}
             label="Reservation"
             icon={<RestaurantMenuIcon />}
           />
           <BottomNavigationAction
+            value={orderOnlineLink}
             label="Order Online"
             icon={<PhoneIphoneIcon />}
           />
 
-          <BottomNavigationAction label="View Menu" icon={<MenuBookIcon />} />
+          <BottomNavigationAction
+            value={viewMenuLink}
+            label="View Menu"
+            icon={<MenuBookIcon />}
+          />
         </BottomNavigation>
       </Box>
     </Container>

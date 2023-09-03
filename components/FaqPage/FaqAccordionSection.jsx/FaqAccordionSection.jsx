@@ -5,7 +5,7 @@ import styled from "styled-components";
 function FaqAccordionSection({ qaData }) {
   return (
     <Container className="row-max py-8 px-4 lg:px-16 lg:py-12 ">
-      <h2 className="section-title font-serif mb-12">FAQ`&apos;`s</h2>
+      <h2 className="section-title font-serif mb-12">FAQ&apos;s</h2>
       <CustomAccordion qaData={qaData} />
     </Container>
   );
