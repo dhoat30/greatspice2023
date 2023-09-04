@@ -44,26 +44,28 @@ function HeroVariant({ heroData }) {
             priority
           />
         </div>
-        <div className="content-wrapper p-6 border-r-12">
-          {heroData.subtitle && (
-            <h2 className="mb text-center">{heroData.subtitle} </h2>
-          )}
-          {heroData.title && (
-            <h1 className="font-serif text-center">{heroData.title} </h1>
-          )}
-          {heroData.callToAction && (
-            <div className="btn-wrapper mt-8 ">
-              <AnchorButton href={heroData.callToAction[0].url}>
-                {heroData.callToAction[0].label}
-              </AnchorButton>
-              {heroData.callToAction[1] && (
-                <AnchorOutlinedButtonDark href={heroData.callToAction[1].url}>
-                  {heroData.callToAction[1].label}
-                </AnchorOutlinedButtonDark>
-              )}
-            </div>
-          )}
-        </div>
+        {heroData.title && (
+          <div className="content-wrapper p-6 border-r-12">
+            {heroData.subtitle && (
+              <h2 className="mb text-center">{heroData.subtitle} </h2>
+            )}
+            {heroData.title && (
+              <h1 className="font-serif text-center">{heroData.title} </h1>
+            )}
+            {heroData.callToAction && (
+              <div className="btn-wrapper mt-8 ">
+                <AnchorButton href={heroData.callToAction[0].url}>
+                  {heroData.callToAction[0].label}
+                </AnchorButton>
+                {heroData.callToAction[1] && (
+                  <AnchorOutlinedButtonDark href={heroData.callToAction[1].url}>
+                    {heroData.callToAction[1].label}
+                  </AnchorOutlinedButtonDark>
+                )}
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </Container>
   );

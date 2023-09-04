@@ -153,10 +153,10 @@ const Container = styled.section`
       margin-bottom: 90px;
     }
     @media (max-width: 415px) {
-      margin-bottom: 230px;
+      margin-bottom: 100px;
     }
-    @media (max-width: 320px) {
-      margin-bottom: 240px;
+    @media (max-width: 410px) {
+      margin-bottom: 200px;
     }
     .image-container {
       position: relative;

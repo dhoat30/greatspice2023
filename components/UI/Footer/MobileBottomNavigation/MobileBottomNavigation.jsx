@@ -66,6 +66,7 @@ const Container = styled.div`
   position: fixed;
   bottom: 0;
   width: 100%;
+  z-index: 110;
   svg {
     path {
       fill: var(--material-theme-sys-dark-on-primary, #3c2f00);

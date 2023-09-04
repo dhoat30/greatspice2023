@@ -46,7 +46,7 @@ export default function ArchiveSection({ blogDataArr, className }) {
   });
   return (
     <Container className={className}>
-      <ul className="cards-wrapper gap-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1  lg:grid-cols-2 md:gap-6">
+      <ul className="cards-wrapper pb-4 gap-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1  lg:grid-cols-2 md:gap-6">
         {cards}
       </ul>
     </Container>
