@@ -18,10 +18,9 @@ function Gallerypage({ galleryData }) {
     <Container className="py-6">
       <div className="row-max grid grid-cols-12 gap-2">
         {galleryData.acf.gallery[0].gallery_images.map((image, index) => (
-          <div className="image-wrapper col-span-6">
+          <div className="image-wrapper col-span-6" key={index}>
             <Image
               onClick={() => openModal(image)}
-              key={index}
               src={image.url}
               alt={image.alt ? image.alt : image.title}
               fill

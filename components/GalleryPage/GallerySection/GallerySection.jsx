@@ -10,9 +10,8 @@ function GallerySection({ galleryData }) {
     (image, index) => {
       if (index > 5) return;
       return (
-        <div className="image-wrapper col-span-4 ">
+        <div key={index} className="image-wrapper col-span-4 ">
           <Image
-            key={index}
             src={image.url}
             alt={image.alt ? image.alt : image.title}
             fill

@@ -101,7 +101,7 @@ function NewsletterForm({ emailTo, formName, emailRoute }) {
                     name="email"
                     fullWidth
                     color="primary"
-                    autocomplete="email"
+                    autoComplete="email"
                     helperText={emailAddressIsInvalid && "Please enter your email address"}
                     error={emailAddressIsInvalid}
                 />

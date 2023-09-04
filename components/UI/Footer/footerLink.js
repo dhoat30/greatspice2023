@@ -21,7 +21,7 @@ export const usefulLinks = [{
 },
 
 {
-    id: 5,
+    id: 7,
     title: "FAQ's",
     url: "/faq"
 },

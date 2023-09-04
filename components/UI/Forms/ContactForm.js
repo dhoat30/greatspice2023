@@ -121,7 +121,7 @@ function ContactForm({ title, subtitle, emailTo, formName, emailRoute }) {
                     name="firstname"
                     fullWidth
                     color="secondary"
-                    autocomplete="given-name"
+                    autoComplete="given-name"
                     helperText={firstNameIsInvalid && "Please enter your first name"}
                     error={firstNameIsInvalid}
                 />
@@ -137,7 +137,7 @@ function ContactForm({ title, subtitle, emailTo, formName, emailRoute }) {
                     name="lastname"
                     fullWidth
                     color="secondary"
-                    autocomplete="family-name"
+                    autoComplete="family-name"
                     helperText={lastNameIsInvalid && "Please enter your last name"}
                     error={lastNameIsInvalid}
                 />
@@ -153,7 +153,7 @@ function ContactForm({ title, subtitle, emailTo, formName, emailRoute }) {
                     name="email"
                     fullWidth
                     color="secondary"
-                    autocomplete="email"
+                    autoComplete="email"
                     helperText={emailAddressIsInvalid && "Please enter your email address"}
                     error={emailAddressIsInvalid}
                 />
@@ -167,7 +167,7 @@ function ContactForm({ title, subtitle, emailTo, formName, emailRoute }) {
                     name="phone"
                     fullWidth
                     color="secondary"
-                    autocomplete="tel"
+                    autoComplete="tel"
                 />
 
                 <TextFieldStyle

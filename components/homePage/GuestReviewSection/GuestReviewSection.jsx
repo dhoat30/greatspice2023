@@ -67,7 +67,7 @@ function GuestReviewSection({
         <div className="image-wrapper">
           <Image
             src={sectionImage.url}
-            alt={sectionImage.alt ? sectionImage.alt : sectionSubtitle}
+            alt={sectionImage.alt ? sectionImage.alt : sectionTitle}
             fill
           />
         </div>
