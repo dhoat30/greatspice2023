@@ -21,7 +21,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
             openGraph: {
                 title: "Delicious Reads: Culinary Adventures & Tips | Great Spice Blog",
                 description: "Indulge in the latest culinary trends, mouth-watering recipes, and behind-the-scenes stories from Great Spice. Stay in the loop with our must-read restaurant blog.",
-                url: 'https://greatspicetauranga.co.nz',
+                url: 'https://www.greatspicetauranga.co.nz',
                 siteName: 'greatspicetauranga.co.nz',
                 images: [
                     {

@@ -22,9 +22,13 @@ export default function ArchiveSection({ blogDataArr, className }) {
           </div>
 
           <CardContent>
-            <Typography gutterBottom variant="h6" component="div">
-              {item.title}
-            </Typography>
+            <Typography
+              gutterBottom
+              variant="h6"
+              component="div"
+              sx={{ textTransform: "capitalize" }}
+              dangerouslySetInnerHTML={{ __html: item.title }}
+            ></Typography>
             <Typography
               variant="body2"
               color="text.secondary"

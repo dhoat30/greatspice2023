@@ -22,7 +22,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
     openGraph: {
       title: seoData.title,
       description: seoData.description,
-      url: 'https://greatspicetauranga.co.nz',
+      url: 'https://www.greatspicetauranga.co.nz',
       siteName: 'greatspicetauranga.co.nz',
       images: [
         {

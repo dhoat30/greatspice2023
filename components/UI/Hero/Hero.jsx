@@ -113,9 +113,15 @@ const Container = styled.section`
       width: 50%;
       position: absolute;
       top: 50%;
-      left: 10%;
+      left: 20%;
       z-index: 11;
       transform: translate(-0%, -50%);
+      @media (max-width: 1800px) {
+        left: 12%;
+      }
+      @media (max-width: 1500px) {
+        left: 5%;
+      }
       @media (max-width: 1376px) {
         left: 8px;
       }

@@ -29,7 +29,7 @@ function Footer({ contactData }) {
         viewMenuLink="/#menu-section"
       />
       <FooterContainer className=" py-16">
-        <div className="footer-box py-12 md:py-28 row-max flex gap-4 sm:gap-16 px-6 xl:px-12 flex-wrap justify-center">
+        <div className="footer-box py-12 md:pt-16 row-max flex gap-4 sm:gap-16 px-6 xl:px-12 flex-wrap justify-center">
           {/* logo wrapper  */}
           <div className="logo-wrapper">
             <Image src={logo.url} alt={logo.alt} width="148" height="56" />

@@ -62,11 +62,7 @@ const nextConfig = {
                 permanent: true,
             },
 
-            {
-                source: '/news/:slug',
-                destination: '/blogs/:slug',
-                permanent: true,
-            },
+
 
         ];
     },

@@ -23,7 +23,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
             openGraph: {
                 title: seoData.title,
                 description: seoData.description,
-                url: 'https://greatspicetauranga.co.nz',
+                url: 'https://www.greatspicetauranga.co.nz',
                 siteName: 'greatspicetauranga.co.nz',
                 images: [
                     {
@@ -51,13 +51,13 @@ export default async function Contact() {
         "@type": "ContactPage",
         "name": "Contact Us - Great Spice Tauranga",
         "description": seoData.description,
-        "url": "https://greatspicetauranga.co.nz/contact",
+        "url": "https://www.greatspicetauranga.co.nz/contact",
         "telephone": contactData[0].acf.contact_info.phone_number,
         "email": contactData[0].acf.contact_info.email,
         "publisher": {
             "@type": "Organization",
             "name": "Great Spice Tauranga",
-            "url": "https://greatspicetauranga.co.nz",
+            "url": "https://www.greatspicetauranga.co.nz",
             "logo": contactData[0].acf.logo.url,
             "contactPoint": {
                 "@type": "ContactPoint",

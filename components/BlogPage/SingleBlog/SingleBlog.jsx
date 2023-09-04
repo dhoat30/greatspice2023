@@ -17,11 +17,14 @@ export default function SingleBlog({ singleBlogData }) {
     <>
       <HeroVariant heroData={heroData} />
       <Container className="row-max">
-        <div className="back-wrapper py-16" onClick={() => router.back()}>
+        <div
+          className="back-wrapper py-8 lg:py-16"
+          onClick={() => router.back()}
+        >
           <LongArrowIcon />
           <span> Back to news </span>
         </div>
-        <div className="blog-content ">
+        <div className="blog-content pb-16">
           <div className="date">
             Published on: {singleBlogData.acf.publish_date}{" "}
           </div>
@@ -73,6 +76,7 @@ const Container = styled.section`
       font-size: var(--material-theme--display--large);
       letter-spacing: 2px;
       line-height: 4rem;
+      text-transform: capitalize;
     }
     p {
       font-size: var(--material-theme--body--large);
