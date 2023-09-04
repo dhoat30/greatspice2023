@@ -1,8 +1,18 @@
-import { useState } from 'react'
+import { useState, forwardRef } from 'react'
 import styled from 'styled-components'
 import TextField from '@mui/material/TextField';
 import LoadingBtn from '../Buttons/LoadingBtn';
 import axios from 'axios';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
+import setHours from 'date-fns/setHours'
+import setMinutes from 'date-fns/setMinutes'
+
+
 function ContactForm({ title, subtitle, emailTo, formName, emailRoute }) {
     // create state variables
     const [firstName, setFirstName] = useState("");
@@ -16,13 +26,20 @@ function ContactForm({ title, subtitle, emailTo, formName, emailRoute }) {
 
     const [phoneNumber, setPhoneNumber] = useState("");
 
+    const [eventType, setEventType] = useState("");
+
+    const [numberOfGuests, setNumberOfGuests] = useState("");
+    const [startDate, setStartDate] = useState(
+        setHours(setMinutes(new Date(), 30), 16)
+    );
+
     const [message, setMessage] = useState("")
 
     // ui states 
     const [isLoading, setIsLoading] = useState(false)
     const [isSuccess, setIsSuccess] = useState(false)
     const [error, setError] = useState(false)
-
+    console.log(startDate)
 
     // first name validation
     let firstNameIsValid = firstName.trim().length > 2;
@@ -100,8 +117,24 @@ function ContactForm({ title, subtitle, emailTo, formName, emailRoute }) {
 
             });
     }
+    // set time and date code 
+    const DateTimeComponent = forwardRef(({ value, onClick }, ref) => (
+        <TextField
+            variant="filled"
+            fullWidth
+            sx={{ marginTop: '16px' }}
+            label="Select a date and time"
+            color="secondary"
+            className="example-custom-input" onClick={onClick} ref={ref} >
+            {value}
+        </TextField >
+    ));
+    const filterPassedTime = (time) => {
+        const currentDate = new Date();
+        const selectedDate = new Date(time);
 
-
+        return currentDate.getTime() < selectedDate.getTime();
+    };
     return (
         <Container>
             <div className='title-wrapper'>
@@ -116,7 +149,7 @@ function ContactForm({ title, subtitle, emailTo, formName, emailRoute }) {
                     value={firstName}
                     required
                     id="firstname-input"
-                    label="First Name"
+                    label="First name"
                     variant="filled"
                     name="firstname"
                     fullWidth
@@ -132,7 +165,7 @@ function ContactForm({ title, subtitle, emailTo, formName, emailRoute }) {
                     value={lastName}
                     required
                     id="lastname-input"
-                    label="Last Name"
+                    label="Last name"
                     variant="filled"
                     name="lastname"
                     fullWidth
@@ -162,14 +195,69 @@ function ContactForm({ title, subtitle, emailTo, formName, emailRoute }) {
                     value={phoneNumber}
                     sx={{ marginTop: '16px' }}
                     id="phone-input"
-                    label="Phone Number"
+                    label="Phone number"
                     variant="filled"
                     name="phone"
                     fullWidth
                     color="secondary"
                     autocomplete="tel"
                 />
+                <FormControl variant="filled" fullWidth sx={{ marginTop: '16px' }} color="secondary">
+                    <InputLabel id="demo-simple-select-filled-label">Type of event</InputLabel>
 
+                    <Select
+
+                        labelId="demo-simple-select-standard-label"
+                        id="demo-simple-select-standard"
+                        value={eventType}
+                        onChange={(e) => setEventType(e.target.value)}
+                        label="Type of Event"
+                        variant="filled"
+
+                    >
+                        <MenuItem value="Birthday Celebrations">Birthday Celebrations</MenuItem>
+                        <MenuItem value="Corporate Events">Corporate Events</MenuItem>
+                        <MenuItem value="Weddings">Weddings</MenuItem>
+                        <MenuItem value="Other">Other</MenuItem>
+                    </Select>
+                </FormControl>
+                <TextFieldStyle
+                    onChange={(e) => setNumberOfGuests(e.target.value)}
+                    value={numberOfGuests}
+                    sx={{ marginTop: '16px' }}
+                    id="guests-input"
+                    label="Number of guests"
+                    variant="filled"
+                    name="number-of-guests"
+                    fullWidth
+                    color="secondary"
+
+                />
+                {/* date picker  */}
+                <div className="date-picker-wrapper ">
+
+                    <DatePicker
+
+                        label="date"
+                        className="date-picker "
+                        calendarClassName="calendar"
+                        showTimeSelect
+                        highlightDates={!startDate ? [new Date()] : startDate}
+                        excludeTimes={[
+                            setHours(setMinutes(new Date(), 30), 13),
+                            setHours(setMinutes(new Date(), 0), 14),
+                            setHours(setMinutes(new Date(), 30), 14),
+                            setHours(setMinutes(new Date(), 0), 15),
+                            setHours(setMinutes(new Date(), 30), 15),
+                        ]}
+                        minTime={setHours(setMinutes(new Date(), 0), 11)}
+                        maxTime={setHours(setMinutes(new Date(), 30), 21)}
+                        selected={startDate} onChange={(startDate) => setStartDate(startDate)}
+                        dateFormat="MMMM d, yyyy h:mmaa"
+                        filterTime={filterPassedTime}
+                        customInput={<DateTimeComponent />}
+                    />
+                </div>
                 <TextFieldStyle
                     sx={{ marginTop: '16px', marginBottom: "16px" }}
                     onChange={(e) => setMessage(e.target.value)}
@@ -198,8 +286,16 @@ const Container = styled.div`
         letter-spacing: 2px; 
         font-size: var(--material-theme--display--large);
     }
-    .subtitle{ 
-
+    .form{ 
+        .date-picker-wrapper{ 
+            width: 100%; 
+           .react-datepicker-wrapper{ 
+            width: 100%; 
+           }
+           .react-datepicker-popper{ 
+            z-index: 10; 
+           }
+        }
     }
    
 `

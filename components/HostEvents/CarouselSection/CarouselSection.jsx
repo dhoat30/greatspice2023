@@ -12,7 +12,8 @@ import Image from "next/image";
 import AnchorButton from "@/components/UI/Buttons/AnchorButton";
 import AnchorLink from "@/components/UI/Buttons/AnchorLink";
 import Slider from "react-slick";
-
+import AnchorOutlinedButtonDark from "@/components/UI/Buttons/AnchorOutlinedButtonDark";
+// events carousel section
 function CarouselSection({
   dataArray,
   sectionSubtitle,
@@ -22,9 +23,6 @@ function CarouselSection({
   if (!dataArray.length) return null;
 
   const cards = dataArray.map((item, index) => {
-    if (item.specialType === "dinnerSpecial: Dinner Special") {
-      return;
-    }
     return (
       <Card
         key={index}
@@ -49,13 +47,13 @@ function CarouselSection({
           ></div>
         </CardContent>
         <CardActions sx={{ flexWrap: "wrap" }}>
-          {item.orderOnlineLink && (
-            <AnchorButton href={item.orderOnlineLink}>
-              Order Online
-            </AnchorButton>
-          )}
-          {item.menuLink && (
-            <AnchorLink href={item.menuLink}> View Menu</AnchorLink>
+          {item.callToAction && (
+            <AnchorOutlinedButtonDark
+              href={item.callToAction.url}
+              align="right"
+            >
+              {item.callToAction.label}
+            </AnchorOutlinedButtonDark>
           )}
         </CardActions>
       </Card>

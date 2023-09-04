@@ -12,7 +12,8 @@ import Image from "next/image";
 import AnchorButton from "@/components/UI/Buttons/AnchorButton";
 import AnchorLink from "@/components/UI/Buttons/AnchorLink";
 import Slider from "react-slick";
-
+import AnchorOutlinedButtonDark from "@/components/UI/Buttons/AnchorOutlinedButtonDark";
+// events carousel section
 function CarouselSection({
   dataArray,
   sectionSubtitle,
@@ -22,24 +23,34 @@ function CarouselSection({
   if (!dataArray.length) return null;
 
   const cards = dataArray.map((item, index) => {
-    if (item.specialType === "dinnerSpecial: Dinner Special") {
-      return;
-    }
     return (
       <Card
         key={index}
         sx={{
+          position: "relative",
           maxWidth: "90%",
           borderRadius: "12px",
-          border: "1px solid var(--material-theme-sys-light-outline, #7D7767)",
+          border: "1px solid var(--material-theme-sys-light-outline, #7D7767) ",
         }}
       >
-        <div className="card-image-wrapper">
-          <Image src={item.image.url} alt={item.image.alt} fill />
-        </div>
-
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+        <PackageWrapper
+          className="package-wrapper py-2"
+          background={item.backgroundColor}
+        >
+          <h4 className="font-serif"> {item.packageName}</h4>
+        </PackageWrapper>
+        <CardContent sx={{ marginTop: "60px" }}>
+          <Typography
+            gutterBottom
+            variant="h5"
+            component="div"
+            sx={{
+              color:
+                "color: var(--material-theme-sys-light-on-surface-variant, #4C4639)",
+              fontWeight: "400",
+              marginBottom: 0,
+            }}
+          >
             {item.title}
           </Typography>
 
@@ -47,15 +58,19 @@ function CarouselSection({
             className="description"
             dangerouslySetInnerHTML={{ __html: item.description }}
           ></div>
+          <div
+            className="menu-items"
+            dangerouslySetInnerHTML={{ __html: item.menuItems }}
+          ></div>
         </CardContent>
         <CardActions sx={{ flexWrap: "wrap" }}>
-          {item.orderOnlineLink && (
-            <AnchorButton href={item.orderOnlineLink}>
-              Order Online
-            </AnchorButton>
-          )}
-          {item.menuLink && (
-            <AnchorLink href={item.menuLink}> View Menu</AnchorLink>
+          {item.callToAction && (
+            <AnchorOutlinedButtonDark
+              href={item.callToAction.url}
+              align="right"
+            >
+              {item.callToAction.label}
+            </AnchorOutlinedButtonDark>
           )}
         </CardActions>
       </Card>
@@ -64,17 +79,14 @@ function CarouselSection({
 
   var settings = {
     dots: true,
-    infinite: true,
     speed: 500,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 1500,
     slidesToShow: 3,
-    slidesToScroll: 1,
-    arrows: true,
+    arrows: false,
     autoPlay: true,
     centerMode: true,
     centerPadding: "40px",
     draggable: true,
-    infinite: true,
     responsive: [
       {
         breakpoint: 1024,
@@ -149,6 +161,54 @@ const Container = styled.section`
           object-fit: cover;
         }
       }
+
+      .menu-items {
+        margin-top: 16px;
+        ul {
+          li {
+            margin-bottom: 8px;
+            div {
+              display: flex;
+              justify-content: space-between;
+              align-items: flex-end;
+              gap: 8px;
+              h4 {
+                flex: initial;
+
+                color: var(--material-theme-sys-light-on-surface, #1d1b16);
+                font-weight: 500;
+                font-size: var(--material-theme--body--large);
+                line-height: 1rem;
+              }
+              h5 {
+                flex: initial;
+
+                color: var(--material-theme-sys-light-on-surface, #1d1b16);
+                font-weight: 400;
+                font-size: var(--material-theme--body--large);
+                line-height: 1rem;
+              }
+              p {
+                flex: 1;
+                height: 1px;
+                border-bottom: 1px solid #cec6b4;
+              }
+            }
+          }
+        }
+      }
     }
   }
+`;
+
+const PackageWrapper = styled.div`
+  background: ${(props) => props.background && props.background};
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-weight: 300;
+  font-size: var(--material-theme--headline--large);
 `;

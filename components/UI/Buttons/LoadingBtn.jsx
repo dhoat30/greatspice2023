@@ -2,9 +2,10 @@ import React from "react";
 import LoadingButton from "@mui/lab/LoadingButton";
 import styled from "styled-components";
 import DoneIcon from "@mui/icons-material/Done";
-function LoadingBtn({ align, isLoading, onClick, isSuccess }) {
+function LoadingBtn({ align, isLoading, onClick, isSuccess, className }) {
   return (
     <LoadingButtonStyle
+      className={className}
       onClick={onClick}
       align={align}
       size="large"

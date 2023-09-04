@@ -76,3 +76,32 @@ export const getFaq = async () => {
     let data = await fetchData.json();
     return data
 }
+
+// get host an event page 
+export const getEvents = async () => {
+    let fetchData = await fetch(`${process.env.url}/wp-json/wp/v2/pages?slug=host-an-event&acf_format=standard`, {
+        next: { revalidate: 60 },
+    });
+    let data = await fetchData.json();
+    return data
+}
+
+
+// get gallery page 
+export const getGallery = async () => {
+    let fetchData = await fetch(`${process.env.url}/wp-json/wp/v2/pages?slug=gallery&acf_format=standard`, {
+        next: { revalidate: 60 },
+    });
+    let data = await fetchData.json();
+    return data
+}
+
+
+// get gallery page 
+export const getPage = async (slug) => {
+    let fetchData = await fetch(`${process.env.url}/wp-json/wp/v2/pages?slug=${slug}&acf_format=standard`, {
+        next: { revalidate: 60 },
+    });
+    let data = await fetchData.json();
+    return data
+}
