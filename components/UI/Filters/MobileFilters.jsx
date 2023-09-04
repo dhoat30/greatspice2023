@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
-import Slider from "react-slick";
+
 import styled from "styled-components";
-import Link from "next/link";
+
 import { useRouter, usePathname } from "next/navigation";
 
 export default function MobileFilters({ filterArray }) {
@@ -26,7 +26,6 @@ export default function MobileFilters({ filterArray }) {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  console.log(isFixed);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -34,6 +33,7 @@ export default function MobileFilters({ filterArray }) {
   };
   const filterList = filterArray.map((category, index) => {
     const categoryValue = category.value;
+
     return (
       <Tab
         label={category.label}
@@ -44,20 +44,14 @@ export default function MobileFilters({ filterArray }) {
         key={index}
         value={categoryValue}
       >
-        <Link
-          onClick={() => setActiveItem(categoryValue)}
-          //   className={activeItem === categoryValue ? "active" : ""}
-          href={`#${categoryValue}`}
-        >
-          {category.label}
-        </Link>
+        {category.label}
       </Tab>
     );
   });
 
   return (
     <Container className={`${isFixed && "fixed-filter"} block md:hidden`}>
-      <Box sx={{}}>
+      <Box>
         <Tabs
           value={value}
           onChange={handleChange}

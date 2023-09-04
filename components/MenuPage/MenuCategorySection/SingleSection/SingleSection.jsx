@@ -72,7 +72,7 @@ const Container = styled.div`
       color: var(--material-theme-sys-light-on-surface-variant, #4c4639);
       font-size: var(--material-theme--display--large);
       font-weight: 400;
-      letter-spacing: 2px;
+      letter-spacing: 3px;
       line-height: 2.3rem;
       @media (max-width: 640px) {
         font-size: var(--material-theme--headline--large);

@@ -45,6 +45,7 @@ const Container = styled.section`
       font-size: 5rem;
       line-height: 5.5rem;
       font-weight: 400;
+      letter-spacing: 4px;
     }
   }
 `;

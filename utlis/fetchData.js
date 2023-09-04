@@ -105,3 +105,22 @@ export const getPage = async (slug) => {
     let data = await fetchData.json();
     return data
 }
+
+//get blogs 
+export const getBlogs = async () => {
+    let fetchData = await fetch(`${process.env.url}/wp-json/wp/v2/posts?acf_format=standard`, {
+        next: { revalidate: 60 },
+    });
+    let data = await fetchData.json();
+    return data
+}
+
+//fetch post categories 
+
+export const getPostCategories = async () => {
+    let fetchData = await fetch(`${process.env.url}/wp-json/wp/v2/categories`, {
+        next: { revalidate: 60 },
+    });
+    let data = await fetchData.json();
+    return data
+}

@@ -16,6 +16,7 @@ export const headerLinks = [{
         { title: "Lunch", url: "/menu/lunch-menu", id: "lunch" },
         { title: "Dine-In", url: "/menu/dine-in-menu", id: "dine-in" },
         { title: "Takeaway", url: "/menu/takeaway-menu", id: "takeaway" },
+        { title: "Catering", url: "/menu/catering-menu", id: "takeaway" },
     ]
 },
 {

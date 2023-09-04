@@ -6,7 +6,11 @@ function MenuItemImage({ dishName, dishDescription, dishPrice, dishImage }) {
   return (
     <Container className="image-item">
       <div className="dish-image-wrapper">
-        <Image src={dishImage.url} alt={dishImage.alt} fill />
+        <Image
+          src={dishImage.url}
+          alt={dishImage.alt ? dishImage.alt : dishName}
+          fill
+        />
       </div>
       <div className="content-wrapper">
         <div className="dish-name-price-wrapper flex gap-x-4">

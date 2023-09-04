@@ -9,7 +9,7 @@ function MenuPage({ singleMenuData, orderOnlineLink }) {
   const ctaDataArray = [
     {
       label: "Book a Table",
-      url: orderOnlineLink,
+      url: "/reservation",
     },
   ];
 

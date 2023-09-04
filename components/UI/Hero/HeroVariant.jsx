@@ -97,9 +97,9 @@ const Container = styled.section`
     }
     .content-wrapper {
       width: 100%;
-      position: absolute;
-      top: 50%;
-      left: 10%;
+      position: relative;
+      top: -50%;
+
       z-index: 11;
       transform: translate(-0%, -50%);
       @media (max-width: 1376px) {
@@ -112,10 +112,11 @@ const Container = styled.section`
         color: var(--material-theme-sys-light-on-primary, #fff);
         /* material-theme/title/large */
 
-        font-size: var(--material-theme--headline--large);
+        font-size: var(--material-theme--headline--medium);
         line-height: 2.5rem;
         font-style: normal;
         font-weight: 500;
+        text-align: center;
       }
       h1 {
         font-size: 5rem;
