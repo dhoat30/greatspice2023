@@ -13,7 +13,6 @@ export default function HostEvents({
   galleryData,
   guestReviewData,
 }) {
-  console.log(guestReviewData);
   //   hero data
   const heroData = {
     title: eventsData.acf.hero_section.title,
@@ -78,7 +77,7 @@ export default function HostEvents({
         sectionTitle={guestReviewSectionTitle}
       />
       {/* gallery section  */}
-      <GallerySection />
+      <GallerySection galleryData={galleryData} />
     </>
   );
 }

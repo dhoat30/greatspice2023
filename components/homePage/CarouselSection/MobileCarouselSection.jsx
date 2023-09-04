@@ -19,6 +19,7 @@ function MobileCarouselSection({
   specialsCondition,
   sectionTitle,
   slidesToShow,
+  className,
 }) {
   const cards = dataArray.map((item, index) => {
     if (item.specialType === "dinnerSpecial: Dinner Special") {
@@ -91,7 +92,7 @@ function MobileCarouselSection({
     ],
   };
   return (
-    <Container className="pt-6 pb-12 mt-2 md:hidden">
+    <Container className={`${className} pt-6 pb-12 mt-2 md:hidden`}>
       <div className="row-max wrapper">
         <div className="content-wrapper">
           <h3 className="font-serif">{sectionTitle}</h3>

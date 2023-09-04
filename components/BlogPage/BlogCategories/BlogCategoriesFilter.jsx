@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Paper } from "@mui/material";
 import React from "react";
 import styled from "styled-components";
@@ -12,6 +12,20 @@ export default function BlogCategoriesFilter({
   onCategoryClick,
 }) {
   const [value, setValue] = useState(0);
+  const [isFixed, setIsFixed] = useState(false);
+  // fix mobile filter
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsFixed(window.scrollY > 600);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Clean up the event listener when the component is unmounted
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const categories = blogCategoriesArr.map((item, index) => {
     if (item.id === 1) return null;
@@ -69,7 +83,12 @@ export default function BlogCategoriesFilter({
           </ul>
         </Paper>
       </div>
-      <div className="mobile-category-wrapper block md:hidden ">
+
+      <div
+        className={` ${
+          isFixed && "fixed-filter"
+        }  mobile-category-wrapper block md:hidden `}
+      >
         <Box sx={{}}>
           <Tabs
             value={value}
@@ -99,6 +118,7 @@ export default function BlogCategoriesFilter({
 }
 const Container = styled.section`
   height: 100%;
+
   .category-wrapper {
     position: sticky;
     top: 24px;
@@ -125,5 +145,35 @@ const Container = styled.section`
         }
       }
     }
+  }
+  .mobile-category-wrapper {
+    background: var(
+      --material-theme-sys-light-surface-container-lowest,
+      #fffffc
+    );
+
+    .Mui-selected {
+      color: var(--material-theme-sys-light-on-surface-variant, #4c4639);
+      border-bottom: 2px solid var(--material-theme-sys-light-outline, #7d7767);
+    }
+    .MuiTabs-indicator {
+      border-bottom: 4px solid var(--material-theme-sys-light-outline, #7d7767);
+    }
+    .MuiButtonBase-root {
+      border-bottom: 4px solid
+        var(--material-theme-sys-light-outline-variant, #cec6b4);
+    }
+  }
+  @media (max-width: 768px) {
+    width: calc(100% + 16px);
+    height: auto;
+    position: absolute;
+    left: -8px;
+    z-index: 10;
+    top: -60px;
+    background: var(
+      --material-theme-sys-light-surface-container-lowest,
+      #fffffc
+    );
   }
 `;

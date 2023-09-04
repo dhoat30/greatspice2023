@@ -12,8 +12,6 @@ export default function CateringPackages({
   galleryData,
   guestReviewData,
 }) {
-  console.log(pageData);
-
   //   hero data
   const heroData = {
     title: pageData.acf.hero_section.title,

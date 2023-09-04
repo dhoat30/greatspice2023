@@ -7,7 +7,6 @@ import FaqAccordionSection from "./FaqAccordionSection.jsx/FaqAccordionSection";
 import HeroVariant from "../UI/Hero/HeroVariant";
 
 function FaqPage({ faqData, guestReviewData }) {
-  console.log(faqData.acf.hero_images);
   // hero data
   const heroData = {
     title: "Frequently Asked Questions",

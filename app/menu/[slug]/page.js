@@ -11,9 +11,10 @@ import MenuPage from '@/components/MenuPage/MenuPage'
 export async function generateMetadata({ params, searchParams }, parent) {
     // read route params
     // const id = params.id
+    const slug = params.slug
 
     // fetch data
-    const data = await getHomeData()
+    const data = await getMenu(slug)
 
     // optionally access and extend (rather than replace) parent metadata
     // const previousImages = (await parent).openGraph?.images || []
@@ -29,7 +30,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
             siteName: 'greatspicetauranga.co.nz',
             images: [
                 {
-                    url: seoData.og_image[0] && seoData.og_image[0].url,
+                    url: seoData.og_image && seoData.og_image[0].url,
                     width: 800,
                     height: 600,
                 },

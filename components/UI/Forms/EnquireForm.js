@@ -39,7 +39,6 @@ function ContactForm({ title, subtitle, emailTo, formName, emailRoute }) {
     const [isLoading, setIsLoading] = useState(false)
     const [isSuccess, setIsSuccess] = useState(false)
     const [error, setError] = useState(false)
-    console.log(startDate)
 
     // first name validation
     let firstNameIsValid = firstName.trim().length > 2;

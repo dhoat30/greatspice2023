@@ -51,7 +51,6 @@ export default function PersistentDrawerLeft({ menuLinks }) {
   }, []);
 
   const toggleDropdown = (event, index) => {
-    console.log("toggleDropdown");
     event.preventDefault();
     setShowMenu(index === showMenu ? -1 : index);
   };

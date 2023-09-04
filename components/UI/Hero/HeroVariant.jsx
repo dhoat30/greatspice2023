@@ -160,13 +160,13 @@ const Container = styled.section`
         color: var(--material-theme-sys-light-on-surface-variant, #4c4639);
         /* material-theme/title/large */
         font-size: var(--material-theme--title--medium);
-        line-height: 2rem;
+        line-height: 1.5rem;
         font-style: normal;
         font-weight: 500;
       }
       h1 {
         font-size: var(--material-theme--headline--medium);
-        line-height: 2.2rem;
+        line-height: 2rem;
         letter-spacing: 4px;
         font-weight: 400;
         color: var(--material-theme-sys-light-on-surface-variant, #4c4639);

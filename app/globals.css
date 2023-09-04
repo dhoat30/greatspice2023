@@ -2207,11 +2207,15 @@ body {
 }
 @media (max-width: 1376px) {
   .row-max {
+    margin: 0 24px;
+  }
+}
+@media (max-width: 1024px) {
+  .row-max {
     margin: 0 8px;
   }
 }
-
 .fixed-filter {
   position: fixed !important;
-  top: 50px;
+  top: 40px;
 }

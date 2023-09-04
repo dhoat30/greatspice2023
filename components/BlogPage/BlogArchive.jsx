@@ -9,8 +9,6 @@ export default function BlogArchive({
   contactData,
   blogCategoriesData,
 }) {
-  console.log(blogData);
-
   // hero data
   const heroData = {
     title: contactData.acf.blog_page_hero_section.title,
@@ -25,8 +23,8 @@ export default function BlogArchive({
     excerpt = item.excerpt.rendered.replace(/<\/?[^>]+(>|$)/g, "");
 
     const words = excerpt.split(" ");
-    if (words.length >= 30) {
-      const trimmed = words.slice(0, 30).join(" ");
+    if (words.length >= 25) {
+      const trimmed = words.slice(0, 25).join(" ");
       excerpt = `${trimmed}...`;
     }
 
@@ -67,16 +65,16 @@ export default function BlogArchive({
   return (
     <>
       <HeroVariant heroData={heroData} />
-      <div className="grid grid-cols-12 gap-12 row-max py-28">
+      <div className="md:grid md:grid-cols-12 md:gap-12 row-max md:py-28 relative">
         <BlogCategoriesFilter
-          className="col-span-5 lg:col-span-3 "
+          className=" md:col-span-5 lg:col-span-3 "
           blogCategoriesArr={blogCategoriesArr}
           onCategoryClick={filterPostsByCategory}
         />
 
         <ArchiveSection
           blogDataArr={filteredPosts}
-          className="col-span-7 lg:col-span-9 "
+          className=" mt-28 md:mt-0 md:col-span-7 lg:col-span-9 "
         />
       </div>
     </>

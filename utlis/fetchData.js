@@ -116,9 +116,17 @@ export const getBlogs = async () => {
 }
 
 //fetch post categories 
-
 export const getPostCategories = async () => {
     let fetchData = await fetch(`${process.env.url}/wp-json/wp/v2/categories`, {
+        next: { revalidate: 60 },
+    });
+    let data = await fetchData.json();
+    return data
+}
+
+// fetch single blog 
+export const getSinglePost = async (slug) => {
+    let fetchData = await fetch(`${process.env.url}/wp-json/wp/v2/posts?slug=${slug}&acf_format=standard`, {
         next: { revalidate: 60 },
     });
     let data = await fetchData.json();

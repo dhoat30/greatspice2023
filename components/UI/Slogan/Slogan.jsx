@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 function Slogan({ content }) {
-  console.log(content);
   return (
     <Container
       className="row-max  py-2 lg:py-28 lg:px-28"
