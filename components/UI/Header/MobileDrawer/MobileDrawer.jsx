@@ -2,21 +2,11 @@ import { useState, useRef, useEffect } from "react";
 import { styled, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
-import CssBaseline from "@mui/material/CssBaseline";
-import MuiAppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import List from "@mui/material/List";
-import Typography from "@mui/material/Typography";
+
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
+
 import style from "styled-components";
 import MenuIcon from "../../Icons/MenuIcon";
 import Link from "next/link";
@@ -32,7 +22,7 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   justifyContent: "flex-end",
 }));
 
-export default function PersistentDrawerLeft({ menuLinks }) {
+export default function MobileDrawer({ menuLinks }) {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
   const [showMenu, setShowMenu] = useState(-1);
@@ -73,8 +63,10 @@ export default function PersistentDrawerLeft({ menuLinks }) {
       >
         <Link
           href={item.url}
-          className=" text-white font-light text-base hover:text-primary-dark text-center "
-          onClick={(event) => toggleDropdown(event, index)}
+          className=" text-white font-light text-base hover:text-primary-dark text-center"
+          onClick={
+            item.subLinks ? (event) => toggleDropdown(event, index) : null
+          }
         >
           {item.title}
           {item.subLinks && <ArrowIcon className="arrow " />}
@@ -122,7 +114,6 @@ export default function PersistentDrawerLeft({ menuLinks }) {
                 "var(--material-theme-sys-dark-primary, #E7C446)",
             },
           }}
-          variant="persistent"
           anchor="left"
           open={open}
         >

@@ -30,11 +30,11 @@ function Header({ contactData }) {
         <Navbar menuLinks={headerLinks} className="flex-1" />
         <CtaButtons />
       </div>
-      <div className="mobile-header px-2 flex flex-row row-max items-center">
+      <div className="mobile-header px-2 flex flex-row row-max items-center justify-between">
         {/* icons to toggle the menu  */}
         <MobileDrawer menuLinks={headerLinks} />
 
-        <Typography
+        {/* <Typography
           variant="h6"
           sx={{
             color:
@@ -43,7 +43,7 @@ function Header({ contactData }) {
           className="flex-1 text-center"
         >
           Home
-        </Typography>
+        </Typography> */}
         <Image
           src={logoSrc}
           width="103"
