@@ -5,12 +5,7 @@ import AnchorButton from "../../Buttons/AnchorButton";
 import AnchorOutlinedButton from "../../Buttons/AnchorOutlinedButton";
 
 function CtaButtons() {
-  return (
-    <div className="flex gap-x-2">
-      <AnchorButton href="/home">Order Online</AnchorButton>
-      {/* <AnchorOutlinedButton href="/home">Reserve a Table</AnchorOutlinedButton> */}
-    </div>
-  );
+  return <AnchorButton href="/home">Order Online</AnchorButton>;
 }
 
 export default CtaButtons;

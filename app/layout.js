@@ -1,14 +1,15 @@
 'use client'
 // import './globals.css'
+import { Suspense } from 'react'
 import { Neuton, Work_Sans } from 'next/font/google'
 import { ThemeProvider } from '@mui/material/styles';
-import Header from '@/components/UI/Header/Header';
-import Footer from '@/components/UI/Footer/Footer';
 import { theme } from '../utlis/themeSettings'
-import { getContactData } from '@/utlis/fetchData';
 import StyledComponentsRegistry from "./registery";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+// import Loading from './Loading';
+
+
 // fonts settings
 const neuton = Neuton({
   weight: ['200', '300', '400', '700', '800'],
@@ -27,14 +28,18 @@ const work_sans = Work_Sans({
 export default function RootLayout({ children }) {
   // get contact data using util function 
 
+
   return (
     <html lang="en" className={`${neuton.variable} ${work_sans.variable}`}>
       <body>
         <ThemeProvider theme={theme}>
           <StyledComponentsRegistry>
+            {/* <Suspense fallback={<Loading />} /> */}
+
+            {children}
 
             {/* <Header contactData={contactData[0]} /> */}
-            {children}
+
             {/* <Footer contactData={contactData[0]} /> */}
           </StyledComponentsRegistry>
         </ThemeProvider>

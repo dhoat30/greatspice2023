@@ -12,6 +12,7 @@ import MenuIcon from "../Icons/MenuIcon";
 import CloseIcon from "../Icons/CloseIcon";
 import { Typography } from "@mui/material";
 import MobileDrawer from "./MobileDrawer/MobileDrawer";
+import AnchorButton from "../Buttons/AnchorButton";
 function Header({ contactData }) {
   const [toggleMenu, setToggleMenu] = useState(false);
   const logoSrc = contactData.acf.logo.url;
@@ -28,7 +29,8 @@ function Header({ contactData }) {
           />
         </Link>
         <Navbar menuLinks={headerLinks} className="flex-1" />
-        <CtaButtons />
+        {/* <CtaButtons /> */}
+        <AnchorButton href="/">Order Online</AnchorButton>
       </div>
       <div className="mobile-header px-2 flex flex-row row-max items-center justify-between">
         {/* icons to toggle the menu  */}

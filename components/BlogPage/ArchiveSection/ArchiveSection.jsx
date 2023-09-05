@@ -24,7 +24,7 @@ export default function ArchiveSection({ blogDataArr, className }) {
           <CardContent>
             <Typography
               gutterBottom
-              variant="h6"
+              variant="h3"
               component="div"
               sx={{ textTransform: "capitalize" }}
               dangerouslySetInnerHTML={{ __html: item.title }}
