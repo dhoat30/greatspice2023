@@ -3,7 +3,8 @@ import styled from 'styled-components'
 import TextField from '@mui/material/TextField';
 import LoadingBtn from '../Buttons/LoadingBtn';
 import axios from 'axios';
-function NewsletterForm({ emailTo, formName, emailRoute }) {
+import { Alert } from '@mui/material';
+function NewsletterForm({ emailTo, formName, emailRoute, btnLabel }) {
     // create state variables
 
 
@@ -35,11 +36,10 @@ function NewsletterForm({ emailTo, formName, emailRoute }) {
         if (!emailAddress) {
             return
         }
-        const formData = {
 
+
+        const formData = {
             emailAddress: emailAddress,
-            emailTo: emailTo,
-            formName: formName
         }
         setIsLoading(true)
 
@@ -89,7 +89,7 @@ function NewsletterForm({ emailTo, formName, emailRoute }) {
                 <TextFieldStyle
                     sx={{
                         background: "var(--material-theme-sys-dark-surface-variant, #4C4639)", marginBottom: "16px", borderBottom: "1px solid #CBC6BD",
-                        color: "var(--material-theme-sys-dark-on-surface-variant, #CEC6B4)"
+                        color: "white"
                     }}
                     onChange={(e) => setEmailAddress(e.target.value)}
                     onBlur={() => setEmailAddressTouched(true)}
@@ -106,7 +106,11 @@ function NewsletterForm({ emailTo, formName, emailRoute }) {
                     error={emailAddressIsInvalid}
                 />
 
-                <LoadingBtnStyle onClick={submitHandler} isLoading={isLoading} isSuccess={isSuccess} />
+                {error && <Alert sx={{ margin: "8px 0" }} severity='error'>Try again</Alert>}
+
+
+                <LoadingBtn label={btnLabel} align="right" onClick={submitHandler} isLoading={isLoading} isSuccess={isSuccess} />
+                {isSuccess && <Alert sx={{ margin: "8px 0" }} severity='success'>Thanks</Alert>}
             </form>
 
         </Container>

@@ -42,7 +42,7 @@ const Container = styled.section`
 
   .sidebar {
     position: sticky;
-    top: 0;
+    top: -40px;
     li {
       .active {
         color: var(--material-theme-sys-light-on-surface, #1d1b16);

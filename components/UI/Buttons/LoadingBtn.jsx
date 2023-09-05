@@ -2,7 +2,15 @@ import React from "react";
 import LoadingButton from "@mui/lab/LoadingButton";
 import styled from "styled-components";
 import DoneIcon from "@mui/icons-material/Done";
-function LoadingBtn({ align, isLoading, onClick, isSuccess, className }) {
+function LoadingBtn({
+  align,
+  isLoading,
+  onClick,
+  isSuccess,
+  className,
+  label,
+}) {
+  let labelText = label ? label : "Submit";
   return (
     <LoadingButtonStyle
       className={className}
@@ -14,7 +22,7 @@ function LoadingBtn({ align, isLoading, onClick, isSuccess, className }) {
       loading={isLoading}
       disabled={isSuccess}
     >
-      {isSuccess ? <DoneIcon /> : "Submit"}
+      {isSuccess ? <DoneIcon /> : labelText}
     </LoadingButtonStyle>
   );
 }

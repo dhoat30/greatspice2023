@@ -24,8 +24,8 @@ export default function ArchiveSection({ blogDataArr, className }) {
           <CardContent>
             <Typography
               gutterBottom
-              variant="h3"
-              component="div"
+              variant="h6"
+              component="h3"
               sx={{ textTransform: "capitalize" }}
               dangerouslySetInnerHTML={{ __html: item.title }}
             ></Typography>
@@ -61,5 +61,7 @@ const Container = styled.section`
     img {
       object-fit: cover;
     }
+  }
+  .single-card {
   }
 `;

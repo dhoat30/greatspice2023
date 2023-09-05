@@ -11,6 +11,7 @@ import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import setHours from 'date-fns/setHours'
 import setMinutes from 'date-fns/setMinutes'
+import { Alert } from '@mui/material';
 
 
 function ContactForm({ title, subtitle, emailTo, formName, emailRoute }) {
@@ -66,17 +67,19 @@ function ContactForm({ title, subtitle, emailTo, formName, emailRoute }) {
         if (!firstName || !lastName || !emailAddress) {
             return
         }
+        const msg = `Form Name: ${formName} \n First Name: ${firstName} \n Last Name: ${lastName} \n Phone Number: ${phoneNumber} \n Email: ${emailAddress} \n Event Type: ${eventType} \n Number of guests: ${numberOfGuests} \n Date: ${startDate} \n\n Message: ${message}`
+
         const formData = {
             firstName: firstName,
             lastName: lastName,
-            emailAddress: emailAddress,
             phoneNumber: phoneNumber,
-            message: message,
+            replyTo: emailAddress,
+            message: msg,
             emailTo: emailTo,
+            fromEmail: emailTo,
             formName: formName
         }
         setIsLoading(true)
-
         // send email 
         var config = {
             method: 'post',
@@ -86,6 +89,21 @@ function ContactForm({ title, subtitle, emailTo, formName, emailRoute }) {
             },
             data: formData
         };
+        var hubspotConfig = {
+            method: 'POST',
+            url: '/api/hubspot-form-capture',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            data: formData
+        }
+        axios(hubspotConfig)
+            .then(function (response) {
+                console.log(response)
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
         axios(config)
             .then(function (response) {
                 if (response.status === 200) {
@@ -97,6 +115,9 @@ function ContactForm({ title, subtitle, emailTo, formName, emailRoute }) {
                     setEmailAddress('')
                     setPhoneNumber('')
                     setMessage('')
+                    setEventType('')
+                    setNumberOfGuests('')
+                    setStartDate(setHours(setMinutes(new Date(), 30), 16))
                     setFirstNameTouched(false)
                     setLastNameTouched(false)
                     setEmailAddressTouched(false)
@@ -120,15 +141,17 @@ function ContactForm({ title, subtitle, emailTo, formName, emailRoute }) {
     // eslint-disable-next-line react/display-name
     const DateTimeComponent = forwardRef(({ value, onClick }, ref) => (
         <TextField
+            value={value}
             variant="filled"
             fullWidth
             sx={{ marginTop: '16px' }}
             label="Select a date and time"
             color="secondary"
-            className="example-custom-input" onClick={onClick} ref={ref} >
-            {value}
+            className="date-field" onClick={onClick} ref={ref} >
+
         </TextField >
     ));
+    console.log(startDate)
     const filterPassedTime = (time) => {
         const currentDate = new Date();
         const selectedDate = new Date(time);
@@ -252,7 +275,8 @@ function ContactForm({ title, subtitle, emailTo, formName, emailRoute }) {
                         ]}
                         minTime={setHours(setMinutes(new Date(), 0), 11)}
                         maxTime={setHours(setMinutes(new Date(), 30), 21)}
-                        selected={startDate} onChange={(startDate) => setStartDate(startDate)}
+                        selected={startDate}
+                        onChange={(startDate) => setStartDate(startDate)}
                         dateFormat="MMMM d, yyyy h:mmaa"
                         filterTime={filterPassedTime}
                         customInput={<DateTimeComponent />}
@@ -271,7 +295,11 @@ function ContactForm({ title, subtitle, emailTo, formName, emailRoute }) {
                     rows={4}
                     fullWidth
                 />
+                {error && <Alert sx={{ margin: "8px 0" }} severity='error'>Something went wrong. Please try again.</Alert>}
+
+
                 <LoadingBtn align="right" onClick={submitHandler} isLoading={isLoading} isSuccess={isSuccess} />
+                {isSuccess && <Alert sx={{ margin: "8px 0" }} severity='success'>Thanks for contacting us. We will get back to you soon.</Alert>}
             </form>
 
         </Container>

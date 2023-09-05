@@ -47,9 +47,9 @@ function HeroSection({ contactInfo, heroData, openingHours }) {
                 title={heroData.title}
                 subtitle={heroData.subtitle}
                 formName="Enquire Now Form"
-                emailTo="designer@webduel.co.nz"
-                emailRoute="/api/sendEmail"
-                formType="contact-form"
+                emailTo="info@greatspicetauranga.co.nz"
+                emailRoute="/api/sendmail"
+                formType="enquire-form"
               />
             </Paper>
           </div>

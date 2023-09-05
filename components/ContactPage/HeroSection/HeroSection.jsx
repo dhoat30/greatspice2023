@@ -46,8 +46,8 @@ function HeroSection({ contactInfo, heroData, openingHours }) {
                 title="Contact Us"
                 subtitle="Let's talk flavors, reservations, and special events!"
                 formName="Contact Us Form"
-                emailTo="designer@webduel.co.nz"
-                emailRoute="/api/sendEmail"
+                emailTo="info@greatspicetauranga.co.nz"
+                emailRoute="/api/sendmail"
                 formType="contact-form"
               />
             </Paper>

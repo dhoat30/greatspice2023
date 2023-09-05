@@ -30,13 +30,19 @@ export const headerLinks = [{
     url: "/gallery"
 },
 {
-    id: 6,
-    title: "FAQ's",
-    url: "/faq"
+    id: 5,
+    title: "Catering",
+    url: "/catering"
 },
 {
     id: 7,
     title: "Contact",
-    url: "/contact"
+    url: "/contact",
+    subLinks: [
+        { title: "FAQ's", url: "/menu/lunch-menu", id: "faq" },
+        { title: "About Us", url: "/about-us", id: "about-us" },
+        { title: "Contact", url: "/contact", id: "contact" },
+
+    ]
 },
 ]

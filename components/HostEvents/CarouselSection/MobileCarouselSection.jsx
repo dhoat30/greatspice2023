@@ -63,6 +63,7 @@ function MobileCarouselSection({
 
   var settings = {
     dots: true,
+    arrows: false,
     infinite: true,
     speed: 500,
     autoplaySpeed: 3000,

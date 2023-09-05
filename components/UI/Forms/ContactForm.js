@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import TextField from '@mui/material/TextField';
 import LoadingBtn from '../Buttons/LoadingBtn';
 import axios from 'axios';
+import { Alert } from '@mui/material';
 function ContactForm({ title, subtitle, emailTo, formName, emailRoute }) {
     // create state variables
     const [firstName, setFirstName] = useState("");
@@ -53,52 +54,74 @@ function ContactForm({ title, subtitle, emailTo, formName, emailRoute }) {
 
         const msg = `Form Name: ${formName} \n First Name: ${firstName} \n Last Name: ${lastName} \n Phone Number: ${phoneNumber} \n Email: ${emailAddress} \n\n Message: ${message}`
         const formData = {
-            fromEmail: emailAddress,
+            firstName: firstName,
+            lastName: lastName,
+            phoneNumber: phoneNumber,
+            replyTo: emailAddress,
             message: msg,
-            toEmail: emailTo,
+            emailTo: emailTo,
+            fromEmail: emailTo,
             formName: formName
         }
         setIsLoading(true)
 
         // send email 
         var config = {
-            method: 'post',
+            method: 'POST',
             url: `${emailRoute}`,
             headers: {
                 'Content-Type': 'application/json'
             },
             data: formData
         };
-        axios.post('/api/route', formData).then((res) => console.log(res));
-        // axios(config)
-        //     .then(function (response) {
-        //         if (response.status === 200) {
-        //             setIsLoading(false)
-        //             setIsSuccess(true)
-        //             // set initial state to empty string 
-        //             setFirstName('')
-        //             setLastName('')
-        //             setEmailAddress('')
-        //             setPhoneNumber('')
-        //             setMessage('')
-        //             setFirstNameTouched(false)
-        //             setLastNameTouched(false)
-        //             setEmailAddressTouched(false)
+        var hubspotConfig = {
+            method: 'POST',
+            url: '/api/hubspot-form-capture',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            data: formData
+        }
+        axios(hubspotConfig)
+            .then(function (response) {
+                console.log(response)
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
 
-        //         }
-        //         else {
-        //             setIsLoading(false)
-        //             setIsSuccess(false)
-        //             setError(true)
-        //         }
-        //     })
-        //     .catch(function (error) {
-        //         console.log(error);
-        //         setIsLoading(false)
-        //         setIsSuccess(false)
-        //         setError(true)
+        axios(config)
+            .then(function (response) {
+                console.log(response)
+                if (response.status === 200) {
+                    setIsLoading(false)
+                    setIsSuccess(true)
+                    setError(false)
+                    // set initial state to empty string 
+                    setFirstName('')
+                    setLastName('')
+                    setEmailAddress('')
+                    setPhoneNumber('')
+                    setMessage('')
+                    setFirstNameTouched(false)
+                    setLastNameTouched(false)
+                    setEmailAddressTouched(false)
 
-        //     });
+                }
+                else {
+                    setIsLoading(false)
+                    setIsSuccess(false)
+                    setError(true)
+                }
+            })
+            .catch(function (error) {
+                console.log(error);
+                setIsLoading(false)
+                setIsSuccess(false)
+                setError(true)
+
+            });
+
     }
 
 
@@ -183,9 +206,12 @@ function ContactForm({ title, subtitle, emailTo, formName, emailRoute }) {
                     rows={4}
                     fullWidth
                 />
-                <LoadingBtn align="right" onClick={submitHandler} isLoading={isLoading} isSuccess={isSuccess} />
-            </form>
+                {error && <Alert sx={{ margin: "8px 0" }} severity='error'>Something went wrong. Please try again.</Alert>}
 
+
+                <LoadingBtn align="right" onClick={submitHandler} isLoading={isLoading} isSuccess={isSuccess} />
+                {isSuccess && <Alert sx={{ margin: "8px 0" }} severity='success'>Thanks for contacting us. We will get back to you soon.</Alert>}
+            </form>
         </Container>
     )
 }

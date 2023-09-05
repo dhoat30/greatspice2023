@@ -15,7 +15,7 @@ function MenuItemImage({ dishName, dishDescription, dishPrice, dishImage }) {
       <div className="content-wrapper">
         <div className="dish-name-price-wrapper flex gap-x-4">
           <div className="dish-name-wrapper flex-initial">
-            <h4 className="dish-name">{dishName}</h4>
+            <h4 className="dish-name">{dishName.toLowerCase()}</h4>
           </div>
           <div className="dish-border  flex-1"></div>
           <h6 className="flex-initial dish-price">{dishPrice} </h6>
@@ -46,6 +46,7 @@ const Container = styled.li`
         font-weight: 500;
         font-size: var(--material-theme--body--large);
         line-height: 1rem;
+        text-transform: capitalize;
       }
     }
     .dish-price {

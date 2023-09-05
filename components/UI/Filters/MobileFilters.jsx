@@ -71,7 +71,6 @@ const Container = styled.section`
   height: auto;
   position: absolute;
   left: 0;
-
   z-index: 10;
   background: var(--material-theme-sys-light-surface-container-lowest, #fffffc);
   .Mui-selected {

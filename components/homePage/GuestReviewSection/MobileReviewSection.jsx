@@ -58,14 +58,14 @@ function MobileReviewSection({
 
   var settings = {
     dots: true,
+    arrows: false,
     infinite: true,
     speed: 500,
-    autoplaySpeed: 3000,
     slidesToShow: 1,
     slidesToScroll: 1,
-
-    autoPlay: true,
-
+    autoplay: true,
+    autoplaySpeed: 2000,
+    pauseOnHover: true,
     draggable: true,
     infinite: true,
   };

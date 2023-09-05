@@ -55,8 +55,9 @@ function Footer({ contactData }) {
             <NewsletterForm
               formName="Newsletter Form"
               formType="newsletter-form"
-              emailRoute={"/api/sendEmail"}
+              emailRoute={"/api/newsletter-hubspot"}
               emailTo="info@greatspicetauranga.co.nz"
+              btnLabel="Sign up"
             />
           </div>
         </div>

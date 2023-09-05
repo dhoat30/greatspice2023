@@ -79,6 +79,7 @@ function CarouselSection({
 
   var settings = {
     dots: true,
+    arrows: false,
     speed: 500,
     autoplaySpeed: 1500,
     slidesToShow: 3,

@@ -34,13 +34,15 @@ function SingleSection({ singleSectionData }) {
         dishName={item.dish_name}
         dishDescription={item.dish_description}
         dishPrice={item.dish_price}
+        condition={item.condition}
+        dietaryInformation={item.dietary_information}
       />
     );
   });
   return (
-    <Container id={singleSectionData.acf_fc_layout} className="py-16">
+    <Container id={singleSectionData.acf_fc_layout} className="pt-16 pb-8">
       <div className="title-wrapper">
-        <h3 className="section-title font-serif">{sectionTitle}</h3>
+        <h3 className="section-title font-serif mb-4">{sectionTitle}</h3>
         <Divider sx={{ borderColor: "#7D7767", marginTop: "8px" }} />
       </div>
       <div className="cards-wrapper mt-8 ">
@@ -83,7 +85,6 @@ const Container = styled.div`
     flex-wrap: wrap;
     flex-direction: row;
     display: flex;
-
     gap: 32px;
 
     .card-with-image {
@@ -96,7 +97,7 @@ const Container = styled.div`
       }
     }
     .cards {
-      width: calc(66% - 16px);
+      width: calc(67% - 16px);
       flex-wrap: wrap;
       gap: 32px;
       @media (max-width: 1260px) {
@@ -107,11 +108,12 @@ const Container = styled.div`
       }
     }
     .full-width-cards {
-      width: calc(100% - 16px);
+      width: 100%;
       flex-wrap: wrap;
       gap: 32px;
+
       li {
-        width: calc(30% - 16px);
+        width: calc(32% - 16px);
         @media (max-width: 1260px) {
           width: calc(50% - 16px);
         }

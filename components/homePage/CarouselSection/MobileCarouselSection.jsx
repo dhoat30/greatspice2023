@@ -39,8 +39,13 @@ function MobileCarouselSection({
         </div>
 
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            {item.title}
+          <Typography
+            gutterBottom
+            variant="h5"
+            component="h3"
+            sx={{ textTransform: "capitalize" }}
+          >
+            {item.title.toLowerCase()}
           </Typography>
 
           <div
@@ -64,13 +69,15 @@ function MobileCarouselSection({
 
   var settings = {
     dots: true,
+    arrows: false,
     infinite: true,
     speed: 500,
-    autoplaySpeed: 3000,
+
     slidesToShow: 2,
     slidesToScroll: 1,
-    arrows: true,
-    autoPlay: true,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    pauseOnHover: true,
     centerMode: true,
     centerPadding: "40px",
     draggable: true,

@@ -12,6 +12,7 @@ import Image from "next/image";
 import AnchorButton from "@/components/UI/Buttons/AnchorButton";
 import AnchorLink from "@/components/UI/Buttons/AnchorLink";
 import Slider from "react-slick";
+import CarouselArrows from "@/components/UI/CarouselArrows/CarouselArrows";
 
 function CarouselSection({
   dataArray,
@@ -39,8 +40,13 @@ function CarouselSection({
         </div>
 
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            {item.title}
+          <Typography
+            gutterBottom
+            variant="h5"
+            component="h3"
+            sx={{ textTransform: "capitalize" }}
+          >
+            {item.title.toLowerCase()}
           </Typography>
 
           <div
@@ -64,13 +70,16 @@ function CarouselSection({
 
   var settings = {
     dots: true,
+    arrows: false,
     infinite: true,
     speed: 500,
-    autoplaySpeed: 3000,
+
     slidesToShow: 3,
     slidesToScroll: 1,
-    arrows: true,
-    autoPlay: true,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    pauseOnHover: true,
+
     centerMode: true,
     centerPadding: "40px",
     draggable: true,
@@ -103,6 +112,7 @@ function CarouselSection({
         </div>
         <Divider sx={{ borderColor: "#7D7767", marginTop: "24px" }} />
         <div className="cards mt-12">
+          {/* <CarouselArrows /> */}
           <Slider {...settings}>{cards}</Slider>
         </div>
       </div>
