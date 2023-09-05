@@ -1,14 +1,15 @@
 'use client'
 // import './globals.css'
-import { Suspense } from 'react'
+import { useEffect } from 'react'
 import { Neuton, Work_Sans } from 'next/font/google'
 import { ThemeProvider } from '@mui/material/styles';
 import { theme } from '../utlis/themeSettings'
 import StyledComponentsRegistry from "./registery";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-// import Loading from './Loading';
+import Script from 'next/script'
 
+import { useRouter } from 'next/navigation';
 
 // fonts settings
 const neuton = Neuton({
@@ -28,7 +29,6 @@ const work_sans = Work_Sans({
 export default function RootLayout({ children }) {
   // get contact data using util function 
 
-
   return (
     <html lang="en" className={`${neuton.variable} ${work_sans.variable}`}>
       <body>
@@ -43,6 +43,9 @@ export default function RootLayout({ children }) {
             {/* <Footer contactData={contactData[0]} /> */}
           </StyledComponentsRegistry>
         </ThemeProvider>
+        {/* hubspot code  */}
+        <Script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/43725361.js"></Script>
+
       </body>
     </html>
   )

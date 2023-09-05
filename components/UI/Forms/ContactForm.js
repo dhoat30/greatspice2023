@@ -50,13 +50,12 @@ function ContactForm({ title, subtitle, emailTo, formName, emailRoute }) {
         if (!firstName || !lastName || !emailAddress) {
             return
         }
+
+        const msg = `Form Name: ${formName} \n First Name: ${firstName} \n Last Name: ${lastName} \n Phone Number: ${phoneNumber} \n Email: ${emailAddress} \n\n Message: ${message}`
         const formData = {
-            firstName: firstName,
-            lastName: lastName,
-            emailAddress: emailAddress,
-            phoneNumber: phoneNumber,
-            message: message,
-            emailTo: emailTo,
+            fromEmail: emailAddress,
+            message: msg,
+            toEmail: emailTo,
             formName: formName
         }
         setIsLoading(true)
@@ -70,35 +69,36 @@ function ContactForm({ title, subtitle, emailTo, formName, emailRoute }) {
             },
             data: formData
         };
-        axios(config)
-            .then(function (response) {
-                if (response.status === 200) {
-                    setIsLoading(false)
-                    setIsSuccess(true)
-                    // set initial state to empty string 
-                    setFirstName('')
-                    setLastName('')
-                    setEmailAddress('')
-                    setPhoneNumber('')
-                    setMessage('')
-                    setFirstNameTouched(false)
-                    setLastNameTouched(false)
-                    setEmailAddressTouched(false)
+        axios.post('/api/route', formData).then((res) => console.log(res));
+        // axios(config)
+        //     .then(function (response) {
+        //         if (response.status === 200) {
+        //             setIsLoading(false)
+        //             setIsSuccess(true)
+        //             // set initial state to empty string 
+        //             setFirstName('')
+        //             setLastName('')
+        //             setEmailAddress('')
+        //             setPhoneNumber('')
+        //             setMessage('')
+        //             setFirstNameTouched(false)
+        //             setLastNameTouched(false)
+        //             setEmailAddressTouched(false)
 
-                }
-                else {
-                    setIsLoading(false)
-                    setIsSuccess(false)
-                    setError(true)
-                }
-            })
-            .catch(function (error) {
-                console.log(error);
-                setIsLoading(false)
-                setIsSuccess(false)
-                setError(true)
+        //         }
+        //         else {
+        //             setIsLoading(false)
+        //             setIsSuccess(false)
+        //             setError(true)
+        //         }
+        //     })
+        //     .catch(function (error) {
+        //         console.log(error);
+        //         setIsLoading(false)
+        //         setIsSuccess(false)
+        //         setError(true)
 
-            });
+        //     });
     }
 
 
