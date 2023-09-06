@@ -35,13 +35,11 @@ export default function Gallery({ images, className }) {
     <>
       <GalleryContainer className={` ${className} grid grid-cols-12 gap-4`}>
         {images.map((src, index) => (
-          <ImageWrapper className="col-span-12 sm:col-span-6 md:col-span-12 lg:col-span-6 ">
-            <Image
-              key={index}
-              src={src.url}
-              onClick={() => openLightbox(index)}
-              fill
-            />
+          <ImageWrapper
+            key={index}
+            className="col-span-12 sm:col-span-6 md:col-span-12 lg:col-span-6 "
+          >
+            <Image src={src.url} onClick={() => openLightbox(index)} fill />
           </ImageWrapper>
         ))}
       </GalleryContainer>
