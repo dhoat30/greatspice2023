@@ -3,7 +3,7 @@ import styled from "styled-components";
 function Slogan({ content }) {
   return (
     <Container
-      className="row-max  py-2 lg:py-28 lg:px-28"
+      className="row-max  py-8 lg:py-28 lg:px-28"
       dangerouslySetInnerHTML={{ __html: content }}
     ></Container>
   );

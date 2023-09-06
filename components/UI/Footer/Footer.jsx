@@ -10,6 +10,7 @@ import UsefulLink from "./UsefulLinks/UsefulLink";
 import ContactInfo from "./ContactInfo/ContactInfo";
 import OpeningHours from "./OpeningHours/OpeningHours";
 import NewsletterForm from "../Forms/NewsletterForm";
+import Copyright from "./Copyright/Copyright";
 
 function Footer({ contactData }) {
   const logo = contactData.acf.logo;
@@ -20,7 +21,8 @@ function Footer({ contactData }) {
 
   // bottom navigation data
   const orderOnlineLink = contactData.acf.contact_info.order_online;
-
+  console.log(contactData);
+  const copyright = contactData.acf.copyright;
   return (
     <>
       <MobileBottomNavigation
@@ -28,8 +30,8 @@ function Footer({ contactData }) {
         orderOnlineLink={orderOnlineLink}
         viewMenuLink="/#menu-section"
       />
-      <FooterContainer className=" py-16">
-        <div className="footer-box py-12 md:pt-16 row-max flex gap-4 sm:gap-16 px-6 xl:px-12 flex-wrap justify-center">
+      <FooterContainer className="pt-16 pb-3">
+        <div className="footer-box md:pt-12 row-max flex gap-4 sm:gap-16 px-6 xl:px-12 flex-wrap justify-center">
           {/* logo wrapper  */}
           <div className="logo-wrapper">
             <Image src={logo.url} alt={logo.alt} width="148" height="56" />
@@ -61,6 +63,11 @@ function Footer({ contactData }) {
             />
           </div>
         </div>
+        <Copyright
+          privacyPolicyLink="/policy/privacy-policy"
+          termsAndConditionsLink="/policy/terms-and-conditions"
+          copyrightInfo={copyright}
+        />
       </FooterContainer>
     </>
   );

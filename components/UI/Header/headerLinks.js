@@ -24,15 +24,21 @@ export const headerLinks = [{
     title: "Host Events",
     url: "/host-events"
 },
+
+{
+    id: 5,
+    title: "Catering",
+    url: "/catering",
+    subLinks: [
+        { title: "Catering", url: "/catering", id: "catering" },
+        { title: "Catering Packages", url: "/catering/packages", id: "catering-packages" },
+        { title: "Enquire Now", url: "/host-events/enquire", id: "enquire-now" },
+    ]
+},
 {
     id: 5,
     title: "Gallery",
     url: "/gallery"
-},
-{
-    id: 5,
-    title: "Catering",
-    url: "/catering"
 },
 {
     id: 7,

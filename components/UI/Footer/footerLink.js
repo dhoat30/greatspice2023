@@ -4,6 +4,11 @@ export const usefulLinks = [{
     url: "/menu"
 },
 {
+    id: 11,
+    title: "Gift Cards",
+    url: "/gift-card"
+},
+{
     id: 2,
     title: "Host an Event",
     url: "/host-events"

@@ -1,8 +1,36 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import Image from "next/image";
+import GlutenFreeIcon from "../../Icons/GlutenFreeIcon";
+import VeganIcon from "../../Icons/VeganIcon";
+import VegetarianIcon from "../../Icons/VegetarianIcon";
+import DairyFreeIcon from "../../Icons/DariyFreeIcon";
 
-function MenuItemImage({ dishName, dishDescription, dishPrice, dishImage }) {
+function MenuItemImage({
+  dishName,
+  dishDescription,
+  dishPrice,
+  dishImage,
+  dietaryInformation,
+}) {
+  const [glutenFree, setGlutenFree] = useState(false);
+  const [vegetarian, setVegetarian] = useState(false);
+  const [vegan, setVegan] = useState(false);
+  const [dairyFree, setDairyFree] = useState(false);
+  useEffect(() => {
+    const dietaryInfo = dietaryInformation.map((item, index) => {
+      if (item === "vegetarian: Vegetarian") {
+        setVegetarian(true);
+      } else if (item === "vegan: Vegan") {
+        setVegan(true);
+      } else if (item === "glutenFree: Gluten Free") {
+        setGlutenFree(true);
+      } else if (item === "dairyFree: Dairy Free") {
+        setDairyFree(true);
+      }
+    });
+  }, []);
+
   return (
     <Container className="image-item">
       <div className="dish-image-wrapper">
@@ -15,7 +43,13 @@ function MenuItemImage({ dishName, dishDescription, dishPrice, dishImage }) {
       <div className="content-wrapper">
         <div className="dish-name-price-wrapper flex gap-x-4">
           <div className="dish-name-wrapper flex-initial">
-            <h4 className="dish-name">{dishName.toLowerCase()}</h4>
+            <h4 className="dish-name">
+              {dishName.toLowerCase()}
+              {glutenFree && <GlutenFreeIcon className="inline-block" />}
+              {vegan && <VeganIcon className="inline-block" />}
+              {vegetarian && <VegetarianIcon className="inline-block" />}
+              {dairyFree && <DairyFreeIcon className="inline-block" />}
+            </h4>
           </div>
           <div className="dish-border  flex-1"></div>
           <h6 className="flex-initial dish-price">{dishPrice} </h6>
@@ -40,6 +74,14 @@ const Container = styled.li`
     }
   }
   .dish-name-price-wrapper {
+    svg {
+      margin-left: 4px;
+      width: 16px;
+      height: 16px;
+      path {
+        fill: var(--material-theme-sys-light-on-surface-variant, #4c4639);
+      }
+    }
     .dish-name-wrapper {
       .dish-name {
         color: var(--material-theme-sys-light-on-surface, #1d1b16);

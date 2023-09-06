@@ -1,18 +1,14 @@
 "use client";
-import React from "react";
+import { useRef } from "react";
 import { styled } from "styled-components";
 import Divider from "@mui/material/Divider";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import Image from "next/image";
-import AnchorButton from "@/components/UI/Buttons/AnchorButton";
-import AnchorLink from "@/components/UI/Buttons/AnchorLink";
 import Slider from "react-slick";
 import AnchorOutlinedButtonDark from "@/components/UI/Buttons/AnchorOutlinedButtonDark";
+import CarouselArrows from "@/components/UI/CarouselArrows/CarouselArrows";
 // events carousel section
 function CarouselSection({
   dataArray,
@@ -20,7 +16,23 @@ function CarouselSection({
   specialsCondition,
   sectionTitle,
 }) {
+  // slider arrow functionality
+  const sliderRef = useRef(null);
+
   if (!dataArray.length) return null;
+
+  const next = () => {
+    if (sliderRef.current) {
+      sliderRef.current.slickNext();
+    }
+  };
+
+  const previous = () => {
+    if (sliderRef.current) {
+      sliderRef.current.slickPrev();
+    }
+  };
+  // slider arrow functionality ends
 
   const cards = dataArray.map((item, index) => {
     return (
@@ -116,7 +128,10 @@ function CarouselSection({
         </div>
         <Divider sx={{ borderColor: "#7D7767", marginTop: "24px" }} />
         <div className="cards mt-12">
-          <Slider {...settings}>{cards}</Slider>
+          <CarouselArrows next={next} previous={previous} />
+          <Slider ref={sliderRef} {...settings}>
+            {cards}
+          </Slider>
         </div>
       </div>
     </Container>

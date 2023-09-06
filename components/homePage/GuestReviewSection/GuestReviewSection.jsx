@@ -1,9 +1,12 @@
 import React from "react";
+import { useRef } from "react";
+
 import styled from "styled-components";
 import Image from "next/image";
 import StarIcon from "@/components/UI/Icons/StarIcon";
 import Slider from "react-slick";
 import AnchorOutlinedButtonDark from "@/components/UI/Buttons/AnchorOutlinedButtonDark";
+import CarouselArrows from "@/components/UI/CarouselArrows/CarouselArrows";
 
 var settings = {
   dots: true,
@@ -26,7 +29,23 @@ function GuestReviewSection({
   sectionSubtitle,
   dataArray,
 }) {
-  const items = dataArray.map((item, index) => {
+  // slider arrow functionality
+  const sliderRef = useRef(null);
+  if (!dataArray.length) return null;
+
+  const next = () => {
+    if (sliderRef.current) {
+      sliderRef.current.slickNext();
+    }
+  };
+
+  const previous = () => {
+    if (sliderRef.current) {
+      sliderRef.current.slickPrev();
+    }
+  };
+  // slider arrow functionality ends
+  const cards = dataArray.map((item, index) => {
     return (
       <div className="item" key={index}>
         <div className="head">
@@ -78,7 +97,10 @@ function GuestReviewSection({
       </div>
       <div className="content-wrapper row-max">
         <div className="cards">
-          <Slider {...settings}> {items}</Slider>
+          <CarouselArrows next={next} previous={previous} />
+          <Slider ref={sliderRef} {...settings}>
+            {cards}
+          </Slider>
         </div>
         <div className="button-wrapper mt-8">
           <AnchorOutlinedButtonDark href="https://www.google.com/maps/place/Great+Spice+Tauranga/@-37.6684018,176.1535385,17z/data=!3m1!4b1!4m6!3m5!1s0x6d6ddb8cc27d86e7:0x291f87512b7cc54b!8m2!3d-37.6684018!4d176.1535385!16s%2Fg%2F11cltfvk0t?entry=ttu">

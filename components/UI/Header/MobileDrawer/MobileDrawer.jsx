@@ -7,7 +7,7 @@ import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 
-import style from "styled-components";
+import styleds from "styled-components";
 import MenuIcon from "../../Icons/MenuIcon";
 import Link from "next/link";
 import ArrowIcon from "../../Icons/ArrowIcon";
@@ -76,7 +76,7 @@ export default function MobileDrawer({ menuLinks }) {
           <ul
             className={`${
               showMenu === index ? "block" : "hidden"
-            }  bg-primary-dark text-surface-dark top-8  dropdown	`}
+            }  bg-primary-dark text-surface-dark top-8  dropdown`}
           >
             {item.subLinks.map((subLink, subIndex) => (
               <li key={subIndex} className="text-left">
@@ -132,7 +132,8 @@ export default function MobileDrawer({ menuLinks }) {
     </>
   );
 }
-const ListContainer = style.ul`
+const ListContainer = styleds.ul`
+
     li{ 
         a{ 
             display: block; 
@@ -155,18 +156,19 @@ const ListContainer = style.ul`
             }
         }
         .dropdown{ 
+          background: var(--material-theme-sys-dark-primary, #d6b335);
                 .dropdown-link{ 
                     padding: 16px 28px ;
                 }
         }
     }
 `;
-const ChevronLeftIconStyle = style(ChevronLeftIcon)`
+const ChevronLeftIconStyle = styleds(ChevronLeftIcon)`
 path{ 
     fill: black !important; 
 }
 `;
-const ChevronRightIconStyle = style(ChevronLeftIcon)`
+const ChevronRightIconStyle = styleds(ChevronLeftIcon)`
 path{ 
     fill: black !important; 
 }

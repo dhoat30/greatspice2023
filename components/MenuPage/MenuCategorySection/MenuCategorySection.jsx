@@ -5,7 +5,7 @@ function MenuCategorySection({ className, menuDataArray }) {
   const singleSection = menuDataArray.map((item, index) => {
     return <SingleSection key={index} singleSectionData={item} />;
   });
-  return <Container className={className}>{singleSection}</Container>;
+  return <Container className={`${className} pb-8`}>{singleSection}</Container>;
 }
 
 export default MenuCategorySection;

@@ -40,7 +40,11 @@ function Navbar({ menuLinks, className }) {
           }
         >
           {item.title}
-          {item.subLinks && <ArrowIcon className="arrow " />}
+          {item.subLinks && (
+            <ArrowIcon
+              className={`${showMenu === index && "arrow-up"} arrow `}
+            />
+          )}
         </Link>
 
         {item.subLinks && (
@@ -53,7 +57,7 @@ function Navbar({ menuLinks, className }) {
               <li key={subIndex} className="text-left">
                 <Link
                   href={subLink.url}
-                  className="py-3 px-3 block border-t border-surface-dark hover:bg-primary-light hover:text-surface-dark"
+                  className="py-3 px-3 block border-t border-surface-dark "
                 >
                   {subLink.title}
                 </Link>
@@ -74,16 +78,35 @@ function Navbar({ menuLinks, className }) {
 
 export default Navbar;
 const ListContainer = styled.ul`
+  li {
+    a {
+      &:hover {
+        svg {
+          path {
+            fill: #cdad3a !important;
+          }
+        }
+      }
+    }
+  }
   .drop-down-menu {
     z-index: 12;
-  }
-  li {
+    li {
+      &:hover {
+        background: #cdad3a;
+      }
+      a {
+      }
+    }
   }
 
   .arrow {
     transform: rotate(180deg);
     position: relative;
     left: 4px;
+  }
+  .arrow-up {
+    transform: rotate(0deg);
   }
   /* list-style: none;
   display: flex;

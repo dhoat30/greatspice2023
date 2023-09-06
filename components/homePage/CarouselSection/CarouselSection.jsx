@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import { useRef } from "react";
 import { styled } from "styled-components";
 import Divider from "@mui/material/Divider";
 import Card from "@mui/material/Card";
@@ -13,6 +13,31 @@ import AnchorButton from "@/components/UI/Buttons/AnchorButton";
 import AnchorLink from "@/components/UI/Buttons/AnchorLink";
 import Slider from "react-slick";
 import CarouselArrows from "@/components/UI/CarouselArrows/CarouselArrows";
+var settings = {
+  dots: true,
+  arrows: false,
+  infinite: true,
+  speed: 500,
+
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 3000,
+  pauseOnHover: true,
+
+  centerMode: true,
+  centerPadding: "40px",
+  draggable: true,
+  infinite: true,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 2,
+      },
+    },
+  ],
+};
 
 function CarouselSection({
   dataArray,
@@ -20,12 +45,28 @@ function CarouselSection({
   specialsCondition,
   sectionTitle,
 }) {
+  // slider arrow functionality
+  const sliderRef = useRef(null);
   if (!dataArray.length) return null;
+
+  const next = () => {
+    if (sliderRef.current) {
+      sliderRef.current.slickNext();
+    }
+  };
+
+  const previous = () => {
+    if (sliderRef.current) {
+      sliderRef.current.slickPrev();
+    }
+  };
+  // slider arrow functionality ends
 
   const cards = dataArray.map((item, index) => {
     if (item.specialType === "dinnerSpecial: Dinner Special") {
       return;
     }
+
     return (
       <Card
         key={index}
@@ -68,38 +109,6 @@ function CarouselSection({
     );
   });
 
-  var settings = {
-    dots: true,
-    arrows: false,
-    infinite: true,
-    speed: 500,
-
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    pauseOnHover: true,
-
-    centerMode: true,
-    centerPadding: "40px",
-    draggable: true,
-    infinite: true,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1,
-          centerPadding: "16px",
-        },
-      },
-    ],
-  };
   return (
     <Container className="py-28 hidden mt-4 md:block ">
       <div className="row-max wrapper">
@@ -112,8 +121,10 @@ function CarouselSection({
         </div>
         <Divider sx={{ borderColor: "#7D7767", marginTop: "24px" }} />
         <div className="cards mt-12">
-          {/* <CarouselArrows /> */}
-          <Slider {...settings}>{cards}</Slider>
+          <CarouselArrows next={next} previous={previous} />
+          <Slider ref={sliderRef} {...settings}>
+            {cards}
+          </Slider>
         </div>
       </div>
     </Container>

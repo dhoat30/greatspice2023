@@ -1,6 +1,5 @@
 'use client'
 // import './globals.css'
-import { useEffect } from 'react'
 import { Neuton, Work_Sans } from 'next/font/google'
 import { ThemeProvider } from '@mui/material/styles';
 import { theme } from '../utlis/themeSettings'
@@ -8,7 +7,7 @@ import StyledComponentsRegistry from "./registery";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Script from 'next/script'
-
+import Head from 'next/head'
 import { useRouter } from 'next/navigation';
 
 // fonts settings
@@ -28,10 +27,26 @@ const work_sans = Work_Sans({
 
 export default function RootLayout({ children }) {
   // get contact data using util function 
-
+  const gtmTagID = "GTM-5H7BDXH"
   return (
     <html lang="en" className={`${neuton.variable} ${work_sans.variable}`}>
+      <head>
+        <Script id="google-tag-manager" strategy="afterInteractive">
+          {`
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','${gtmTagID}');
+        `}
+        </Script>
+      </head>
       <body>
+        <noscript
+          dangerouslySetInnerHTML={{
+            __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=${gtmTagID}" height="0" width="0" style="display: none; visibility: hidden;"></iframe>`,
+          }}
+        />
         <ThemeProvider theme={theme}>
           <StyledComponentsRegistry>
             {/* <Suspense fallback={<Loading />} /> */}

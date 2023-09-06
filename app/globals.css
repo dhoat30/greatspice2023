@@ -2218,6 +2218,7 @@ body {
 .fixed-filter {
   position: fixed !important;
   top: 40px;
+  width: 100%;
 }
 
 /* loading ui  */

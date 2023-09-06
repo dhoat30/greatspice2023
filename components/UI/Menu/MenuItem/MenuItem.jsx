@@ -5,6 +5,9 @@ import GlutenFreeIcon from "../../Icons/GlutenFreeIcon";
 import VeganIcon from "../../Icons/VeganIcon";
 import VegetarianIcon from "../../Icons/VegetarianIcon";
 import DairyFreeIcon from "../../Icons/DariyFreeIcon";
+import Button from "@mui/material/Button";
+import Tooltip from "@mui/material/Tooltip";
+
 function MenuItem({
   dishName,
   dishDescription,
@@ -37,10 +40,34 @@ function MenuItem({
           <h4 className="dish-name">
             {dishName.toLowerCase()}
 
-            {glutenFree && <GlutenFreeIcon className="inline-block" />}
-            {vegan && <VeganIcon className="inline-block" />}
-            {vegetarian && <VegetarianIcon className="inline-block" />}
-            {dairyFree && <DairyFreeIcon className="inline-block" />}
+            {glutenFree && (
+              <Tooltip title="Gluten Free" arrow>
+                <Button sx={{ padding: "0", minWidth: "0" }}>
+                  <GlutenFreeIcon className="inline-block" />
+                </Button>
+              </Tooltip>
+            )}
+            {vegan && (
+              <Tooltip title="Vegan" arrow>
+                <Button sx={{ padding: "0", minWidth: "0" }}>
+                  <VeganIcon className="inline-block" />
+                </Button>
+              </Tooltip>
+            )}
+            {vegetarian && (
+              <Tooltip title="Vegetarian" arrow>
+                <Button sx={{ padding: "0", minWidth: "0" }}>
+                  <VegetarianIcon className="inline-block" />
+                </Button>
+              </Tooltip>
+            )}
+            {dairyFree && (
+              <Tooltip title="Dairy Free" arrow>
+                <Button sx={{ padding: "0", minWidth: "0" }}>
+                  <DairyFreeIcon className="inline-block" />
+                </Button>
+              </Tooltip>
+            )}
           </h4>
           {condition && (
             <Typography variant="body2" component="div">
@@ -69,8 +96,11 @@ const Container = styled.li`
   .dish-name-price-wrapper {
     svg {
       margin-left: 4px;
-      width: 18px;
-      height: 18px;
+      width: 16px;
+      height: 16px;
+      path {
+        fill: var(--material-theme-sys-light-on-surface-variant, #4c4639);
+      }
     }
     .dish-name-wrapper {
       .dish-name {

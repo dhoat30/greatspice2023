@@ -1,20 +1,20 @@
-import { getContactData, getFaq, getGuestReviews, getEvents, getGallery } from '@/utlis/fetchData'
+import { getContactData, getBlogs, getPostCategories, getSinglePost, getPage } from '@/utlis/fetchData'
 import Footer from '@/components/UI/Footer/Footer'
 import Header from '@/components/UI/Header/Header'
-import ContactPage from '@/components/ContactPage/ContactPage'
-import HostEvents from '@/components/HostEvents/HostEvents'
-import GalleryPage from '@/components/GalleryPage/GalleryPage'
+
+import BlogArchive from '@/components/BlogPage/BlogArchive'
+import SingleBlog from '@/components/BlogPage/SingleBlog/SingleBlog'
+import PolicyPage from '@/components/PolicyPage/PolicyPage'
 
 export async function generateMetadata({ params, searchParams }, parent) {
     // read route params
-    // const id = params.id
+    const slug = params.slug
 
     // fetch data
-    const data = await getGallery()
+    const data = await getPage(slug)
 
     // optionally access and extend (rather than replace) parent metadata
     // const previousImages = (await parent).openGraph?.images || []
-    console.log(data)
     if (data.length > 0) {
         const seoData = data[0].yoast_head_json
         return {
@@ -40,20 +40,17 @@ export async function generateMetadata({ params, searchParams }, parent) {
 
 }
 
-export default async function Contact() {
+export default async function Contact({ params }) {
+    const slug = params.slug
     const contactData = await getContactData()
-    const galleryData = await getGallery()
-
+    const pageData = await getPage(slug)
 
     return (
         <>
-
             <Header contactData={contactData[0]} />
             <main >
-                <GalleryPage
-                    galleryData={galleryData[0]}
-                />
 
+                <PolicyPage pageData={pageData[0]} />
             </main>
             <Footer contactData={contactData[0]} />
         </>

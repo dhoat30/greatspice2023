@@ -40,7 +40,7 @@ function SingleSection({ singleSectionData }) {
     );
   });
   return (
-    <Container id={singleSectionData.acf_fc_layout} className="pt-16 pb-8">
+    <Container id={singleSectionData.acf_fc_layout} className="pt-16 ">
       <div className="title-wrapper">
         <h3 className="section-title font-serif mb-4">{sectionTitle}</h3>
         <Divider sx={{ borderColor: "#7D7767", marginTop: "8px" }} />
@@ -54,6 +54,7 @@ function SingleSection({ singleSectionData }) {
                 dishDescription={singleImageItem.dish_description}
                 dishPrice={singleImageItem.dish_price}
                 dishImage={singleImageItem.dish_image}
+                dietaryInformation={singleImageItem.dietary_information}
               />
             </ul>
             <ul className="cards flex">{menuCards}</ul>
