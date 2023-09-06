@@ -4,9 +4,9 @@ import styled from "styled-components";
 import AnchorButton from "../Buttons/AnchorButton";
 import AnchorOutlinedButtonDark from "../Buttons/AnchorOutlinedButtonDark";
 import AnchorLightButton from "../Buttons/AnchorLightButton";
-function Hero({ heroData }) {
+function Hero({ heroData, className }) {
   return (
-    <Container>
+    <Container className={className}>
       <div className="desktop-wrapper hidden lg:block">
         <div className="image-container">
           <div className="overlay"></div>
@@ -156,7 +156,7 @@ const Container = styled.section`
       margin-bottom: 100px;
     }
     @media (max-width: 410px) {
-      margin-bottom: 200px;
+      margin-bottom: 220px;
     }
     .image-container {
       position: relative;

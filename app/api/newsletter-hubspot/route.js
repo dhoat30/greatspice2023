@@ -9,7 +9,6 @@ export async function GET(req, res) {
 
 export async function POST(req, res) {
   const { emailAddress } = await req.json();
-  console.log(req.body)
   let data = JSON.stringify({
     "properties": {
       "email": emailAddress,

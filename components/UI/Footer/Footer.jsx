@@ -5,12 +5,14 @@ import { usefulLinks } from "./footerLink";
 import styled from "styled-components";
 import Image from "next/image";
 import Link from "next/link";
-
+import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import UsefulLink from "./UsefulLinks/UsefulLink";
 import ContactInfo from "./ContactInfo/ContactInfo";
 import OpeningHours from "./OpeningHours/OpeningHours";
 import NewsletterForm from "../Forms/NewsletterForm";
 import Copyright from "./Copyright/Copyright";
+import { Fab } from "@mui/material";
+import { PhoneEnabled } from "@mui/icons-material";
 
 function Footer({ contactData }) {
   const logo = contactData.acf.logo;
@@ -21,7 +23,6 @@ function Footer({ contactData }) {
 
   // bottom navigation data
   const orderOnlineLink = contactData.acf.contact_info.order_online;
-  console.log(contactData);
   const copyright = contactData.acf.copyright;
   return (
     <>
@@ -68,6 +69,20 @@ function Footer({ contactData }) {
           termsAndConditionsLink="/policy/terms-and-conditions"
           copyrightInfo={copyright}
         />
+        <Fab
+          sx={{
+            backgroundColor:
+              "var(--material-theme--sys--light--inverse-primary) !important",
+          }}
+          className="phone-fab"
+          color="secondary"
+          aria-label="phone"
+        >
+          <Link href={`tel: ${contactInfo.phone_number}`}>
+            {/* <LocalPhoneIcon /> */}
+            <PhoneEnabled />
+          </Link>
+        </Fab>
       </FooterContainer>
     </>
   );
@@ -75,6 +90,15 @@ function Footer({ contactData }) {
 
 export default Footer;
 const FooterContainer = styled.footer`
+  .phone-fab {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    z-index: 100;
+    @media (max-width: 640px) {
+      bottom: 80px;
+    }
+  }
   background: #2c2614;
   .footer-box {
     .column-title {

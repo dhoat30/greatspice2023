@@ -84,7 +84,6 @@ function ContactForm({ title, subtitle, emailTo, formName, emailRoute }) {
         }
         axios(hubspotConfig)
             .then(function (response) {
-                console.log(response)
             })
             .catch(function (error) {
                 console.log(error);
@@ -92,7 +91,6 @@ function ContactForm({ title, subtitle, emailTo, formName, emailRoute }) {
 
         axios(config)
             .then(function (response) {
-                console.log(response)
                 if (response.status === 200) {
                     setIsLoading(false)
                     setIsSuccess(true)

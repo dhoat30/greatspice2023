@@ -26,7 +26,6 @@ export default function AboutPage({ aboutData }) {
     image: aboutData.acf.about_section.image,
     description: aboutData.acf.about_section.content,
   };
-  console.log(aboutData);
   return (
     <>
       <HeroCentered heroData={heroData} />

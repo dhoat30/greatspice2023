@@ -6,6 +6,7 @@ import CarouselSection from "./CarouselSection/CarouselSection";
 import MobileCarouselSection from "./CarouselSection/MobileCarouselSection";
 import GuestReviewSection from "./GuestReviewSection/GuestReviewSection";
 import MobileReviewSection from "./GuestReviewSection/MobileReviewSection";
+import USP from "../UI/USP/USP";
 function HomePage({
   homeData,
   menuData,
@@ -76,7 +77,8 @@ function HomePage({
   const sectionTitle = guestReviewData.title.rendered;
   return (
     <>
-      <Hero heroData={heroData} />
+      <Hero heroData={heroData} className="md:mb-14 lg:mb-0" />
+      <USP />
       <MenuSection menuData={menuDataArr} />
       {/* great specials sectoins  */}
       <CarouselSection

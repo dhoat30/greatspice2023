@@ -17,17 +17,13 @@ function GalleryPage({ galleryData }) {
       value: item.gallery_category,
     };
   });
-  console.log(filteredPosts);
   //   filter categories based on clicked item in filters component
   const filterPostsByCategory = (categoryId) => {
-    console.log(categoryId);
     const newFilteredPosts = galleryData.acf.gallery.filter(
       (item) => item.gallery_category === categoryId
     );
-    console.log(newFilteredPosts);
     setFilteredPosts(newFilteredPosts[0].gallery_images);
   };
-  console.log(filteredPosts);
 
   return (
     <Container className="py-6">

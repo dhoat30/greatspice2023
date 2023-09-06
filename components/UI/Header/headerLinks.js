@@ -9,6 +9,11 @@ export const headerLinks = [{
     url: "/specials"
 },
 {
+    id: 4,
+    title: "Reservation",
+    url: "/reservation"
+},
+{
     id: 3,
     title: "Menu",
     url: "/menu",
@@ -19,17 +24,14 @@ export const headerLinks = [{
         { title: "Catering", url: "/menu/catering-menu", id: "takeaway" },
     ]
 },
-{
-    id: 4,
-    title: "Host Events",
-    url: "/host-events"
-},
+
 
 {
     id: 5,
-    title: "Catering",
+    title: "Services",
     url: "/catering",
     subLinks: [
+        { title: "Host Events", url: "/host-events", id: "host-events" },
         { title: "Catering", url: "/catering", id: "catering" },
         { title: "Catering Packages", url: "/catering/packages", id: "catering-packages" },
         { title: "Enquire Now", url: "/host-events/enquire", id: "enquire-now" },

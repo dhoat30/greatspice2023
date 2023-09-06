@@ -99,7 +99,6 @@ function ContactForm({ title, subtitle, emailTo, formName, emailRoute }) {
         }
         axios(hubspotConfig)
             .then(function (response) {
-                console.log(response)
             })
             .catch(function (error) {
                 console.log(error);
@@ -151,7 +150,6 @@ function ContactForm({ title, subtitle, emailTo, formName, emailRoute }) {
 
         </TextField >
     ));
-    console.log(startDate)
     const filterPassedTime = (time) => {
         const currentDate = new Date();
         const selectedDate = new Date(time);

@@ -5,7 +5,6 @@ import Slogan from "../UI/Slogan/Slogan";
 import Image from "next/image";
 import styled from "styled-components";
 export default function GiftCard({ pageData }) {
-  console.log(pageData);
   const heroData = {
     title: pageData.acf.hero_section.title,
     subtitle: pageData.acf.hero_section.sub_title,

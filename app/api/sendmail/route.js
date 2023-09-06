@@ -9,7 +9,6 @@ export async function GET(req, res) {
 
 export async function POST(req, res) {
   const { emailTo, fromEmail, message, replyTo, formName, firstName } = await req.json();
-  console.log(req.body)
   var raw = JSON.stringify({
     "personalizations": [
       {
