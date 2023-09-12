@@ -40,18 +40,17 @@ export default function GalleryFilter({
   });
 
   //   mobile filter list
-  const filterList = categoryArray.map((item) => {
-    if (item.id === 1) return null;
+  const filterList = categoryArray.map((item, index) => {
     return (
       <Tab
-        onClick={() => onCategoryClick(item.id)}
+        onClick={() => onCategoryClick(item.value)}
         label={item.title}
         sx={{
           borderBottom: "4px solid #E7E2D9; ",
           color: "var(--material-theme-sys-light-on-surface-variant, #4C4639)",
         }}
-        key={item.id}
-        value={item.id}
+        key={index}
+        value={item.value}
       >
         {item.title}
       </Tab>

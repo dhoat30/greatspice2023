@@ -47,7 +47,7 @@ export const headerLinks = [{
     title: "Contact",
     url: "/contact",
     subLinks: [
-        { title: "FAQ's", url: "/menu/lunch-menu", id: "faq" },
+        { title: "FAQ's", url: "/faq", id: "faqs" },
         { title: "About Us", url: "/about-us", id: "about-us" },
         { title: "Contact", url: "/contact", id: "contact" },
 
