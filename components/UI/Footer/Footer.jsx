@@ -25,7 +25,6 @@ function Footer({ contactData }) {
   const orderOnlineLink = contactData.acf.contact_info.order_online;
   const copyright = contactData.acf.copyright;
 
-  console.log(contactData.acf.awards);
   const awards = contactData.acf.awards.map((item, index) => {
     return (
       <Image

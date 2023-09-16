@@ -3,7 +3,6 @@ import React from "react";
 import styled from "styled-components";
 function MenuSection({ menuData }) {
   const menuCards = menuData.map((item, index) => {
-    console.log(item);
     if (item.url === "/catering-menu") return null;
 
     return (

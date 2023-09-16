@@ -5,7 +5,6 @@ import GuestReviewSection from "../homePage/GuestReviewSection/GuestReviewSectio
 import MobileReviewSection from "../homePage/GuestReviewSection/MobileReviewSection";
 
 function EnquireNowPage({ contactData, guestReviewData, pageData }) {
-  // console.log(contactData);
   const contactInfo = contactData.acf.contact_info;
   const openingHours = contactData.acf.opening_hours;
   const heroData = {

@@ -70,7 +70,6 @@ function HomePage({
 
   // catering data array
   const cateringDataArr = cateringData.acf.event_information.map((item) => {
-    console.log(item);
     return {
       title: item.title,
       description: item.description,
