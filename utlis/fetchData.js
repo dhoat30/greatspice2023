@@ -108,7 +108,7 @@ export const getPage = async (slug) => {
 
 //get blogs 
 export const getBlogs = async () => {
-    let fetchData = await fetch(`${process.env.url}/wp-json/wp/v2/posts?acf_format=standard`, {
+    let fetchData = await fetch(`${process.env.url}/wp-json/wp/v2/posts?acf_format=standard&per_page=100`, {
         next: { revalidate: 60 },
     });
     let data = await fetchData.json();

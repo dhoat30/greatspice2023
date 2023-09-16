@@ -6,6 +6,7 @@ import BYOIcon from "@/components/UI/Icons/BYOIcon";
 import AwardIcons from "@/components/UI/Icons/AwardIcons";
 import WheelchairIcon from "@/components/UI/Icons/WheelchairIcon";
 import GlutenFreeIcon from "../Icons/GlutenFreeIcon";
+import DairyFreeIcon from "../Icons/DariyFreeIcon";
 
 export default function USP({ className }) {
   return (
@@ -24,8 +25,8 @@ export default function USP({ className }) {
           <span> BYO - Wine</span>
         </li>
         <li>
-          <AwardIcons />
-          <span> Award Winning</span>
+          <DairyFreeIcon />
+          <span>Dairy Free & Vegan </span>
         </li>
         <li>
           <WheelchairIcon />

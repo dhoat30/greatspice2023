@@ -7,12 +7,18 @@ import MobileCarouselSection from "./CarouselSection/MobileCarouselSection";
 import GuestReviewSection from "./GuestReviewSection/GuestReviewSection";
 import MobileReviewSection from "./GuestReviewSection/MobileReviewSection";
 import USP from "../UI/USP/USP";
+// events carousel
+import EventsCarouselSection from "../HostEvents/CarouselSection/CarouselSection";
+import EventsMobileCarouselSection from "./CarouselSection/MobileCarouselSection";
+
 function HomePage({
   homeData,
   menuData,
   specialsData,
   chefSpecialsData,
   guestReviewData,
+  cateringData,
+  eventsData,
 }) {
   // hero data
   const heroData = {
@@ -51,7 +57,6 @@ function HomePage({
   const specialsCondition = specialsData.acf.condition;
 
   //chef specials data
-
   const chefSpecialsDataArr =
     chefSpecialsData.acf.specials.specials_content.map((item) => {
       return {
@@ -62,6 +67,41 @@ function HomePage({
       };
     });
   const chefSectionSubtitle = chefSpecialsData.acf.subtitle;
+
+  // catering data array
+  const cateringDataArr = cateringData.acf.event_information.map((item) => {
+    console.log(item);
+    return {
+      title: item.title,
+      description: item.description,
+      image: item.image,
+      callToAction: {
+        label: "Enquire Now",
+        url: "/host-events/enquire",
+      },
+      callToAction2: {
+        label: item.call_to_action.label,
+        url: item.call_to_action.url,
+      },
+    };
+  });
+
+  const cateringSectionSubtitle = cateringData.acf.section_information.subtitle;
+
+  // events data array
+  const eventsDataArr = eventsData.acf.event_information.map((item) => {
+    return {
+      title: item.title,
+      description: item.description,
+      image: item.image,
+      callToAction: {
+        label: item.call_to_action.label,
+        url: item.call_to_action.url,
+      },
+    };
+  });
+  const eventsSectionTitle = eventsData.acf.section_information.title;
+  const eventsSectionSubtitle = eventsData.acf.section_information.subtitle;
 
   // guest review data
   const guestReviewDataArr =
@@ -75,6 +115,7 @@ function HomePage({
   const guestReviewSectionSubtitle = guestReviewData.acf.subtitle;
   const guestReviewSectionImage = guestReviewData.acf.image;
   const sectionTitle = guestReviewData.title.rendered;
+
   return (
     <>
       <Hero heroData={heroData} className="md:mb-14 lg:mb-0" />
@@ -106,7 +147,29 @@ function HomePage({
         sectionSubtitle={chefSectionSubtitle}
         sectionTitle="Chef's Specials"
       />
+      {/* catering section  */}
+      <EventsCarouselSection
+        dataArray={cateringDataArr}
+        sectionSubtitle={cateringSectionSubtitle}
+        sectionTitle="Catering"
+      />
 
+      <MobileCarouselSection
+        dataArray={cateringDataArr}
+        sectionSubtitle={cateringSectionSubtitle}
+        sectionTitle="Catering"
+      />
+      {/* catering section  */}
+      <EventsCarouselSection
+        dataArray={eventsDataArr}
+        sectionSubtitle={eventsSectionSubtitle}
+        sectionTitle={eventsSectionTitle}
+      />
+      <MobileCarouselSection
+        dataArray={eventsDataArr}
+        sectionSubtitle={eventsSectionSubtitle}
+        sectionTitle={eventsSectionTitle}
+      />
       {/* guest review section  */}
       <GuestReviewSection
         dataArray={guestReviewDataArr}

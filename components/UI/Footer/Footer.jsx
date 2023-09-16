@@ -24,6 +24,19 @@ function Footer({ contactData }) {
   // bottom navigation data
   const orderOnlineLink = contactData.acf.contact_info.order_online;
   const copyright = contactData.acf.copyright;
+
+  console.log(contactData.acf.awards);
+  const awards = contactData.acf.awards.map((item, index) => {
+    return (
+      <Image
+        key={index}
+        src={item.awards_image.url}
+        alt={item.awards_image.alt}
+        width="90"
+        height="100"
+      />
+    );
+  });
   return (
     <>
       <MobileBottomNavigation
@@ -54,14 +67,20 @@ function Footer({ contactData }) {
 
           {/* fourth column  */}
           <div className="Newsletter-wrapper flex-auto xl:flex-auto">
-            <h4 className="column-title font-serif">Newsletter</h4>
-            <NewsletterForm
-              formName="Newsletter Form"
-              formType="newsletter-form"
-              emailRoute={"/api/newsletter-hubspot"}
-              emailTo="info@greatspicetauranga.co.nz"
-              btnLabel="Sign up"
-            />
+            <div className="newsletter-form-wrapper">
+              <h4 className="column-title font-serif">Newsletter</h4>
+              <NewsletterForm
+                formName="Newsletter Form"
+                formType="newsletter-form"
+                emailRoute={"/api/newsletter-hubspot"}
+                emailTo="info@greatspicetauranga.co.nz"
+                btnLabel="Sign up"
+              />
+            </div>
+            <div className="awards-wrapper mt-2">
+              <h4 className="column-title font-serif">Awards</h4>
+              <div className="flex gap-2 py-6">{awards}</div>
+            </div>
           </div>
         </div>
         <Copyright

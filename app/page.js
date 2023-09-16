@@ -1,5 +1,5 @@
 import HomePage from '@/components/homePage/homePage'
-import { getContactData, getHomeData, getAllMenus, getSpecials, getChefSpecials, getGuestReviews } from '@/utlis/fetchData'
+import { getContactData, getHomeData, getAllMenus, getSpecials, getChefSpecials, getGuestReviews, getPage, getEvents } from '@/utlis/fetchData'
 import Footer from '@/components/UI/Footer/Footer'
 import Header from '@/components/UI/Header/Header'
 
@@ -43,6 +43,8 @@ export default async function Home() {
   const specialsData = await getSpecials()
   const chefSpecialsData = await getChefSpecials()
   const guestReviewData = await getGuestReviews()
+  const cateringData = await getPage('catering')
+  const eventsData = await getEvents()
 
   return (
     <>
@@ -54,6 +56,8 @@ export default async function Home() {
           specialsData={specialsData[0]}
           chefSpecialsData={chefSpecialsData[0]}
           guestReviewData={guestReviewData[0]}
+          cateringData={cateringData[0]}
+          eventsData={eventsData[0]}
         />
       </main>
       <Footer contactData={contactData[0]} />

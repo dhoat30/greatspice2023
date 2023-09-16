@@ -97,12 +97,14 @@ function CarouselSection({
         </CardContent>
         <CardActions sx={{ flexWrap: "wrap" }}>
           {item.callToAction && (
-            <AnchorOutlinedButtonDark
-              href={item.callToAction.url}
-              align="right"
-            >
+            <AnchorButton href={item.callToAction.url} align="right">
               {item.callToAction.label}
-            </AnchorOutlinedButtonDark>
+            </AnchorButton>
+          )}
+          {item.callToAction2 && (
+            <AnchorLink href={item.callToAction2.url}>
+              {item.callToAction.label}
+            </AnchorLink>
           )}
         </CardActions>
       </Card>

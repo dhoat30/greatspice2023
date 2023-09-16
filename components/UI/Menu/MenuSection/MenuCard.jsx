@@ -23,6 +23,9 @@ const Container = styled.div`
   width: 33%;
   border-radius: 12px;
   height: 584px;
+  @media (max-width: 640px) {
+    height: 300px;
+  }
   position: relative;
   cursor: pointer;
   animation: moveUpDown 3s ease-in-out infinite;
