@@ -79,7 +79,7 @@ function HomePage({
         url: "/host-events/enquire",
       },
       callToAction2: {
-        label: item.call_to_action.label,
+        label: "View Menu",
         url: item.call_to_action.url,
       },
     };

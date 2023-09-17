@@ -16,7 +16,6 @@ export default function BlogArchive({
     desktopImage: contactData.acf.blog_page_hero_section.desktop_image,
     mobileImage: contactData.acf.blog_page_hero_section.mobile_image,
   };
-  console.log(blogData);
   //   blog data
   const blogDataArr = blogData.map((item) => {
     let excerpt;

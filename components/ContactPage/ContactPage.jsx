@@ -5,7 +5,6 @@ import GuestReviewSection from "../homePage/GuestReviewSection/GuestReviewSectio
 import styled from "styled-components";
 import MobileReviewSection from "../homePage/GuestReviewSection/MobileReviewSection";
 function ContactPage({ contactData, guestReviewData }) {
-  // console.log(contactData);
   const contactInfo = contactData.acf.contact_info;
   const openingHours = contactData.acf.opening_hours;
   const heroData = {
