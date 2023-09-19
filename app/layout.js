@@ -7,8 +7,7 @@ import StyledComponentsRegistry from "./registery";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Script from 'next/script'
-import Head from 'next/head'
-import { useRouter } from 'next/navigation';
+
 
 // fonts settings
 const neuton = Neuton({

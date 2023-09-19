@@ -38,6 +38,7 @@ function MobileCarouselSection({
   };
   // slider arrow functionality ends
   const cards = dataArray.map((item, index) => {
+    console.log(item);
     if (item.specialType === "dinnerSpecial: Dinner Special") {
       return;
     }
@@ -66,12 +67,14 @@ function MobileCarouselSection({
         </CardContent>
         <CardActions sx={{ flexWrap: "wrap" }}>
           {item.callToAction && (
-            <AnchorOutlinedButtonDark
-              href={item.callToAction.url}
-              align="right"
-            >
+            <AnchorButton href={item.callToAction.url} align="right">
               {item.callToAction.label}
-            </AnchorOutlinedButtonDark>
+            </AnchorButton>
+          )}
+          {item.callToAction2 && (
+            <AnchorLink href={item.callToAction2.url}>
+              {item.callToAction2.label}
+            </AnchorLink>
           )}
         </CardActions>
       </Card>

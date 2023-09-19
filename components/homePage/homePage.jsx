@@ -9,7 +9,7 @@ import MobileReviewSection from "./GuestReviewSection/MobileReviewSection";
 import USP from "../UI/USP/USP";
 // events carousel
 import EventsCarouselSection from "../HostEvents/CarouselSection/CarouselSection";
-import EventsMobileCarouselSection from "./CarouselSection/MobileCarouselSection";
+import EventsMobileCarouselSection from "../HostEvents/CarouselSection/MobileCarouselSection";
 
 function HomePage({
   homeData,
@@ -153,7 +153,7 @@ function HomePage({
         sectionTitle="Catering"
       />
 
-      <MobileCarouselSection
+      <EventsMobileCarouselSection
         dataArray={cateringDataArr}
         sectionSubtitle={cateringSectionSubtitle}
         sectionTitle="Catering"
@@ -164,7 +164,7 @@ function HomePage({
         sectionSubtitle={eventsSectionSubtitle}
         sectionTitle={eventsSectionTitle}
       />
-      <MobileCarouselSection
+      <EventsMobileCarouselSection
         dataArray={eventsDataArr}
         sectionSubtitle={eventsSectionSubtitle}
         sectionTitle={eventsSectionTitle}
