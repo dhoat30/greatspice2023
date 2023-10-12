@@ -64,7 +64,7 @@ function ContactForm({ title, subtitle, emailTo, formName, emailRoute }) {
             formName: formName
         }
         setIsLoading(true)
-
+console.log(formData)
         // send email 
         var config = {
             method: 'POST',

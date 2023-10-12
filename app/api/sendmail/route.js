@@ -1,5 +1,9 @@
-import sgMail from '@sendgrid/mail';
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+const API_KEY = process.env.MAILGUN_API_KEY; 
+const DOMAIN = 'sandboxddf1feb4a91c492fb633e4a349e5074d.mailgun.org';
+import formData from 'form-data';
+import Mailgun from 'mailgun.js';
+const mailgun = new Mailgun(formData);
+const client = mailgun.client({username: 'api', key: API_KEY});
 import { NextResponse } from 'next/server'
 
 export async function GET(req, res) {
@@ -9,53 +13,21 @@ export async function GET(req, res) {
 
 export async function POST(req, res) {
   const { emailTo, fromEmail, message, replyTo, formName, firstName } = await req.json();
-  var raw = JSON.stringify({
-    "personalizations": [
-      {
-        "to": [
-          {
-            "email": emailTo,
-            "name": "Contact Form"
-          }
-        ],
-        "subject": `${formName} Submission`
-      }
-    ],
-    "content": [
-      {
-        "type": "text/plain",
-        "value": message
-      }
-    ],
-    "from": {
-      "email": fromEmail,
-      "name": `Great Spice - ${formName} `
-    },
-    "reply_to": {
-      "email": replyTo,
-      "name": firstName
-    }
-  });
-
-  var requestOptions = {
-    method: 'POST',
-    headers: {
-      'Authorization': 'Bearer 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',
-      'Content-Type': 'application/json'
-    },
-    body: raw,
-    redirect: 'follow'
+  console.log(emailTo)
+  const messageData = {
+    from: replyTo,
+    to: emailTo,
+    subject: 'Form Submission',
+    text: message
   };
-
+  
 
   try {
-    let response = await fetch("https://api.sendgrid.com/v3/mail/send", requestOptions)
-
+    let response = await client.messages.create(DOMAIN, messageData)
 
     return NextResponse.json({ message: "This Worked", success: true, data: response });
   } catch (error) {
     console.error(error);
-
     return NextResponse.json({ message: error, success: false });
     // res.status(500).send('Error sending email');
 

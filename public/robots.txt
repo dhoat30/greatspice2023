@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: http://greatspicetauranga.co.nz
+Host: https://greatspicetauranga.co.nz
 
 # Sitemaps
-Sitemap: http://greatspicetauranga.co.nz/sitemap.xml
+Sitemap: https://greatspicetauranga.co.nz/sitemap.xml
