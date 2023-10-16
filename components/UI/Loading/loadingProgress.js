@@ -10,7 +10,10 @@ export default function Loading() {
         <div className="circle circle1"></div>
         <div className="circle circle2"></div>
         <div className="circle circle3"></div>
-        <Image src="/logo.png" alt="logo" width="200" height="150" />
+        <Image
+          quality={70}
+
+          src="/logo.png" alt="logo" width="200" height="150" />
       </div>
     </Container>
   );

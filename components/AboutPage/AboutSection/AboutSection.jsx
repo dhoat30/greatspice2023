@@ -19,6 +19,7 @@ export default function AboutSection({ aboutData }) {
             src={aboutData.image.url}
             alt={aboutData.image.alt ? aboutData.image.alt : aboutData.title}
             fill
+            quality={70}
           />
         </div>
       </div>

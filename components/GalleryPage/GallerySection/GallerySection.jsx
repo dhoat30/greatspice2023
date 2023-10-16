@@ -15,6 +15,7 @@ function GallerySection({ galleryData }) {
             src={image.url}
             alt={image.alt ? image.alt : image.title}
             fill
+            quality={70}
           />
         </div>
       );

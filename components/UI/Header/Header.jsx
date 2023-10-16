@@ -26,6 +26,7 @@ function Header({ contactData }) {
             width="148"
             height="56"
             alt="Great Spice Tauranga Logo"
+            quality={70}
           />
         </Link>
         <Navbar menuLinks={headerLinks} className="flex-1" />
@@ -51,6 +52,7 @@ function Header({ contactData }) {
           width="103"
           height="39"
           alt="Great Spice Tauranga Logo"
+          quality={70}
         />
       </div>
     </Container>

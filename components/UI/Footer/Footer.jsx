@@ -33,6 +33,8 @@ function Footer({ contactData }) {
         alt={item.awards_image.alt}
         width="90"
         height="100"
+        quality={70}
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
       />
     );
   });
@@ -47,7 +49,14 @@ function Footer({ contactData }) {
         <div className="footer-box md:pt-12 row-max flex gap-4 sm:gap-16 px-6 xl:px-12 flex-wrap justify-center">
           {/* logo wrapper  */}
           <div className="logo-wrapper">
-            <Image src={logo.url} alt={logo.alt} width="148" height="56" />
+            <Image
+              src={logo.url}
+              alt={logo.alt}
+              width="148"
+              height="56"
+              quality={70}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
           </div>
 
           {/* footer columns  */}

@@ -55,6 +55,8 @@ function GuestReviewSection({
               alt={item.image.alt ? item.image.alt : item.title}
               width="38"
               height="38"
+              quality={70}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </div>
           <div className="title-wrapper">
@@ -75,6 +77,8 @@ function GuestReviewSection({
             src="/google-review.png"
             width="97"
             height="30"
+            quality={70}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             alt="google review"
           />
         </div>
@@ -89,6 +93,8 @@ function GuestReviewSection({
             src={sectionImage.url}
             alt={sectionImage.alt ? sectionImage.alt : sectionTitle}
             fill
+            quality={70}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
       </div>

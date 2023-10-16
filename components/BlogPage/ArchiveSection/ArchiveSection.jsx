@@ -18,6 +18,7 @@ export default function ArchiveSection({ blogDataArr, className }) {
               src={item.desktopImage.url}
               alt={item.desktopImage.alt ? item.desktopImage.alt : item.title}
               fill
+              quality={70}
             />
           </div>
 

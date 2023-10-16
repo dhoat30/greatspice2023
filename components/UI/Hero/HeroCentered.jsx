@@ -19,6 +19,7 @@ function HeroCentered({ heroData }) {
                   : heroData.title
               }
               fill
+              quality={70}
               priority
             />
           )}
@@ -55,6 +56,7 @@ function HeroCentered({ heroData }) {
                 : heroData.title
             }
             fill
+            quality={70}
             priority
           />
         </div>

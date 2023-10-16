@@ -31,6 +31,7 @@ export default function GiftCard({ pageData }) {
                 : pageData.title.rendered
             }
             fill
+            quality={70}
           />
         </div>
       </ImageContainer>
@@ -45,6 +46,7 @@ export default function GiftCard({ pageData }) {
                 : restAssociationData.title
             }
             fill
+            quality={70}
           />
         </div>
       </ImageContainer>

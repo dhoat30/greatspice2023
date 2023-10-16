@@ -46,6 +46,8 @@ function MobileReviewSection({
               alt={item.image.alt ? item.image.alt : item.title}
               width="38"
               height="38"
+              quality={70}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </div>
           <div className="title-wrapper">
@@ -67,6 +69,8 @@ function MobileReviewSection({
             width="97"
             height="30"
             alt="google review"
+            quality={70}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
       </div>

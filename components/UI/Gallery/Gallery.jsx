@@ -39,7 +39,12 @@ export default function Gallery({ images, className }) {
             key={index}
             className="col-span-12 sm:col-span-6 md:col-span-12 lg:col-span-6 "
           >
-            <Image src={src.url} onClick={() => openLightbox(index)} fill />
+            <Image
+              src={src.url}
+              onClick={() => openLightbox(index)}
+              fill
+              quality={70}
+            />
           </ImageWrapper>
         ))}
       </GalleryContainer>
@@ -55,6 +60,7 @@ export default function Gallery({ images, className }) {
               alt="title"
               width={1000}
               height={500}
+              quality={70}
             />
           </LightBoxImageWrapper>
           <Arrow direction="right" onClick={(e) => nextImage(e)}>

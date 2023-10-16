@@ -52,7 +52,13 @@ function MobileCarouselSection({
         }}
       >
         <div className="card-image-wrapper">
-          <Image src={item.image.url} alt={item.image.alt} fill />
+          <Image
+            src={item.image.url}
+            alt={item.image.alt}
+            fill
+            quality={70}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
         </div>
 
         <CardContent>

@@ -8,7 +8,7 @@ function MenuCard({ image, title, url, className }) {
       <Link href={url}>
         <div className="overlay"></div>
         <div className="image-wrapper">
-          <Image src={image.url} alt={image.alt} fill />
+          <Image src={image.url} alt={image.alt} fill quality={70} />
         </div>
         <div className="title-wrapper">
           <h4 className="text-center font-serif">{title}</h4>

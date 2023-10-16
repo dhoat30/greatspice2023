@@ -25,12 +25,14 @@ function HeroSection({ contactInfo, heroData, openingHours }) {
             src={heroData.desktopImage.url}
             fill
             alt={heroData.desktopImage.alt}
+            quality={70}
           />
           <Image
             className="block lg:hidden"
             src={heroData.mobileImage.url}
             fill
             alt={heroData.mobileImage.alt}
+            quality={70}
           />
         </div>
       </div>

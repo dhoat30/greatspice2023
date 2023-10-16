@@ -15,6 +15,7 @@ function HeroVariant({ heroData }) {
             alt={heroData.desktopImage.alt}
             fill
             priority
+            quality={70}
           />
         </div>
         <div className="content-wrapper row-max ">
@@ -42,6 +43,7 @@ function HeroVariant({ heroData }) {
             alt={heroData.mobileImage.alt}
             fill
             priority
+            quality={70}
           />
         </div>
         {heroData.title && (

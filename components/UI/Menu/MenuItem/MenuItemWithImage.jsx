@@ -38,6 +38,7 @@ function MenuItemImage({
           src={dishImage.url}
           alt={dishImage.alt ? dishImage.alt : dishName}
           fill
+          quality={70}
         />
       </div>
       <div className="content-wrapper">
