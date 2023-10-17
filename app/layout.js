@@ -53,7 +53,7 @@ export default function RootLayout({ children }) {
         </Script> */}
 
         {/* google analytics */}
-        <Script id="google-analytics" strategy="lazyOnload" src="https://www.googletagmanager.com/gtag/js?id=G-816RB07L7N"> </Script>
+        {/* <Script id="google-analytics" strategy="lazyOnload" src="https://www.googletagmanager.com/gtag/js?id=G-816RB07L7N"> </Script>
         <Script id="google-analtyics-datalayer" strategy="lazyOnload">
           {`
          window.dataLayer = window.dataLayer || [];
@@ -62,9 +62,9 @@ export default function RootLayout({ children }) {
        
          gtag('config', 'G-816RB07L7N');
         `}
-        </Script>
+        </Script> */}
         {/* facebook pixels */}
-        <Script id="facebook-pixels" strategy="lazyOnload">
+        {/* <Script id="facebook-pixels" strategy="lazyOnload">
           {`
       !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
         n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
@@ -76,14 +76,14 @@ export default function RootLayout({ children }) {
         fbq('set','agent','tmgoogletagmanager', '390839792179259');
         fbq('track', "PageView");
         `}
-        </Script>
+        </Script> */}
       </head>
       <body >
-        <noscript
+        {/* <noscript
           dangerouslySetInnerHTML={{
             __html: `<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=390839792179259&ev=PageView&noscript=1" ></iframe>`,
           }}
-        />
+        /> */}
         <ThemeProvider theme={theme}>
           <StyledComponentsRegistry>
             {/* <Suspense fallback={<Loading />} /> */}
