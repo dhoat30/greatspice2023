@@ -32,8 +32,6 @@ export default function RootLayout({ children }) {
     "alternateName": "Great Spice",
     "url": "https://www.greatspicetauranga.co.nz"
   }
-  // get contact data using util function 
-  const gtmTagID = "GTM-5H7BDXH"
   return (
     <html lang="en" className={`${neuton.variable} ${work_sans.variable}`}>
       <head>
