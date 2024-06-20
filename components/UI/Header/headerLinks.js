@@ -28,7 +28,7 @@ export const headerLinks = [{
 
 {
     id: 5,
-    title: "Services",
+    title: "Catering",
     url: "/catering",
     subLinks: [
         { title: "Host Events", url: "/host-events", id: "host-events" },

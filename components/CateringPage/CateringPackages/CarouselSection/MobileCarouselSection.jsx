@@ -98,7 +98,7 @@ function MobileCarouselSection({
   var settings = {
     dots: true,
     arrows: false,
-    infinite: true,
+
     speed: 500,
     autoplaySpeed: 3000,
     slidesToShow: 2,
@@ -108,7 +108,7 @@ function MobileCarouselSection({
     centerMode: true,
     centerPadding: "40px",
     draggable: true,
-    infinite: true,
+    infinite: false,
     responsive: [
       {
         breakpoint: 1024,

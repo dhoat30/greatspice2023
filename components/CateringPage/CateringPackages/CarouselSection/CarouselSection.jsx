@@ -93,11 +93,11 @@ function CarouselSection({
     dots: true,
     arrows: false,
     speed: 500,
+    infinite: false,
     autoplaySpeed: 1500,
     slidesToShow: 3,
-    arrows: false,
     autoPlay: true,
-    centerMode: true,
+    centerMode: false,
     centerPadding: "40px",
     draggable: true,
     responsive: [

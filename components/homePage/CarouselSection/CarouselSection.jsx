@@ -16,7 +16,7 @@ import CarouselArrows from "@/components/UI/CarouselArrows/CarouselArrows";
 var settings = {
   dots: true,
   arrows: false,
-  infinite: true,
+  infinite: false,
   speed: 500,
 
   slidesToShow: 3,

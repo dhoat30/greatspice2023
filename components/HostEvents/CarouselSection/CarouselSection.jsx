@@ -19,7 +19,7 @@ import CarouselArrows from "@/components/UI/CarouselArrows/CarouselArrows";
 var settings = {
   dots: true,
   arrows: false,
-  infinite: true,
+
   speed: 500,
   autoplaySpeed: 3000,
   slidesToShow: 3,
@@ -29,7 +29,7 @@ var settings = {
   centerMode: true,
   centerPadding: "40px",
   draggable: true,
-  infinite: true,
+  infinite: false,
   responsive: [
     {
       breakpoint: 1024,
