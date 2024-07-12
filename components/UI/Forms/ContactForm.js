@@ -64,7 +64,7 @@ function ContactForm({ title, subtitle, emailTo, formName, emailRoute }) {
             formName: formName
         }
         setIsLoading(true)
-console.log(formData)
+
         // send email 
         var config = {
             method: 'POST',
@@ -104,6 +104,16 @@ console.log(formData)
                     setFirstNameTouched(false)
                     setLastNameTouched(false)
                     setEmailAddressTouched(false)
+                    // Send an event to GA4 manually
+                    if (typeof window !== 'undefined') {
+                        window.dataLayer = window.dataLayer || [];
+                        window.dataLayer.push({
+                            'event': 'form_submission', // The custom event name you configured in GTM
+                            'event_category': 'form_submit',
+                            'event_label': 'Contact Form Submitted',
+                            "ga4_event": "contact_us_form_submission",
+                        });
+                    }
 
                 }
                 else {
