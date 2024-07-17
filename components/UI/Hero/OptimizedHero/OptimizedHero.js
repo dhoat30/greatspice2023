@@ -19,7 +19,7 @@ export default async function OptimizedHero({ slug }) {
         <>
             <section className={`${styles.heroSection}`} >
                 {heroData.desktopImage && <Suspense fallback={<Skeleton
-                    variant="dark"
+
                     height={`${(heroData.desktopImage.height / heroData.desktopImage.width) * 100
                         }%`} />}>
                     <HeroImage slug={slug} />
