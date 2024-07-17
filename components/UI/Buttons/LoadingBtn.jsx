@@ -29,9 +29,9 @@ function LoadingBtn({
 
 export default LoadingBtn;
 const LoadingButtonStyle = styled(LoadingButton)`
-  background: var(--material-theme-sys-dark-primary, #e7c446) !important;
+  background: var(--dark-primary, #e7c446) !important;
   border-radius: 100px;
-  color: var(--material-theme-sys-dark-on-primary, #3c2f00);
+  color: var(--dark-on-primary, #3c2f00);
   margin: ${(props) => (props.align === "right" ? "0 0 0 auto" : "0")};
   display: block;
   .MuiLoadingButton-loadingIndicator {

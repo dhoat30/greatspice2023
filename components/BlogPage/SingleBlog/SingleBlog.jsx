@@ -48,17 +48,17 @@ const Container = styled.section`
     gap: 16px;
     span {
       font-size: var(--material-theme--title--medium);
-      color: var(--material-theme-sys-light-outline, #7d7767);
+      color: var(--light-outline, #7d7767);
     }
     &:hover {
       path {
          {
-          fill: var(--material-theme-sys-light-on-surface-variant, #4c4639);
+          fill: var(--light-on-surface-variant, #4c4639);
         }
       }
 
       span {
-        color: var(--material-theme-sys-light-on-surface-variant, #4c4639);
+        color: var(--light-on-surface-variant, #4c4639);
       }
     }
 
@@ -68,11 +68,11 @@ const Container = styled.section`
     max-width: 800px;
     margin: 0 auto;
     .date {
-      color: var(--material-theme-sys-light-on-surface-variant, #4c4639);
+      color: var(--light-on-surface-variant, #4c4639);
       font-size: var(--material-theme--body--medium);
     }
     .blog-title {
-      color: var(--material-theme-sys-light-on-surface, #1d1b16);
+      color: var(--light-on-surface, #1d1b16);
       font-size: var(--material-theme--display--large);
       letter-spacing: 2px;
       line-height: 4rem;
@@ -80,20 +80,20 @@ const Container = styled.section`
     }
     p {
       font-size: var(--material-theme--body--large);
-      color: var(--material-theme-sys-light-on-surface-variant, #4c4639);
+      color: var(--light-on-surface-variant, #4c4639);
       font-weight: 400;
       line-height: 1.7rem; /* 150% */
       margin: 16px 0;
     }
     h2 {
-      color: var(--material-theme-sys-light-on-surface, #1d1b16);
+      color: var(--light-on-surface, #1d1b16);
       font-size: var(--material-theme--headline--large);
       letter-spacing: 2px;
       font-weight: 500;
       font-family: var(--font-neuton), serif;
     }
     h3 {
-      color: var(--material-theme-sys-light-on-surface, #1d1b16);
+      color: var(--light-on-surface, #1d1b16);
       font-size: var(--material-theme--headline--medium);
       letter-spacing: 2px;
       font-weight: 500;

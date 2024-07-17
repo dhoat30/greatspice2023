@@ -60,7 +60,7 @@ const Container = styled.section`
       .title-wrapper {
       }
       .description {
-        color: var(--material-theme-sys-light-on-surface-variant, #4c4639);
+        color: var(--light-on-surface-variant, #4c4639);
         font-size: var(--material-theme--body--large);
         p {
           margin: 16px 0;

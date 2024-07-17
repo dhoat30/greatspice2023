@@ -30,7 +30,7 @@ function TextHero({ title, subtitle, buttonArray }) {
 
 export default TextHero;
 const Container = styled.section`
-  color: var(--material-theme-sys-light-on-surface-variant, #4c4639);
+  color: var(--light-on-surface-variant, #4c4639);
   text-align: center;
   .content-wrapper {
     h2 {

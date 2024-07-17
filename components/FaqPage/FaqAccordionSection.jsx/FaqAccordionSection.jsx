@@ -16,9 +16,9 @@ const Container = styled.section`
   max-width: 900px;
   border-radius: 8px;
   margin: 80px auto 0 auto;
-  background: var(--material-theme-sys-light-surface-container-low, #f9f3ea);
+  background: var(--light-surface-container-low, #f9f3ea);
   .section-title {
-    color: var(--material-theme-sys-light-on-surface-variant, #4c4639);
+    color: var(--light-on-surface-variant, #4c4639);
     text-align: center;
     /* material-theme/display/small */
     font-size: var(--material-theme--display--small);

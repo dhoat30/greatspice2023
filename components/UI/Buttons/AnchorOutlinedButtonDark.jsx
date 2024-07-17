@@ -11,14 +11,14 @@ function AnchorOutlinedButtonDark({ href, children, align }) {
 
 export default AnchorOutlinedButtonDark;
 const LinkStyle = styled(Link)`
-  border: 1px solid var(--material-theme-sys-light-outline, #7d7767);
+  border: 1px solid var(--light-outline, #7d7767);
   border-radius: 100px;
   padding: 10px 24px;
-  color: var(--material-theme-sys-light-primary, #725c00);
+  color: var(--light-primary, #725c00);
   margin: ${(props) => (props.align === "right" ? "0 0 0 auto" : "0")};
 
   &:hover {
-    background: var(--material-theme-sys-dark-primary, #e7c446);
-    color: var(--material-theme-sys-dark-on-primary, #3c2f00);
+    background: var(--dark-primary, #e7c446);
+    color: var(--dark-on-primary, #3c2f00);
   }
 `;

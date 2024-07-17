@@ -16,7 +16,6 @@ import CarouselArrows from "@/components/UI/CarouselArrows/CarouselArrows";
 var settings = {
   dots: true,
   arrows: false,
-  infinite: false,
   speed: 500,
 
   slidesToShow: 3,
@@ -73,7 +72,7 @@ function CarouselSection({
         sx={{
           maxWidth: "90%",
           borderRadius: "12px",
-          border: "1px solid var(--material-theme-sys-light-outline, #7D7767)",
+          border: "1px solid var(--light-outline, #7D7767)",
         }}
       >
         <div className="card-image-wrapper">
@@ -139,7 +138,7 @@ function CarouselSection({
 
 export default CarouselSection;
 const Container = styled.section`
-  background: var(--material-theme-sys-light-surface-container-low, #f9f3ea);
+  background: var(--light-surface-container-low, #f9f3ea);
   .wrapper {
     .content-wrapper {
       display: flex;
@@ -147,7 +146,7 @@ const Container = styled.section`
       align-items: flex-end;
 
       h3 {
-        color: var(--material-theme-sys-light-on-surface-variant, #4c4639);
+        color: var(--light-on-surface-variant, #4c4639);
         font-size: var(--desktop-display);
         font-weight: 300;
         letter-spacing: 2px;
@@ -157,7 +156,7 @@ const Container = styled.section`
         width: 35%;
         h4,
         h6 {
-          color: var(--material-theme-sys-light-on-surface-variant, #4c4639);
+          color: var(--light-on-surface-variant, #4c4639);
         }
         h4 {
           font-size: var(--material-theme--body--large);

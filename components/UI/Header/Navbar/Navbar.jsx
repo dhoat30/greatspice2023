@@ -112,7 +112,7 @@ const ListContainer = styled.ul`
   display: flex;
   li {
     .MuiPaper-root {
-      background: var(--material-theme--surfaces--dark--surface3) !important;
+      background: var(--material-theme--surfaces--dark-surface3) !important;
     }
   } */
 `;

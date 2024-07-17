@@ -227,7 +227,7 @@ function ContactForm({ title, subtitle, emailTo, formName, emailRoute }) {
 export default ContactForm
 const Container = styled.div`
     .title{ 
-        color: var(--material-theme-sys-light-on-surface-variant, #4C4639);
+        color: var(--light-on-surface-variant, #4C4639);
         font-weight: 400;
         letter-spacing: 2px; 
         font-size: var(--material-theme--display--large);

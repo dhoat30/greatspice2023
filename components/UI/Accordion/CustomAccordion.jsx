@@ -55,8 +55,7 @@ export default function CustomAccordion({ qaData }) {
     return (
       <Accordion
         sx={{
-          background:
-            "background: var(--material-theme-sys-light-surface-container-low, #F9F3EA)",
+          background: "background: var(--light-surface-container-low, #F9F3EA)",
         }}
         key={index}
         expanded={expanded === accordionPanel}

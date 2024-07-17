@@ -2,6 +2,7 @@ import HomePage from '@/components/homePage/homePage'
 import { getContactData, getHomeData, getAllMenus, getSpecials, getChefSpecials, getGuestReviews, getPage, getEvents } from '@/utlis/fetchData'
 import Footer from '@/components/UI/Footer/Footer'
 import Header from '@/components/UI/Header/Header'
+import OptimizedHero from '@/components/UI/Hero/OptimizedHero/OptimizedHero'
 
 
 
@@ -50,6 +51,7 @@ export default async function Home() {
     <>
       <Header contactData={contactData[0]} />
       <main >
+        <OptimizedHero slug="home" />
         <HomePage
           homeData={homeData[0]}
           menuData={menuData}

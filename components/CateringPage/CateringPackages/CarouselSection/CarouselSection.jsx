@@ -42,7 +42,7 @@ function CarouselSection({
           position: "relative",
           maxWidth: "90%",
           borderRadius: "12px",
-          border: "1px solid var(--material-theme-sys-light-outline, #7D7767) ",
+          border: "1px solid var(--light-outline, #7D7767) ",
         }}
       >
         <PackageWrapper
@@ -57,8 +57,7 @@ function CarouselSection({
             variant="h5"
             component="div"
             sx={{
-              color:
-                "color: var(--material-theme-sys-light-on-surface-variant, #4C4639)",
+              color: "color: var(--light-on-surface-variant, #4C4639)",
               fontWeight: "400",
               marginBottom: 0,
             }}
@@ -94,6 +93,7 @@ function CarouselSection({
     arrows: false,
     speed: 500,
     infinite: false,
+    loop: true,
     autoplaySpeed: 1500,
     slidesToShow: 3,
     autoPlay: true,
@@ -140,7 +140,7 @@ function CarouselSection({
 
 export default CarouselSection;
 const Container = styled.section`
-  background: var(--material-theme-sys-light-surface-container-low, #f9f3ea);
+  background: var(--light-surface-container-low, #f9f3ea);
   .wrapper {
     .content-wrapper {
       display: flex;
@@ -148,7 +148,7 @@ const Container = styled.section`
       align-items: flex-end;
 
       h3 {
-        color: var(--material-theme-sys-light-on-surface-variant, #4c4639);
+        color: var(--light-on-surface-variant, #4c4639);
         font-size: var(--desktop-display);
         font-weight: 300;
         letter-spacing: 2px;
@@ -158,7 +158,7 @@ const Container = styled.section`
         width: 35%;
         h4,
         h6 {
-          color: var(--material-theme-sys-light-on-surface-variant, #4c4639);
+          color: var(--light-on-surface-variant, #4c4639);
         }
         h4 {
           font-size: var(--material-theme--body--large);
@@ -191,7 +191,7 @@ const Container = styled.section`
               h4 {
                 flex: initial;
 
-                color: var(--material-theme-sys-light-on-surface, #1d1b16);
+                color: var(--light-on-surface, #1d1b16);
                 font-weight: 500;
                 font-size: var(--material-theme--body--large);
                 line-height: 1rem;
@@ -199,7 +199,7 @@ const Container = styled.section`
               h5 {
                 flex: initial;
 
-                color: var(--material-theme-sys-light-on-surface, #1d1b16);
+                color: var(--light-on-surface, #1d1b16);
                 font-weight: 400;
                 font-size: var(--material-theme--body--large);
                 line-height: 1rem;

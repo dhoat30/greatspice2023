@@ -46,7 +46,7 @@ function GallerySection({ galleryData }) {
 export default GallerySection;
 
 const Container = styled.section`
-  background: var(--material-theme-sys-light-surface-container-low, #f9f3ea);
+  background: var(--light-surface-container-low, #f9f3ea);
 
   .wrapper {
     .content-wrapper {
@@ -55,7 +55,7 @@ const Container = styled.section`
       align-items: flex-end;
 
       h3 {
-        color: var(--material-theme-sys-light-on-surface-variant, #4c4639);
+        color: var(--light-on-surface-variant, #4c4639);
         font-size: var(--desktop-display);
         font-weight: 300;
         letter-spacing: 2px;
@@ -65,7 +65,7 @@ const Container = styled.section`
         width: 35%;
         h4,
         h6 {
-          color: var(--material-theme-sys-light-on-surface-variant, #4c4639);
+          color: var(--light-on-surface-variant, #4c4639);
         }
         h4 {
           font-size: var(--material-theme--body--large);

@@ -3,9 +3,9 @@ import styled from "@emotion/styled";
 import Link from "next/link";
 import { useRouter, useParams } from "next/navigation";
 const active = {
-  color: "var(--material-theme-sys-light-on-surface, #1d1b16)",
+  color: "var(--light-on-surface, #1d1b16)",
   fontWeight: "500",
-  borderLeft: "2px solid var(--material-theme-sys-light-on-surface, #1d1b16)",
+  borderLeft: "2px solid var(--light-on-surface, #1d1b16)",
 };
 function CategoryFilters({ filterArray }) {
   const router = useRouter();
@@ -45,25 +45,23 @@ const Container = styled.section`
     top: -40px;
     li {
       .active {
-        color: var(--material-theme-sys-light-on-surface, #1d1b16);
+        color: var(--light-on-surface, #1d1b16);
         font-weight: 500;
 
-        border-left: 2px solid
-          var(--material-theme-sys-light-on-surface, #1d1b16);
+        border-left: 2px solid var(--light-on-surface, #1d1b16);
       }
       a {
-        color: var(--material-theme-sys-light-on-surface-variant, #4c4639);
+        color: var(--light-on-surface-variant, #4c4639);
         font-weight: 400;
         display: block;
         margin: 8px 0;
         padding: 4px 8px;
         font-size: var(--material-theme--body--large);
         &:hover {
-          color: var(--material-theme-sys-light-on-surface, #1d1b16);
+          color: var(--light-on-surface, #1d1b16);
           font-weight: 500;
 
-          border-left: 2px solid
-            var(--material-theme-sys-light-on-surface, #1d1b16);
+          border-left: 2px solid var(--light-on-surface, #1d1b16);
         }
       }
     }

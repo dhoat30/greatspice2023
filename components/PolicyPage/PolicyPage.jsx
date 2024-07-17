@@ -35,7 +35,7 @@ const Container = styled.section`
   li {
     line-height: 1.8rem;
     margin-top: 8px;
-    color: var(--material-theme-sys-light-on-surface-variant, #4c4639);
+    color: var(--light-on-surface-variant, #4c4639);
   }
   strong {
     font-weight: 600;

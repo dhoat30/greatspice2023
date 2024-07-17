@@ -88,7 +88,7 @@ function NewsletterForm({ emailTo, formName, emailRoute, btnLabel }) {
 
                 <TextFieldStyle
                     sx={{
-                        background: "var(--material-theme-sys-dark-surface-variant, #4C4639)", marginBottom: "16px", borderBottom: "1px solid #CBC6BD",
+                        background: "var(--dark-surface-variant, #4C4639)", marginBottom: "16px", borderBottom: "1px solid #CBC6BD",
                         color: "white"
                     }}
                     onChange={(e) => setEmailAddress(e.target.value)}
@@ -120,7 +120,7 @@ function NewsletterForm({ emailTo, formName, emailRoute, btnLabel }) {
 export default NewsletterForm
 const Container = styled.div`
     .title{ 
-        color: var(--material-theme-sys-light-on-surface-variant, #4C4639);
+        color: var(--light-on-surface-variant, #4C4639);
         font-weight: 400;
         letter-spacing: 2px; 
         font-size: var(--material-theme--display--large);
@@ -138,7 +138,7 @@ const LoadingBtnStyle = styled(LoadingBtn)`
 `
 const TextFieldStyle = styled(TextField)`
 label { 
-    color: var(--material-theme-sys-dark-on-surface-variant, #CEC6B4);
+    color: var(--dark-on-surface-variant, #CEC6B4);
 
 }
 `

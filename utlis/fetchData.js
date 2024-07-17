@@ -1,3 +1,13 @@
+// get page data
+export const getPageData = async (slug) => {
+    let response = await fetch(`${process.env.url}/wp-json/wp/v2/pages?slug=${slug}&acf_format=standard`, {
+        next: { revalidate: 60 },
+    });
+    let data = await response.json();
+    return data
+}
+
+
 export const getContactData = async () => {
     let contactInfoData = await fetch(`${process.env.url}/wp-json/wp/v2/pages?slug=contact-us&acf_format=standard`, {
         next: { revalidate: 60 },

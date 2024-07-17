@@ -49,7 +49,7 @@ export default function BlogCategoriesFilter({
         label={item.title}
         sx={{
           borderBottom: "4px solid #E7E2D9; ",
-          color: "var(--material-theme-sys-light-on-surface-variant, #4C4639)",
+          color: "var(--light-on-surface-variant, #4C4639)",
         }}
         key={item.id}
         value={item.id}
@@ -66,8 +66,7 @@ export default function BlogCategoriesFilter({
           sx={{
             borderRadius: "8px",
             padding: "16px",
-            border:
-              "1px solid var(--material-theme-sys-light-outline, #7D7767);",
+            border: "1px solid var(--light-outline, #7D7767);",
           }}
         >
           <h3>Category Filter</h3>
@@ -102,8 +101,7 @@ export default function BlogCategoriesFilter({
               label="All"
               sx={{
                 borderBottom: "4px solid #E7E2D9; ",
-                color:
-                  "var(--material-theme-sys-light-on-surface-variant, #4C4639)",
+                color: "var(--light-on-surface-variant, #4C4639)",
               }}
               value="All"
             >
@@ -124,7 +122,7 @@ const Container = styled.section`
     top: 24px;
 
     h3 {
-      color: var(--material-theme-sys-light-on-surface-variant, #4c4639);
+      color: var(--light-on-surface-variant, #4c4639);
       font-weight: 500;
 
       font-size: var(--material-theme--title--medium);
@@ -132,36 +130,31 @@ const Container = styled.section`
     .category-list {
       li {
         font-size: var(--material-theme--label--large);
-        color: var(--material-theme-sys-light-on-surface-variant, #4c4639);
+        color: var(--light-on-surface-variant, #4c4639);
         font-weight: 400;
         cursor: pointer;
 
         &:hover {
-          color: var(--material-theme-sys-light-on-surface, #1d1b16);
+          color: var(--light-on-surface, #1d1b16);
           font-weight: 500;
 
-          border-left: 2px solid
-            var(--material-theme-sys-light-on-surface, #1d1b16);
+          border-left: 2px solid var(--light-on-surface, #1d1b16);
         }
       }
     }
   }
   .mobile-category-wrapper {
-    background: var(
-      --material-theme-sys-light-surface-container-lowest,
-      #fffffc
-    );
+    background: var(--light-surface-container-lowest, #fffffc);
 
     .Mui-selected {
-      color: var(--material-theme-sys-light-on-surface-variant, #4c4639);
-      border-bottom: 2px solid var(--material-theme-sys-light-outline, #7d7767);
+      color: var(--light-on-surface-variant, #4c4639);
+      border-bottom: 2px solid var(--light-outline, #7d7767);
     }
     .MuiTabs-indicator {
-      border-bottom: 4px solid var(--material-theme-sys-light-outline, #7d7767);
+      border-bottom: 4px solid var(--light-outline, #7d7767);
     }
     .MuiButtonBase-root {
-      border-bottom: 4px solid
-        var(--material-theme-sys-light-outline-variant, #cec6b4);
+      border-bottom: 4px solid var(--light-outline-variant, #cec6b4);
     }
   }
   @media (max-width: 768px) {
@@ -171,9 +164,6 @@ const Container = styled.section`
     left: -8px;
     z-index: 10;
     top: -60px;
-    background: var(
-      --material-theme-sys-light-surface-container-lowest,
-      #fffffc
-    );
+    background: var(--light-surface-container-lowest, #fffffc);
   }
 `;

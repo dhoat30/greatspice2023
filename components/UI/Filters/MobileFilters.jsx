@@ -39,7 +39,7 @@ export default function MobileFilters({ filterArray }) {
         label={category.label}
         sx={{
           borderBottom: "4px solid #E7E2D9; ",
-          color: "var(--material-theme-sys-light-on-surface-variant, #4C4639)",
+          color: "var(--light-on-surface-variant, #4C4639)",
         }}
         key={index}
         value={categoryValue}
@@ -72,12 +72,12 @@ const Container = styled.section`
   position: absolute;
   left: 0;
   z-index: 10;
-  background: var(--material-theme-sys-light-surface-container-lowest, #fffffc);
+  background: var(--light-surface-container-lowest, #fffffc);
   .Mui-selected {
-    color: var(--material-theme-sys-light-on-surface-variant, #4c4639);
-    border-bottom: 2px solid var(--material-theme-sys-light-outline, #7d7767);
+    color: var(--light-on-surface-variant, #4c4639);
+    border-bottom: 2px solid var(--light-outline, #7d7767);
   }
   .MuiTabs-indicator {
-    border-bottom: 4px solid var(--material-theme-sys-light-outline, #7d7767);
+    border-bottom: 4px solid var(--light-outline, #7d7767);
   }
 `;

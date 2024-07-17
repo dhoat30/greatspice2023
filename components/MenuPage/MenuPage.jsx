@@ -37,8 +37,7 @@ function MenuPage({ singleMenuData, orderOnlineLink }) {
       />
       <div
         style={{
-          background:
-            "var(--material-theme-sys-light-surface-container-low, #F9F3EA)",
+          background: "var(--light-surface-container-low, #F9F3EA)",
         }}
       >
         <div className="row-max  gap-x-24 md:flex  ">

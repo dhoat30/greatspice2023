@@ -12,11 +12,11 @@ function Slogan({ content }) {
 export default Slogan;
 const Container = styled.div`
   text-align: center;
-  color: var(--material-theme-sys-light-outline, #7d7767);
+  color: var(--light-outline, #7d7767);
   font-weight: 400;
   font-size: var(--material-theme--display--small);
   strong {
-    color: var(--material-theme-sys-light-on-surface-variant, #4c4639);
+    color: var(--light-on-surface-variant, #4c4639);
   }
   @media (max-width: 640px) {
     font-size: var(--material-theme--headline--medium);

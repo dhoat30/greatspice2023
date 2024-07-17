@@ -145,7 +145,7 @@ const Container = styled.section`
 
   .desktop-wrapper {
     h3 {
-      color: var(--material-theme-sys-light-surface-container-lowest, #fffffc);
+      color: var(--light-surface-container-lowest, #fffffc);
       text-align: center;
       /* big title */
       font-size: var(--big-title);
@@ -176,10 +176,7 @@ const Container = styled.section`
             margin-left: 8px;
             h4 {
               font-size: var(--material-theme--title--medium);
-              color: var(
-                --material-theme-sys-light-on-surface-variant,
-                #4c4639
-              );
+              color: var(--light-on-surface-variant, #4c4639);
               font-weight: 500;
               line-height: 0;
             }
@@ -190,7 +187,7 @@ const Container = styled.section`
           }
         }
         .review-text-wrapper {
-          color: var(--material-theme-sys-light-on-surface-variant, #4c4639);
+          color: var(--light-on-surface-variant, #4c4639);
           font-weight: 400;
           font-size: var(--material-theme--body--large);
           font-style: italic;

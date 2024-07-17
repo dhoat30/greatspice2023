@@ -32,7 +32,7 @@ const Container = styled.section`
 
   .circle {
     position: absolute;
-    border: 8px solid var(--material-theme-sys-light-outline, #7d7767);
+    border: 8px solid var(--light-outline, #7d7767);
     border-radius: 50%;
     animation: expand 3s infinite ease-in-out;
   }

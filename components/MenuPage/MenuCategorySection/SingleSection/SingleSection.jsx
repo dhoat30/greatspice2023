@@ -72,7 +72,7 @@ export default SingleSection;
 const Container = styled.div`
   .title-wrapper {
     .section-title {
-      color: var(--material-theme-sys-light-on-surface-variant, #4c4639);
+      color: var(--light-on-surface-variant, #4c4639);
       font-size: var(--material-theme--display--large);
       font-weight: 400;
       letter-spacing: 3px;

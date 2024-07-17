@@ -31,7 +31,7 @@ export default function Copyright({
   );
 }
 const Container = styled.div`
-  color: var(--material-theme-sys-dark-on-surface, #cbc6bd);
+  color: var(--dark-on-surface, #cbc6bd);
   font-weight: 300;
   font-size: var(--material-theme--body--large);
 `;

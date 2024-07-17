@@ -41,7 +41,7 @@ export default function USP({ className }) {
   );
 }
 const Container = styled.section`
-  background: var(--material-theme-sys-light-surface-container-low, #f9f3ea);
+  background: var(--light-surface-container-low, #f9f3ea);
 
   svg {
     margin: 0 auto;

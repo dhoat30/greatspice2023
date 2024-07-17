@@ -80,12 +80,12 @@ const Container = styled.li`
       width: 16px;
       height: 16px;
       path {
-        fill: var(--material-theme-sys-light-on-surface-variant, #4c4639);
+        fill: var(--light-on-surface-variant, #4c4639);
       }
     }
     .dish-name-wrapper {
       .dish-name {
-        color: var(--material-theme-sys-light-on-surface, #1d1b16);
+        color: var(--light-on-surface, #1d1b16);
         font-weight: 500;
         font-size: var(--material-theme--body--large);
         line-height: 1rem;
@@ -93,7 +93,7 @@ const Container = styled.li`
       }
     }
     .dish-price {
-      color: var(--material-theme-sys-light-on-surface, #1d1b16);
+      color: var(--light-on-surface, #1d1b16);
       font-weight: 400;
       font-size: var(--material-theme--body--large);
       line-height: 1rem;
@@ -105,7 +105,7 @@ const Container = styled.li`
   .dish-description {
     font-size: var(--material-theme--label--large);
     font-weight: 400;
-    color: var(--material-theme-sys-light-on-surface-variant, #4c4639);
+    color: var(--light-on-surface-variant, #4c4639);
   }
   .content-wrapper {
     background: var(--material-theme-white, #fff);

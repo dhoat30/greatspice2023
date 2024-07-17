@@ -117,7 +117,7 @@ function HomePage({
 
   return (
     <>
-      <Hero heroData={heroData} className="md:mb-14 lg:mb-0" />
+      {/* <Hero heroData={heroData} className="md:mb-14 lg:mb-0" /> */}
       <USP />
       <MenuSection menuData={menuDataArr} />
       {/* great specials sectoins  */}

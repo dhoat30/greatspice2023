@@ -29,7 +29,7 @@ export default MenuSection;
 const Container = styled.section`
   .desktop-wrapper {
     h3 {
-      color: var(--material-theme-sys-light-surface-container-lowest, #fffffc);
+      color: var(--light-surface-container-lowest, #fffffc);
       text-align: center;
       /* big title */
       font-size: var(--big-title);
@@ -39,7 +39,7 @@ const Container = styled.section`
       letter-spacing: 2px;
       @media (max-width: 1024px) {
         font-size: var(--material-theme--display--large);
-        color: var(--material-theme--sys--light--on-surface-variant);
+        color: var(--light-on-surface-variant);
         line-height: 3.5rem;
       }
     }

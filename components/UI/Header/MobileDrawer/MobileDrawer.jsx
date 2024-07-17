@@ -110,8 +110,7 @@ export default function MobileDrawer({ menuLinks }) {
             "& .MuiDrawer-paper": {
               width: drawerWidth,
               boxSizing: "border-box",
-              backgroundColor:
-                "var(--material-theme-sys-dark-primary, #E7C446)",
+              backgroundColor: "var(--dark-primary, #E7C446)",
             },
           }}
           anchor="left"
@@ -156,7 +155,7 @@ const ListContainer = styleds.ul`
             }
         }
         .dropdown{ 
-          background: var(--material-theme-sys-dark-primary, #d6b335);
+          background: var(--dark-primary, #d6b335);
                 .dropdown-link{ 
                     padding: 16px 28px ;
                 }

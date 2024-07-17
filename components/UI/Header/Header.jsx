@@ -41,7 +41,7 @@ function Header({ contactData }) {
           variant="h6"
           sx={{
             color:
-              "var(--material-theme-sys-light-inverse-on-surface, #F6F0E7)",
+              "var(--light-inverse-on-surface, #F6F0E7)",
           }}
           className="flex-1 text-center"
         >
@@ -61,7 +61,7 @@ function Header({ contactData }) {
 
 export default Header;
 const Container = styled.header`
-  background-color: var(--material-theme--surfaces--dark--surface3);
+  background-color: var(--dark-surface-container);
   padding: 4px 0;
   .desktop-header {
     @media (max-width: 1024px) {
@@ -69,7 +69,7 @@ const Container = styled.header`
     }
   }
   .mobile-header {
-    background-color: var(--material-theme--surfaces--dark--surface3);
+    background-color: var(--dark-surface-container);
     position: fixed;
     left: -8px;
     top: 0;

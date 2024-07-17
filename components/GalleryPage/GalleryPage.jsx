@@ -52,6 +52,6 @@ export default GalleryPage;
 
 const Container = styled.section`
   .gallery-section {
-    background-color: var(--material-theme--sys--light--surface-container-low);
+    background-color: var(--light-surface-container-low);
   }
 `;

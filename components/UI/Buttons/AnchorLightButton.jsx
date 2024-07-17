@@ -19,7 +19,7 @@ const LinkStyle = styled(Link)`
 
   border-radius: 100px;
   padding: 10px 24px;
-  color: var(--material-theme-sys-light-primary, #725c00);
+  color: var(--light-primary, #725c00);
   &:hover {
     background: var(
       --material-theme-surfaces-light-surface-5,

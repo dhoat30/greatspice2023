@@ -98,8 +98,7 @@ function Footer({ contactData }) {
         />
         <Fab
           sx={{
-            backgroundColor:
-              "var(--material-theme--sys--light--inverse-primary) !important",
+            backgroundColor: "var(--light-inverse-primary) !important",
           }}
           className="phone-fab"
           color="secondary"
@@ -129,13 +128,13 @@ const FooterContainer = styled.footer`
   background: #2c2614;
   .footer-box {
     .column-title {
-      color: var(--material-theme-sys-dark-on-surface-variant, #cec6b4);
+      color: var(--dark-on-surface-variant, #cec6b4);
       font-weight: 300;
       letter-spacing: 2px;
       font-size: var(--material-theme--headline--medium);
     }
     position: relative;
-    border: 1px solid var(--material-theme-sys-light-outline, #7d7767);
+    border: 1px solid var(--light-outline, #7d7767);
     .logo-wrapper {
       background-color: #2c2614;
       position: absolute;
@@ -149,13 +148,13 @@ const FooterContainer = styled.footer`
         font-size: var(--material-theme--body--large);
         letter-spacing: 1px;
         font-weight: 300;
-        color: var(--material-theme-sys-dark-on-surface-variant, #cec6b4);
+        color: var(--dark-on-surface-variant, #cec6b4);
         cursor: pointer;
         svg {
           width: 30px;
           height: 30px;
           path {
-            fill: var(--material-theme-sys-dark-on-surface-variant, #cec6b4);
+            fill: var(--dark-on-surface-variant, #cec6b4);
           }
         }
         &:hover {
@@ -179,15 +178,15 @@ const FooterContainer = styled.footer`
         font-size: var(--material-theme--body--large);
         letter-spacing: 1px;
         font-weight: 300;
-        color: var(--material-theme-sys-dark-on-surface-variant, #cec6b4);
+        color: var(--dark-on-surface-variant, #cec6b4);
         margin-top: 4px;
       }
       svg {
         path {
-          fill: var(--material-theme-sys-dark-on-surface-variant, #cec6b4);
+          fill: var(--dark-on-surface-variant, #cec6b4);
         }
         circle {
-          stroke: var(--material-theme-sys-dark-on-surface-variant, #cec6b4);
+          stroke: var(--dark-on-surface-variant, #cec6b4);
         }
         &:hover {
           path {

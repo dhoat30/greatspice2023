@@ -69,10 +69,10 @@ const Container = styled.div`
   z-index: 110;
   svg {
     path {
-      fill: var(--material-theme-sys-dark-on-primary, #3c2f00);
+      fill: var(--dark-on-primary, #3c2f00);
     }
   }
   .Mui-selected {
-    color: var(--material-theme-sys-dark-on-primary, #3c2f00);
+    color: var(--dark-on-primary, #3c2f00);
   }
 `;
