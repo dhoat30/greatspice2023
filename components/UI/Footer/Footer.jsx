@@ -96,19 +96,23 @@ function Footer({ contactData }) {
           termsAndConditionsLink="/policy/terms-and-conditions"
           copyrightInfo={copyright}
         />
-        <Fab
-          sx={{
-            backgroundColor: "var(--light-inverse-primary) !important",
-          }}
+        <Link
           className="phone-fab"
-          color="secondary"
-          aria-label="phone"
+          href={`tel: ${contactInfo.phone_number}`}
+          aria-label="Contact us"
         >
-          <Link href={`tel: ${contactInfo.phone_number}`}>
+          <Fab
+            sx={{
+              backgroundColor: "var(--light-inverse-primary) !important",
+            }}
+            color="secondary"
+            aria-label="phone"
+            size="large"
+          >
             {/* <LocalPhoneIcon /> */}
             <PhoneEnabled />
-          </Link>
-        </Fab>
+          </Fab>
+        </Link>
       </FooterContainer>
     </>
   );
@@ -118,7 +122,7 @@ export default Footer;
 const FooterContainer = styled.footer`
   .phone-fab {
     position: fixed;
-    bottom: 16px;
+    bottom: 24px;
     right: 16px;
     z-index: 100;
     @media (max-width: 640px) {

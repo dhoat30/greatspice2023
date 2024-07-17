@@ -18,7 +18,7 @@ function MenuSection({ menuData }) {
   return (
     <Container className="block" id="menu-section">
       <div className="desktop-wrapper row-max py-12 lg:py-28">
-        <h3 className="font-serif">View Our Menu</h3>
+        <h2 className="font-serif">View Our Menu</h2>
         <div className="flex-wrapper">{menuCards}</div>
       </div>
     </Container>

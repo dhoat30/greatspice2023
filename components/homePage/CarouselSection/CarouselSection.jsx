@@ -121,7 +121,7 @@ function CarouselSection({
           <h3 className="font-serif"> {sectionTitle}</h3>
           <div className="subtitle-wrapper">
             <h4>{sectionSubtitle}</h4>
-            <h6>{specialsCondition}</h6>
+            <div style={{ fontSize: "0.9rem" }}>{specialsCondition}</div>
           </div>
         </div>
         <Divider sx={{ borderColor: "#7D7767", marginTop: "24px" }} />

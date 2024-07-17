@@ -4,6 +4,8 @@ import TextField from '@mui/material/TextField';
 import LoadingBtn from '../Buttons/LoadingBtn';
 import axios from 'axios';
 import { Alert } from '@mui/material';
+import { ThemeProvider } from '@mui/material/styles';
+import { darkTheme } from '@/utlis/themeSettings';
 function NewsletterForm({ emailTo, formName, emailRoute, btnLabel }) {
     // create state variables
 
@@ -83,36 +85,35 @@ function NewsletterForm({ emailTo, formName, emailRoute, btnLabel }) {
 
     return (
         <Container>
+            <ThemeProvider theme={darkTheme}>
 
-            <form className="form mt-8" >
+                <form className="form mt-8" >
 
-                <TextFieldStyle
-                    sx={{
-                        background: "var(--dark-surface-variant, #4C4639)", marginBottom: "16px", borderBottom: "1px solid #CBC6BD",
-                        color: "white"
-                    }}
-                    onChange={(e) => setEmailAddress(e.target.value)}
-                    onBlur={() => setEmailAddressTouched(true)}
-                    value={emailAddress}
-                    required
-                    id="email-input"
-                    label="Email"
-                    variant="filled"
-                    name="email"
-                    fullWidth
-                    color="primary"
-                    autoComplete="email"
-                    helperText={emailAddressIsInvalid && "Please enter your email address"}
-                    error={emailAddressIsInvalid}
-                />
+                    <TextFieldStyle
 
-                {error && <Alert sx={{ margin: "8px 0" }} severity='error'>Try again</Alert>}
+                        onChange={(e) => setEmailAddress(e.target.value)}
+                        onBlur={() => setEmailAddressTouched(true)}
+                        value={emailAddress}
+                        required
+                        id="email-input"
+                        label="Email"
+                        variant="outlined"
+                        name="email"
+                        fullWidth
+                        color="primary"
+                        autoComplete="email"
+                        helperText={emailAddressIsInvalid && "Please enter your email address"}
+                        error={emailAddressIsInvalid}
+                    />
 
+                    <div className='btn-wrapper'>
+                        {error && <Alert sx={{ margin: "8px 0" }} severity='error'>Try again</Alert>}
 
-                <LoadingBtn label={btnLabel} align="right" onClick={submitHandler} isLoading={isLoading} isSuccess={isSuccess} />
-                {isSuccess && <Alert sx={{ margin: "8px 0" }} severity='success'>Thanks</Alert>}
-            </form>
-
+                        <LoadingBtn label={btnLabel} align="right" onClick={submitHandler} isLoading={isLoading} isSuccess={isSuccess} />
+                        {isSuccess && <Alert sx={{ margin: "8px 0" }} severity='success'>Thanks</Alert>}
+                    </div>
+                </form>
+            </ThemeProvider>
         </Container>
     )
 }
@@ -128,6 +129,9 @@ const Container = styled.div`
     .subtitle{ 
 
     }
+    .btn-wrapper{ 
+        margin-top: 16px; 
+    }
    
 `
 
@@ -138,7 +142,7 @@ const LoadingBtnStyle = styled(LoadingBtn)`
 `
 const TextFieldStyle = styled(TextField)`
 label { 
-    color: var(--dark-on-surface-variant, #CEC6B4);
+   
 
 }
 `
