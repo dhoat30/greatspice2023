@@ -25,7 +25,7 @@ export default function HeroContent({
         {subtitle && <h2>{subtitle} </h2>}
         {title && <h1 className="font-serif">{title} </h1>}
         {callToAction.length > 0 && (
-          <div className="btn-wrapper mt-8 flex gap-x-4">
+          <div className="btn-wrapper ">
             <AnchorButton href={callToAction[0].url}>
               {callToAction[0].label}
             </AnchorButton>
@@ -77,8 +77,13 @@ const Div = styled.div`
   .title {
     margin: 8px 0;
   }
-  @media (max-width: 600px) {
-    .btn-wrapper {
+
+  .btn-wrapper {
+    margin-top: 24px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    @media (max-width: 600px) {
       margin-top: 16px;
     }
   }

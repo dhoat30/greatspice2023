@@ -21,24 +21,11 @@ export default async function HeroImage({ slug }) {
                     alt={heroData.desktopImage.alt ? heroData.desktopImage.alt : heroData.title}
                     fill
                     priority={true}
-                    sizes="(max-width: 1200px) 100vw, 50vw"
+                    sizes="100vw"
                     objectFit="cover"
                 />
             </div>
-            <div className={`${styles.mobileImageWrapper}`} style={{
-                paddingBottom: `${(heroData.mobileImage.height / heroData.mobileImage.width) * 100
-                    }%`,
-            }}>
-                <div className="overlay"></div>
-                <Image
-                    src={heroData.mobileImage.url}
-                    alt={heroData.mobileImage.alt ? heroData.mobileImage.alt : heroData.title}
-                    fill
-                    priority={true}
-                    sizes="(max-width: 1200px) 100vw, 50vw"
-                    objectFit="cover"
-                />
-            </div>
+
         </>
 
     )

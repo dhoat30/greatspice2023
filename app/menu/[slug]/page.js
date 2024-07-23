@@ -1,6 +1,4 @@
-import Image from 'next/image'
-import HomePage from '@/components/homePage/homePage'
-import { Metadata, ResolvingMetadata } from 'next'
+
 import { getContactData, getHomeData, getMenu, getSpecials, getChefSpecials, getGuestReviews } from '@/utlis/fetchData'
 import Footer from '@/components/UI/Footer/Footer'
 import Header from '@/components/UI/Header/Header'

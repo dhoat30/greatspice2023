@@ -30,7 +30,7 @@ export default function Gallery({ images, className }) {
       imageIndex: (prev.imageIndex - 1 + images.length) % images.length,
     }));
   };
-
+  console.log(images);
   return (
     <>
       <GalleryContainer className={` ${className} grid grid-cols-12 gap-4`}>
@@ -40,10 +40,12 @@ export default function Gallery({ images, className }) {
             className="col-span-12 sm:col-span-6 md:col-span-12 lg:col-span-6 "
           >
             <Image
-              src={src.url}
+              src={src.sizes.large ? src.sizes.large : src.url}
               onClick={() => openLightbox(index)}
               fill
-              quality={70}
+              quality={60}
+              sizes="(max-width: 640px) 100vw, 40vw"
+              alt={src.alt ? src.alt : "image"}
             />
           </ImageWrapper>
         ))}

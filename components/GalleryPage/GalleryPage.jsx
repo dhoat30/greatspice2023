@@ -19,6 +19,10 @@ function GalleryPage({ galleryData }) {
   });
   //   filter categories based on clicked item in filters component
   const filterPostsByCategory = (categoryId) => {
+    if (categoryId === "all") {
+      setFilteredPosts(galleryData.acf.gallery[0].gallery_images);
+      return;
+    }
     const newFilteredPosts = galleryData.acf.gallery.filter(
       (item) => item.gallery_category === categoryId
     );

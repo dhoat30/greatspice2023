@@ -1,11 +1,10 @@
 "use client";
-import React, { use } from "react";
+import React, { useState, useEffect } from "react";
 import MobileBottomNavigation from "@/components/UI/Footer/MobileBottomNavigation/MobileBottomNavigation";
 import { usefulLinks } from "./footerLink";
 import styled from "styled-components";
 import Image from "next/image";
 import Link from "next/link";
-import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import UsefulLink from "./UsefulLinks/UsefulLink";
 import ContactInfo from "./ContactInfo/ContactInfo";
 import OpeningHours from "./OpeningHours/OpeningHours";
@@ -13,8 +12,26 @@ import NewsletterForm from "../Forms/NewsletterForm";
 import Copyright from "./Copyright/Copyright";
 import { Fab } from "@mui/material";
 import { PhoneEnabled } from "@mui/icons-material";
+import Container from "@mui/material/Container";
 
 function Footer({ contactData }) {
+  const [loadIframe, setLoadIframe] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const position = window.pageYOffset;
+      if (position > 200 && !loadIframe) {
+        setLoadIframe(true);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [loadIframe]);
+
   const logo = contactData.acf.logo;
   // footer fist column data
   const contactInfo = contactData.acf.contact_info;
@@ -40,6 +57,17 @@ function Footer({ contactData }) {
   });
   return (
     <>
+      <GoogleMapContainer maxWidth="xl">
+        {loadIframe && (
+          <iframe
+            src="https://storage.googleapis.com/maps-solutions-j8atwo95lz/locator-plus/c62h/locator-plus.html"
+            width="100%"
+            loading="lazy"
+            style={{ height: "500px" }} // Set a fixed height or manage via CSS
+          ></iframe>
+        )}
+      </GoogleMapContainer>
+
       <MobileBottomNavigation
         reservationLink="/reservation"
         orderOnlineLink={orderOnlineLink}
@@ -119,6 +147,17 @@ function Footer({ contactData }) {
 }
 
 export default Footer;
+const GoogleMapContainer = styled(Container)`
+  margin-top: 16px;
+  margin-bottom: 16px;
+  height: 500px;
+  iframe {
+    height: 100% !important;
+  }
+  @media (max-width: 700px) {
+    height: 600px;
+  }
+`;
 const FooterContainer = styled.footer`
   .phone-fab {
     position: fixed;

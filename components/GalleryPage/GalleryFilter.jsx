@@ -69,7 +69,15 @@ export default function GalleryFilter({
         >
           <h3>Category Filter</h3>
 
-          <ul className="category-list mt-2 ">{categories}</ul>
+          <ul className="category-list mt-2 ">
+            <li
+              onClick={() => onCategoryClick("all")}
+              className="py-1 px-4 mt-3"
+            >
+              All
+            </li>
+            {categories}
+          </ul>
         </Paper>
       </div>
 
@@ -87,13 +95,13 @@ export default function GalleryFilter({
             aria-label="scrollable auto tabs "
           >
             <Tab
-              onClick={() => onCategoryClick(null)}
+              onClick={() => onCategoryClick("all")}
               label="All"
               sx={{
                 borderBottom: "4px solid #E7E2D9; ",
                 color: "var(--light-on-surface-variant, #4C4639)",
               }}
-              value="All"
+              value="all"
             >
               All
             </Tab>
