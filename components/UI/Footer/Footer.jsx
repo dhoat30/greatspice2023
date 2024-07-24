@@ -12,7 +12,7 @@ import NewsletterForm from "../Forms/NewsletterForm";
 import Copyright from "./Copyright/Copyright";
 import { Fab } from "@mui/material";
 import { PhoneEnabled } from "@mui/icons-material";
-import Container from "@mui/material/Container";
+import Paper from "@mui/material/Paper";
 
 function Footer({ contactData }) {
   const [loadIframe, setLoadIframe] = useState(false);
@@ -147,9 +147,7 @@ function Footer({ contactData }) {
 }
 
 export default Footer;
-const GoogleMapContainer = styled(Container)`
-  margin-top: 16px;
-  margin-bottom: 16px;
+const GoogleMapContainer = styled(Paper)`
   height: 500px;
   iframe {
     height: 100% !important;
