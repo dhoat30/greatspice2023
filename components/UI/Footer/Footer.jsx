@@ -60,7 +60,7 @@ function Footer({ contactData }) {
       <GoogleMapContainer maxWidth="xl">
         {loadIframe && (
           <iframe
-            src="https://storage.googleapis.com/maps-solutions-j8atwo95lz/locator-plus/c62h/locator-plus.html"
+            src="https://storage.googleapis.com/maps-solutions-j8atwo95lz/locator-plus/x4m4/locator-plus.html?zoom=50"
             width="100%"
             loading="lazy"
             style={{ height: "500px" }} // Set a fixed height or manage via CSS

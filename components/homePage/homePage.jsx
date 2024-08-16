@@ -1,6 +1,5 @@
 "use client";
 
-import Hero from "../UI/Hero/Hero";
 import MenuSection from "./MenuSection/MenuSection";
 import CarouselSection from "./CarouselSection/CarouselSection";
 import MobileCarouselSection from "./CarouselSection/MobileCarouselSection";
@@ -169,6 +168,7 @@ function HomePage({
         sectionSubtitle={eventsSectionSubtitle}
         sectionTitle={eventsSectionTitle}
       />
+
       {/* guest review section  */}
       <GuestReviewSection
         dataArray={guestReviewDataArr}
