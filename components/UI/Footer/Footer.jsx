@@ -57,7 +57,7 @@ function Footer({ contactData }) {
   });
   return (
     <>
-      <GoogleMapContainer maxWidth="xl">
+      <GoogleMapContainer >
         {loadIframe && (
           <iframe
             src="https://storage.googleapis.com/maps-solutions-j8atwo95lz/locator-plus/x4m4/locator-plus.html?zoom=50"

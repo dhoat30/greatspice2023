@@ -22,7 +22,7 @@ export default function Copyright({
         <a
           href="https://webduel.co.nz"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="nofollow"
         >
           Designed & Developed by web<strong>DUEL</strong>
         </a>
