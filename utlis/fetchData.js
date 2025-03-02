@@ -1,3 +1,5 @@
+const { google } = require('googleapis');
+
 // get page data
 export const getPageData = async (slug) => {
     let response = await fetch(`${process.env.url}/wp-json/wp/v2/pages?slug=${slug}&acf_format=standard`, {
@@ -134,6 +136,7 @@ export const getPostCategories = async () => {
     return data
 }
 
+
 // fetch single blog 
 export const getSinglePost = async (slug) => {
     let fetchData = await fetch(`${process.env.url}/wp-json/wp/v2/posts?slug=${slug}&acf_format=standard`, {
@@ -142,3 +145,43 @@ export const getSinglePost = async (slug) => {
     let data = await fetchData.json();
     return data
 }
+
+
+// get reivews 
+export const getGoogleReviews = async () => {
+    // Add revalidation logic
+    const nextRevalidateOptions = { next: { revalidate: 30 * 86400 } }; // Revalidate every 30 days
+
+    const oauth2Client = new google.auth.OAuth2(
+        process.env.GOOGLE_CLIENT_ID,
+        process.env.GOOGLE_CLIENT_SECRET
+    );
+
+    oauth2Client.setCredentials({
+        refresh_token: process.env.GOOGLE_REFRESH_TOKEN,
+    });
+
+    const accountId = process.env.GOOGLE_ACCOUNT_ID;
+    const locationId = process.env.GOOGLE_LOCATION_ID;
+
+    let allReviews = [];
+    let nextPageToken = null;
+
+    do {
+        // Fetch reviews from the API
+        const response = await oauth2Client.request({
+            url: `https://mybusiness.googleapis.com/v4/accounts/${accountId}/locations/${locationId}/reviews`,
+            method: "GET",
+            params: {
+                pageToken: nextPageToken, // Use the nextPageToken for pagination
+            },
+            ...nextRevalidateOptions, // Pass the revalidate option here
+        });
+
+        // Combine the fetched reviews with existing ones
+        allReviews = [...allReviews, ...(response.data.reviews || [])];
+        nextPageToken = response.data.nextPageToken; // Set the nextPageToken for the next iteration
+    } while (nextPageToken); // Continue until there's no nextPageToken
+
+    return allReviews;
+};

@@ -10,6 +10,19 @@ const nextConfig = {
     },
     images: {
         domains: ['data.greatspicetauranga.co.nz'],
+        remotePatterns: [{
+            protocol: "https",
+            hostname: "data.greatspicetauranga.co.nz",
+            port: '',
+            pathname: '/**'
+        }, 
+        { 
+            protocol: "https", 
+            hostname: "lh3.googleusercontent.com", 
+            port: '', 
+            pathname: '/**'
+        }
+    ],
     },
     env: {
         url: "https://data.greatspicetauranga.co.nz"

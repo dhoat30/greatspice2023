@@ -9,17 +9,18 @@ import Slider from "react-slick";
 import AnchorOutlinedButtonDark from "@/components/UI/Buttons/AnchorOutlinedButtonDark";
 import StarIcon from "@/components/UI/Icons/StarIcon";
 import CarouselArrows from "@/components/UI/CarouselArrows/CarouselArrows";
+import GoogleReviewCard from "@/components/UI/GoogleReviews/GoogleReviewCard/GoogleReviewCard";
 
 function MobileReviewSection({
-  dataArray,
+  data,
   sectionSubtitle,
   specialsCondition,
-  sectionTitle,
+  title,
   slidesToShow,
 }) {
   // slider arrow functionality
   const sliderRef = useRef(null);
-  if (!dataArray.length) return null;
+  if (!data.length) return null;
 
   const next = () => {
     if (sliderRef.current) {
@@ -32,50 +33,29 @@ function MobileReviewSection({
       sliderRef.current.slickPrev();
     }
   };
-  // slider arrow functionality ends
-  const cards = dataArray.map((item, index) => {
-    if (item.specialType === "dinnerSpecial: Dinner Special") {
-      return;
-    }
-    return (
-      <div className="item" key={index}>
-        <div className="head">
-          <div className="image-wrapper">
-            <Image
-              src={item.image.url}
-              alt={item.image.alt ? item.image.alt : item.title}
-              width="38"
-              height="38"
-              quality={70}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            />
-          </div>
-          <div className="title-wrapper">
-            <h4>{item.title} </h4>
-            <div className="stars-wrapper ">
-              {/* loop over 5 stars here  */}
-              <StarIcon className="inline-block" />
-              <StarIcon className="inline-block" />
-              <StarIcon className="inline-block" />
-              <StarIcon className="inline-block" />
-              <StarIcon className="inline-block" />
-            </div>
-          </div>
-        </div>
-        <div className="review-text-wrapper">
-          <p>{item.description} </p>
-          <Image
-            src="/google-review.png"
-            width="97"
-            height="30"
-            alt="google review"
-            quality={70}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          />
-        </div>
-      </div>
-    );
+    // filter review comment 
+    const filteredReviewData = data.filter((item) => {
+      return (item.starRating === "FIVE" &&
+          typeof item.comment === "string" && // Ensure comment is a string
+          item.comment.length > 250 // Check length of the comment
+      )
   });
+
+
+  const testimonialCardsJSX = filteredReviewData.map(
+      (item, index) => {
+          if (index > 10) return null;
+          return (
+              <GoogleReviewCard
+                  key={index}
+                  name={item.reviewer.displayName}
+                  description={item.comment}
+                  customerPic={item.reviewer.profilePhotoUrl}
+              />
+          );
+      }
+  );
+
 
   var settings = {
     dots: true,
@@ -94,7 +74,7 @@ function MobileReviewSection({
     <Container className="pt-6 pb-12 mt-2 md:hidden">
       <div className="row-max wrapper">
         <div className="content-wrapper">
-          <h3 className="font-serif">{sectionTitle}</h3>
+          <h3 className="font-serif">{title}</h3>
           <div className="subtitle-wrapper mt-2">
             <h4>{sectionSubtitle}</h4>
             <h6 className="mt-1">{specialsCondition}</h6>
@@ -105,7 +85,7 @@ function MobileReviewSection({
           <CarouselArrows next={next} previous={previous} />
 
           <Slider ref={sliderRef} {...settings}>
-            {cards}
+            {testimonialCardsJSX}
           </Slider>
         </div>
         <div className="button-wrapper mt-12 flex justify-center">

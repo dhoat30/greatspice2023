@@ -55,6 +55,8 @@
   --light-surface-container-lowest: rgba(255, 255, 252, 1);
   --light-surface-bright: rgba(254, 249, 239, 1);
   --light-surface-dim: rgba(223, 217, 208, 1);
+
+  
   --dark-primary: #e7c446;
   --dark-on-primary: rgba(60, 47, 0, 1);
   --dark-primary-container: rgba(86, 69, 0, 1);
