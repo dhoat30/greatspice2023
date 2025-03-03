@@ -1,9 +1,11 @@
 import HomePage from '@/components/homePage/homePage'
-import { getContactData, getHomeData, getAllMenus, getSpecials, getFaq, getGuestReviews } from '@/utlis/fetchData'
+import { getGoogleReviews, getContactData, getHomeData, getAllMenus, getSpecials, getFaq, getGuestReviews } from '@/utlis/fetchData'
 import Footer from '@/components/UI/Footer/Footer'
 import Header from '@/components/UI/Header/Header'
 import MenuArchivePage from '@/components/MenuPage/MenuArchivePage'
 import FaqPage from '@/components/FaqPage/FaqPage'
+import GuestReviewSection from '@/components/homePage/GuestReviewSection/GuestReviewSection'
+import MobileReviewSection from '@/components/homePage/GuestReviewSection/MobileReviewSection'
 
 export async function generateMetadata({ params, searchParams }, parent) {
     // read route params
@@ -41,6 +43,8 @@ export default async function Faq() {
     const contactData = await getContactData()
     const guestReviewData = await getGuestReviews()
     const faqData = await getFaq()
+    const googleReviewsData = await getGoogleReviews()  
+
     return (
         <>
             <Header contactData={contactData[0]} />
@@ -48,9 +52,12 @@ export default async function Faq() {
                 <FaqPage guestReviewData={guestReviewData[0]}
                     faqData={faqData[0]}
                 />
+    <GuestReviewSection 
+        data={googleReviewsData} title= {guestReviewData[0].title.rendered} sectionImage={guestReviewData[0].acf.image}
+        /> 
+  <MobileReviewSection  data={googleReviewsData} title= {guestReviewData[0].title.rendered}/> 
+      </main>
 
-
-            </main>
             <Footer contactData={contactData[0]} />
         </>
 

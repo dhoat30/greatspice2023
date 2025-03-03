@@ -24,7 +24,11 @@ export const usefulLinks = [{
     title: "Catering",
     url: "/catering"
 },
-
+{
+    id: 20,
+    title: "About us",
+    url: "/about-us"
+},
 {
     id: 7,
     title: "FAQ's",
@@ -40,4 +44,9 @@ export const usefulLinks = [{
     title: "Contact",
     url: "/contact"
 },
+{
+    id: 25, 
+    title: "Guest Reviews",
+    url: "/all-testimonials"
+}
 ]

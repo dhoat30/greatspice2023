@@ -47,9 +47,7 @@ export default function CateringPage({
         description: item.review_text,
       };
     });
-  const guestReviewSectionSubtitle = guestReviewData.acf.subtitle;
-  const guestReviewSectionImage = guestReviewData.acf.image;
-  const guestReviewSectionTitle = guestReviewData.title.rendered;
+ 
   return (
     <>
       <HeroCentered heroData={heroData} />
@@ -65,16 +63,7 @@ export default function CateringPage({
         sectionSubtitle={sectionSubtitle}
         sectionTitle={sectionTitle}
       />
-      {/* review section  */}
-      <GuestReviewSection
-        dataArray={guestReviewDataArr}
-        sectionTitle={guestReviewSectionTitle}
-        sectionImage={guestReviewSectionImage}
-      />
-      <MobileReviewSection
-        dataArray={guestReviewDataArr}
-        sectionTitle={guestReviewSectionTitle}
-      />
+     
       {/* gallery section  */}
       <GallerySection galleryData={galleryData} />
     </>

@@ -33,29 +33,27 @@ function MobileReviewSection({
       sliderRef.current.slickPrev();
     }
   };
-    // filter review comment 
-    const filteredReviewData = data.filter((item) => {
-      return (item.starRating === "FIVE" &&
-          typeof item.comment === "string" && // Ensure comment is a string
-          item.comment.length > 250 // Check length of the comment
-      )
+  // filter review comment
+  const filteredReviewData = data.filter((item) => {
+    return (
+      item.starRating === "FIVE" &&
+      typeof item.comment === "string" && // Ensure comment is a string
+      item.comment.length > 250 // Check length of the comment
+    );
   });
 
-
-  const testimonialCardsJSX = filteredReviewData.map(
-      (item, index) => {
-          if (index > 10) return null;
-          return (
-              <GoogleReviewCard
-                  key={index}
-                  name={item.reviewer.displayName}
-                  description={item.comment}
-                  customerPic={item.reviewer.profilePhotoUrl}
-              />
-          );
-      }
-  );
-
+  const testimonialCardsJSX = filteredReviewData.map((item, index) => {
+    if (index > 10) return null;
+    return (
+      <GoogleReviewCard
+        key={index}
+        name={item.reviewer.displayName}
+        description={item.comment}
+        customerPic={item.reviewer.profilePhotoUrl}
+        characterLimit={250}
+      />
+    );
+  });
 
   var settings = {
     dots: true,
@@ -88,7 +86,8 @@ function MobileReviewSection({
             {testimonialCardsJSX}
           </Slider>
         </div>
-        <div className="button-wrapper mt-12 flex justify-center">
+        <div className="button-wrapper">
+          <AnchorButton href="/all-testimonials">Read All Reviews</AnchorButton>
           <AnchorOutlinedButtonDark href="https://www.google.com/maps/place/Great+Spice+Tauranga/@-37.6684018,176.1535385,17z/data=!3m1!4b1!4m6!3m5!1s0x6d6ddb8cc27d86e7:0x291f87512b7cc54b!8m2!3d-37.6684018!4d176.1535385!16s%2Fg%2F11cltfvk0t?entry=ttu">
             Write a Review
           </AnchorOutlinedButtonDark>
@@ -100,7 +99,9 @@ function MobileReviewSection({
 
 export default MobileReviewSection;
 const Container = styled.section`
+
   background: var(--light-surface-container-low, #f9f3ea);
+
   .wrapper {
     .content-wrapper {
       h3 {
@@ -158,7 +159,17 @@ const Container = styled.section`
             margin-top: 16px;
           }
         }
+      
       }
     }
+
   }
+  .button-wrapper {
+          gap: 16px;
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: center;
+          margin-top: 40px;
+        }
 `;

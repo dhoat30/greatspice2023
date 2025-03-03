@@ -25,7 +25,8 @@ const nextConfig = {
     ],
     },
     env: {
-        url: "https://data.greatspicetauranga.co.nz"
+        url: "https://data.greatspicetauranga.co.nz",
+        siteUrl: "https://www.greatspicetauranga.co.nz",
     },
     async redirects() {
         return [

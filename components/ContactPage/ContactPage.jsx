@@ -13,18 +13,7 @@ function ContactPage({ contactData, guestReviewData }) {
   };
   // google map
   const googleMapIframe = contactData.acf.contact_info.google_map;
-  // guest review data
-  const guestReviewDataArr =
-    guestReviewData.acf.reviews_section.review_content.map((item) => {
-      return {
-        image: item.guest_image,
-        title: item.guest_name,
-        description: item.review_text,
-      };
-    });
-  const guestReviewSectionSubtitle = guestReviewData.acf.subtitle;
-  const guestReviewSectionImage = guestReviewData.acf.image;
-  const sectionTitle = guestReviewData.title.rendered;
+
 
   return (
     <>
@@ -33,23 +22,8 @@ function ContactPage({ contactData, guestReviewData }) {
         heroData={heroData}
         openingHours={openingHours}
       />
-      <GoogleMapContainer
-        className="google-map-wrapper"
-        dangerouslySetInnerHTML={{
-          __html: googleMapIframe,
-        }}
-      ></GoogleMapContainer>
-      {/* guest review section  */}
-      <GuestReviewSection
-        dataArray={guestReviewDataArr}
-        sectionTitle={sectionTitle}
-        sectionImage={guestReviewSectionImage}
-      />
 
-      <MobileReviewSection
-        dataArray={guestReviewDataArr}
-        sectionTitle={sectionTitle}
-      />
+    
     </>
   );
 }

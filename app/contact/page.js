@@ -1,8 +1,10 @@
-import { getContactData, getHomeData, getAllMenus, getSpecials, getFaq, getGuestReviews } from '@/utlis/fetchData'
+import { getGoogleReviews, getContactData, getHomeData, getAllMenus, getSpecials, getFaq, getGuestReviews } from '@/utlis/fetchData'
 import Footer from '@/components/UI/Footer/Footer'
 import Header from '@/components/UI/Header/Header'
 
 import ContactPage from '@/components/ContactPage/ContactPage'
+import GuestReviewSection from '@/components/homePage/GuestReviewSection/GuestReviewSection'
+import MobileReviewSection from '@/components/homePage/GuestReviewSection/MobileReviewSection'
 
 export async function generateMetadata({ params, searchParams }, parent) {
     // read route params
@@ -41,6 +43,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
 export default async function Contact() {
     const contactData = await getContactData()
     const guestReviewData = await getGuestReviews()
+    const googleReviewsData = await getGoogleReviews()  
 
 
 
@@ -52,8 +55,11 @@ export default async function Contact() {
                 <ContactPage contactData={contactData[0]}
                     guestReviewData={guestReviewData[0]}
                 />
-
-            </main>
+       <GuestReviewSection 
+        data={googleReviewsData} title= {guestReviewData[0].title.rendered} sectionImage={guestReviewData[0].acf.image}
+        /> 
+  <MobileReviewSection  data={googleReviewsData} title= {guestReviewData[0].title.rendered}/> 
+      </main>
             <Footer contactData={contactData[0]} />
         </>
 

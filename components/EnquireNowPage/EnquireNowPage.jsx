@@ -14,17 +14,6 @@ function EnquireNowPage({ contactData, guestReviewData, pageData }) {
     subtitle: pageData.acf.hero_section.subtitle,
   };
 
-  // guest review data
-  const guestReviewDataArr =
-    guestReviewData.acf.reviews_section.review_content.map((item) => {
-      return {
-        image: item.guest_image,
-        title: item.guest_name,
-        description: item.review_text,
-      };
-    });
-  const guestReviewSectionImage = guestReviewData.acf.image;
-  const sectionTitle = guestReviewData.title.rendered;
 
   return (
     <>
@@ -34,17 +23,7 @@ function EnquireNowPage({ contactData, guestReviewData, pageData }) {
           heroData={heroData}
           openingHours={openingHours}
         />
-        {/* guest review section  */}
-        <GuestReviewSection
-          dataArray={guestReviewDataArr}
-          sectionTitle={sectionTitle}
-          sectionImage={guestReviewSectionImage}
-        />
-
-        <MobileReviewSection
-          dataArray={guestReviewDataArr}
-          sectionTitle={sectionTitle}
-        />
+   
       </>
     </>
   );

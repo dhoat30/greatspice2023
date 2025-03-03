@@ -5,7 +5,7 @@ import Typography from "@mui/material/Typography";
 import StarIcon from "@mui/icons-material/Star";
 import GoogleIcon from "../../Icons/GoogleIcon";
 
-export default function GoogleReviewCard({ name, description, customerPic, className, timeAgo }) {
+export default function GoogleReviewCard({ name, description, customerPic, className, timeAgo, characterLimit = 500 }) {
   const [isExpanded, setIsExpanded] = useState(false);
   const numberOfStars = 5;
   const starsJSX = Array.from({ length: numberOfStars }, (_, index) => (
@@ -17,10 +17,9 @@ export default function GoogleReviewCard({ name, description, customerPic, class
   };
 
   // Limit description to 200 characters if not expanded
-  const charLimit = 500;
   const shortDescription =
-    description.length > charLimit
-      ? description.slice(0, charLimit) + "..."
+    description.length > characterLimit
+      ? description.slice(0, characterLimit) + "..."
       : description;
 
   return (
@@ -36,24 +35,19 @@ export default function GoogleReviewCard({ name, description, customerPic, class
           <Typography variant="subtitle1" component="h3">
             {name}
           </Typography>
-          <div className="flex gap-8 align-center">
-            <div>
-            {starsJSX}
-
-            </div>
+          <div className="star-date-wrapper">
+            <div>{starsJSX}</div>
             <Typography variant="body2" component="div" className="time-ago">
               {timeAgo}
             </Typography>
-      
           </div>
-        
         </div>
       </div>
       <div className="description-wrapper mt-4 mb-4">
         <Typography variant="body1" component="p">
           {isExpanded ? description : shortDescription}
         </Typography>
-        {description.length > charLimit && (
+        {description.length > characterLimit && (
           <button onClick={toggleExpand} className="read-more-button">
             {isExpanded ? "Read Less" : "Read More"}
           </button>
@@ -90,10 +84,16 @@ const Div = styled.div`
       text-decoration: underline;
     }
   }
-  .time-ago{ 
+  .star-date-wrapper{ 
+    display: flex;
+    align-items: center;
+    gap: 8px; 
+    .time-ago{ 
     color: var(--light-on-surface); 
-    line-height: 0; 
+  
     position: relative; 
-    top: -2px;
+   
   }
+  }
+
 `;

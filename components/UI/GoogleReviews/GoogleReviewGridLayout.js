@@ -45,6 +45,7 @@ export default function GoogleReviewGridLayout({data}) {
           description={item.comment}
           customerPic={item.reviewer.profilePhotoUrl}
           timeAgo={timeAgo(item.createTime)}
+          characterLimit={250}
         />
       );
     }
@@ -53,7 +54,7 @@ export default function GoogleReviewGridLayout({data}) {
   return (
     <Section>
       <Container maxWidth="xl">
-        <div className="grid-wrapper mt-16">{testimonialCardsJSX}</div>
+        <div className="grid-wrapper mt-3">{testimonialCardsJSX}</div>
        
       </Container>
     </Section>
@@ -61,7 +62,7 @@ export default function GoogleReviewGridLayout({data}) {
 }
 
 const Section = styled.section`
-  background: var(--dark-surface-container-lowest);
+  background: var(--light-surface-container-lowest);
 
   padding: 4px  0 16px 0;
  

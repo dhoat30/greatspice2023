@@ -1,11 +1,13 @@
 import HomePage from '@/components/homePage/homePage'
-import { getContactData, getHomeData, getAllMenus, getSpecials, getFaq, getGuestReviews, getPage, getGallery } from '@/utlis/fetchData'
+import { getContactData, getGoogleReviews, getAllMenus, getSpecials, getFaq, getGuestReviews, getPage, getGallery } from '@/utlis/fetchData'
 import Footer from '@/components/UI/Footer/Footer'
 import Header from '@/components/UI/Header/Header'
 import MenuArchivePage from '@/components/MenuPage/MenuArchivePage'
 import FaqPage from '@/components/FaqPage/FaqPage'
 import ContactPage from '@/components/ContactPage/ContactPage'
 import ReservationPage from '@/components/ReservationPage/ReservationPage'
+import GuestReviewSection from '@/components/homePage/GuestReviewSection/GuestReviewSection'
+import MobileReviewSection from '@/components/homePage/GuestReviewSection/MobileReviewSection'
 
 export async function generateMetadata({ params, searchParams }, parent) {
     // read route params
@@ -47,6 +49,8 @@ export default async function Contact() {
 
     const pageData = await getPage('reservation')
     const galleryData = await getGallery()
+    const googleReviewsData = await getGoogleReviews()  
+
     return (
         <>
 
@@ -54,11 +58,14 @@ export default async function Contact() {
             <main >
                 <ReservationPage
                     pageData={pageData[0]}
-                    guestReviewData={guestReviewData[0]}
                     galleryData={galleryData[0]}
                 />
 
-            </main>
+<GuestReviewSection 
+        data={googleReviewsData} title= {guestReviewData[0].title.rendered} sectionImage={guestReviewData[0].acf.image}
+        /> 
+  <MobileReviewSection  data={googleReviewsData} title= {guestReviewData[0].title.rendered}/> 
+      </main>
             <Footer contactData={contactData[0]} />
         </>
 

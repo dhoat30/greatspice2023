@@ -38,19 +38,8 @@ export default function CateringPackages({
   const sectionTitle = pageData.acf.section_information.title;
   const sectionSubtitle = pageData.acf.section_information.subtitle;
 
-  // guest review data
-  if (!guestReviewData) return null;
-  const guestReviewDataArr =
-    guestReviewData.acf.reviews_section.review_content.map((item) => {
-      return {
-        image: item.guest_image,
-        title: item.guest_name,
-        description: item.review_text,
-      };
-    });
-  const guestReviewSectionSubtitle = guestReviewData.acf.subtitle;
-  const guestReviewSectionImage = guestReviewData.acf.image;
-  const guestReviewSectionTitle = guestReviewData.title.rendered;
+ 
+
   return (
     <>
       {/* hero section  */}
@@ -66,16 +55,7 @@ export default function CateringPackages({
         sectionSubtitle={sectionSubtitle}
         sectionTitle={sectionTitle}
       />
-      {/* guest review section  */}
-      <GuestReviewSection
-        dataArray={guestReviewDataArr}
-        sectionTitle={guestReviewSectionTitle}
-        sectionImage={guestReviewSectionImage}
-      />
-      <MobileReviewSection
-        dataArray={guestReviewDataArr}
-        sectionTitle={guestReviewSectionTitle}
-      />
+   
       <GallerySection galleryData={galleryData} />
     </>
   );

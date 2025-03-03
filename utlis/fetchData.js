@@ -166,7 +166,7 @@ export const getGoogleReviews = async () => {
 
     let allReviews = [];
     let nextPageToken = null;
-
+    let loopLimit = 0 
     do {
         // Fetch reviews from the API
         const response = await oauth2Client.request({
@@ -181,7 +181,8 @@ export const getGoogleReviews = async () => {
         // Combine the fetched reviews with existing ones
         allReviews = [...allReviews, ...(response.data.reviews || [])];
         nextPageToken = response.data.nextPageToken; // Set the nextPageToken for the next iteration
-    } while (nextPageToken); // Continue until there's no nextPageToken
+        loopLimit++
+    } while (loopLimit < 2); // Continue until there's no nextPageToken
 
     return allReviews;
 };

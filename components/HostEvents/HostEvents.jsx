@@ -39,18 +39,7 @@ export default function HostEvents({
   const sectionTitle = eventsData.acf.section_information.title;
   const sectionSubtitle = eventsData.acf.section_information.subtitle;
 
-  // guest review data
-  const guestReviewDataArr =
-    guestReviewData.acf.reviews_section.review_content.map((item) => {
-      return {
-        image: item.guest_image,
-        title: item.guest_name,
-        description: item.review_text,
-      };
-    });
-  const guestReviewSectionSubtitle = guestReviewData.acf.subtitle;
-  const guestReviewSectionImage = guestReviewData.acf.image;
-  const guestReviewSectionTitle = guestReviewData.title.rendered;
+
   return (
     <>
       <HeroCentered heroData={heroData} />
@@ -66,16 +55,7 @@ export default function HostEvents({
         sectionSubtitle={sectionSubtitle}
         sectionTitle={sectionTitle}
       />
-      {/* review section  */}
-      <GuestReviewSection
-        dataArray={guestReviewDataArr}
-        sectionTitle={sectionTitle}
-        sectionImage={guestReviewSectionImage}
-      />
-      <MobileReviewSection
-        dataArray={guestReviewDataArr}
-        sectionTitle={guestReviewSectionTitle}
-      />
+ 
       {/* gallery section  */}
       <GallerySection galleryData={galleryData} />
     </>

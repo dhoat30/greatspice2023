@@ -9,6 +9,7 @@ import Slider from "react-slick";
 import AnchorOutlinedButtonDark from "@/components/UI/Buttons/AnchorOutlinedButtonDark";
 import CarouselArrows from "@/components/UI/CarouselArrows/CarouselArrows";
 import GoogleReviewCard from "@/components/UI/GoogleReviews/GoogleReviewCard/GoogleReviewCard";
+import AnchorButton from "@/components/UI/Buttons/AnchorButton";
 var settings = {
   dots: true,
   arrows: false,
@@ -32,7 +33,7 @@ function GuestReviewSection({
   // slider arrow functionality
   const sliderRef = useRef(null);
   if (!data?.length) return null;
-
+console.log(data)
   const next = () => {
     if (sliderRef.current) {
       sliderRef.current.slickNext();
@@ -91,7 +92,11 @@ function GuestReviewSection({
           {testimonialCardsJSX}
           </Slider>
         </div>
-        <div className="button-wrapper mt-8">
+        <div className="button-wrapper mt-12">
+        {/* all-testimonials */}
+        <AnchorButton href="/all-testimonials">
+        Read All Reviews
+        </AnchorButton>
           <AnchorOutlinedButtonDark href="https://g.page/r/CUvFfCtRhx8pEAE/review">
             Write a Review
           </AnchorOutlinedButtonDark>
@@ -183,7 +188,12 @@ const Container = styled.section`
         }
       }
     }
-    .button-wrapper {
-    }
+ 
   }
+  .button-wrapper {
+      gap: 16px; 
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 36px; 
+    }
 `;

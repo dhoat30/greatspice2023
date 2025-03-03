@@ -48,8 +48,7 @@ export default async function Menu() {
                 <MenuArchivePage
 
                     menuData={menuData}
-
-                    guestReviewData={guestReviewData[0]} />
+ />
 
             </main>
             <Footer contactData={contactData[0]} />

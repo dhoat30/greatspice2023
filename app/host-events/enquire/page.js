@@ -1,8 +1,11 @@
-import { getContactData, getFaq, getGuestReviews, getEvents, getGallery, getPage } from '@/utlis/fetchData'
+import { getContactData, getGoogleReviews, getGuestReviews, getEvents, getGallery, getPage } from '@/utlis/fetchData'
 import Footer from '@/components/UI/Footer/Footer'
 import Header from '@/components/UI/Header/Header'
 import HostEvents from '@/components/HostEvents/HostEvents'
 import EnquireNowPage from '@/components/EnquireNowPage/EnquireNowPage'
+import GuestReviewSection from '@/components/homePage/GuestReviewSection/GuestReviewSection'
+import MobileReviewSection from '@/components/homePage/GuestReviewSection/MobileReviewSection'
+
 
 export async function generateMetadata({ params, searchParams }, parent) {
     // read route params
@@ -43,18 +46,21 @@ export default async function Contact() {
     const guestReviewData = await getGuestReviews()
     const galleryData = await getGallery()
     const pageData = await getPage('enquire-now')
+    const googleReviewsData = await getGoogleReviews()  
 
     return (
         <>
-
             <Header contactData={contactData[0]} />
             <main >
                 <EnquireNowPage
                     pageData={pageData[0]} galleryData={galleryData[0]}
-                    guestReviewData={guestReviewData[0]}
                     contactData={contactData[0]}
                 />
-            </main>
+              <GuestReviewSection 
+        data={googleReviewsData} title= {guestReviewData[0].title.rendered} sectionImage={guestReviewData[0].acf.image}
+        /> 
+  <MobileReviewSection  data={googleReviewsData} title= {guestReviewData[0].title.rendered}/> 
+      </main>
             <Footer contactData={contactData[0]} />
         </>
 
