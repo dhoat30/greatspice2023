@@ -4,6 +4,8 @@
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
     enabled: process.env.ANALYZE === 'true',
 })
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 
+    (process.env.NODE_ENV === "production" ? "https://www.greatspicetauranga.co.nz" : "http://localhost:3000");
 const nextConfig = {
     compiler: {
         styledComponents: true,
@@ -26,7 +28,7 @@ const nextConfig = {
     },
     env: {
         url: "https://data.greatspicetauranga.co.nz",
-        siteUrl: "https://www.greatspicetauranga.co.nz",
+        siteUrl: baseUrl,
     },
     async redirects() {
         return [

@@ -3,6 +3,7 @@ import { getContactData, getHomeData, getAllMenus, getSpecials, getChefSpecials,
 import Footer from '@/components/UI/Footer/Footer'
 import Header from '@/components/UI/Header/Header'
 import SpecialsPage from '@/components/SpecialsPage/SpecialsPage'
+import BreadcrumbHero from '@/components/UI/Hero/BreadcrumbHero'
 
 
 
@@ -48,7 +49,10 @@ export default async function Home() {
     <>
       <Header contactData={contactData[0]} />
       <main >
-
+<BreadcrumbHero 
+title="Great Spice Specials"
+showBreadcrumb={false} 
+/> 
         <SpecialsPage
           specialsData={specialsData[0]}
           chefSpecialsData={chefSpecialsData[0]}

@@ -48,22 +48,22 @@ console.log(data)
 
     // filter review comment 
     const filteredReviewData = data.filter((item) => {
-      return (item.starRating === "FIVE" &&
-          typeof item.comment === "string" && // Ensure comment is a string
-          item.comment.length > 250 // Check length of the comment
+      return (item.stars === 5 &&
+          typeof item.text === "string" && // Ensure comment is a string
+          item.text.length > 250 // Check length of the comment
       )
   });
 
-
+console.log(filteredReviewData)
   const testimonialCardsJSX = filteredReviewData.map(
       (item, index) => {
           if (index > 10) return null;
           return (
               <GoogleReviewCard
                   key={index}
-                  name={item.reviewer.displayName}
-                  description={item.comment}
-                  customerPic={item.reviewer.profilePhotoUrl}
+                  name={item.name}
+                  description={item.text}
+                  customerPic={item.reviewerPhotoUrl}
               />
           );
       }

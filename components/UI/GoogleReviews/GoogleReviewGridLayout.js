@@ -28,25 +28,29 @@ const timeAgo = (dateString) =>  {
 }
 
 export default function GoogleReviewGridLayout({data}) {
-  // filter review comment 
-  const filteredReviewData = data.filter((item) => { 
-    return (    item.starRating === "FIVE" &&
-      typeof item.comment === "string"
+    // filter review comment 
+    const filteredReviewData = data.filter((item) => {
+      return (item.stars === 5 &&
+          typeof item.text === "string" && // Ensure comment is a string
+          item.text.length > 50 // Check length of the comment
       )
   });
+  
   const testimonialCardsJSX = filteredReviewData.map(
     
     (item, index) => {
   
       return (
         <GoogleReviewCard
-          key={index}
-          name={item.reviewer.displayName}
-          description={item.comment}
-          customerPic={item.reviewer.profilePhotoUrl}
-          timeAgo={timeAgo(item.createTime)}
-          characterLimit={250}
-        />
+        key={index}
+        name={item.name}
+        description={item.text}
+        customerPic={item.reviewerPhotoUrl}
+        characterLimit={250}
+        timeAgo={timeAgo(item.publishAt)}
+
+    />
+      
       );
     }
   );

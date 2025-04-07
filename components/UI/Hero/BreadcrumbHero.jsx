@@ -21,7 +21,7 @@ export default function BreadcrumbHero({
      
       
           <div className="title">
-          <Typography variant="h2" component="h1">
+          <Typography variant="h1" component="h1">
             {title}
           </Typography>
       
@@ -44,6 +44,7 @@ const TitleWrapper = styled.div`
   border-bottom: 1px solid var(--light-outline);
   padding-top: 80px;
   padding-bottom: 40px;
+  
   @media (max-width: 900px) {
     padding-top: 72px;
   }
@@ -52,7 +53,7 @@ const TitleWrapper = styled.div`
     display: flex;
     align-items: center;
     .title h1{ 
-      font-weight: 600;
+      color: var(--light-on-surface-variant);
     }
   }
 `;

@@ -150,40 +150,16 @@ export const getSinglePost = async (slug) => {
 
 // get reivews 
 export const getGoogleReviews = async () => {
-    // Add revalidation logic
-    const nextRevalidateOptions = { next: { revalidate: 30 * 86400 } }; // Revalidate every 30 days
+    const baseUrl = process.env.siteUrl; // Change this in production
+    console.log("base url")
 
-    const oauth2Client = new google.auth.OAuth2(
-        process.env.GOOGLE_CLIENT_ID,
-        process.env.GOOGLE_CLIENT_SECRET
-    );
+    console.log(baseUrl)
+    const res = await fetch(`${baseUrl}/api/google-reviews`, { next: { revalidate: 30 * 86400 } });//30 * 86400
 
-    oauth2Client.setCredentials({
-        refresh_token: process.env.GOOGLE_REFRESH_TOKEN,
-    });
-
-    const accountId = process.env.GOOGLE_ACCOUNT_ID;
-    const locationId = process.env.GOOGLE_LOCATION_ID;
-
-    let allReviews = [];
-    let nextPageToken = null;
-    let loopLimit = 0 
-    do {
-        // Fetch reviews from the API
-        const response = await oauth2Client.request({
-            url: `https://mybusiness.googleapis.com/v4/accounts/${accountId}/locations/${locationId}/reviews`,
-            method: "GET",
-            params: {
-                pageToken: nextPageToken, // Use the nextPageToken for pagination
-            },
-            ...nextRevalidateOptions, // Pass the revalidate option here
-        });
-
-        // Combine the fetched reviews with existing ones
-        allReviews = [...allReviews, ...(response.data.reviews || [])];
-        nextPageToken = response.data.nextPageToken; // Set the nextPageToken for the next iteration
-        loopLimit++
-    } while (loopLimit < 2); // Continue until there's no nextPageToken
-
-    return allReviews;
+    if (!res.ok) { 
+        console.log("failed to retch")
+    return []
+    }
+    return res.json();
+  
 };
